@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>कथा दीप · Katha Deep — पौराणिक कथाएँ, Stories from Indian Mythology</title>
+<title>संकटमोचन हनुमानवर्स · Sankatmochan Hanumanverse — कथाएँ, चालीसा, आरती</title>
 <meta name="description" content="हिंदू पौराणिक कथाओं पर एनिमेटेड रील्स — गणेश, हनुमान, शिव, गजेन्द्र मोक्ष, प्रह्लाद और नरसिंह। Animated reels of stories from Indian mythology, in Hindi with English subtitles.">
-<meta property="og:title" content="कथा दीप · Katha Deep">
+<meta property="og:title" content="संकटमोचन हनुमानवर्स · Sankatmochan Hanumanverse">
 <meta property="og:description" content="Animated mythology reels in Hindi with English subtitles. पौराणिक कथाएँ, हर रील में एक दीया।">
 <meta property="og:image" content="assets/og-image.jpg">
 <meta property="og:type" content="website">
@@ -14,20 +14,20 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 6c6 10 10 16 10 23a10 10 0 0 1-20 0c0-7 4-13 10-23z' fill='%23ffb547'/%3E%3Cpath d='M6 42h52c-3 10-13 16-26 16S9 52 6 42z' fill='%23c8642a'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Tiro+Devanagari+Hindi:ital@0;1&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Tiro+Devanagari+Hindi:ital@0;1&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --night:#120a07; --night-2:#1c110b; --wood:#2a1810; --wood-2:#3a2216;
   --gold:#f2b84b; --gold-soft:#e9c98a; --flame:#ff8a3d; --vermilion:#c8412a;
   --teal:#7fd8c6; --ink:#f6ead6; --muted:#bfa889; --line:rgba(242,184,75,.22);
   --hi:"Tiro Devanagari Hindi", serif; --display:"Rozha One","Tiro Devanagari Hindi",serif;
-  --en:"Cormorant Garamond", Georgia, serif; --ui:"Inter",system-ui,sans-serif;
+  --en:"Lora", Georgia, serif; --ui:"Inter",system-ui,sans-serif;
   --r:18px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--night);color:var(--ink);font-family:var(--hi);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-img,video{display:block;max-width:100%}
+img,video{display:block;max-width:100%;-webkit-user-drag:none;user-select:none;-webkit-touch-callout:none}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 ::selection{background:var(--gold);color:var(--night)}
@@ -35,7 +35,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* language switching */
 html[data-lang="hi"] .en{display:none!important}
 html[data-lang="en"] .hi{display:none!important}
-.en{font-family:var(--en);font-style:italic;color:var(--muted)}
+.en{font-family:var(--en);color:#d6c3a3}
 html[data-lang="en"] .en{font-style:normal;color:var(--ink)}
 .pair{display:flex;flex-direction:column;gap:.15em}
 
@@ -57,7 +57,7 @@ header{position:sticky;top:0;z-index:30;backdrop-filter:blur(14px);-webkit-backd
 .brand{display:flex;align-items:center;gap:10px}
 .brand svg{width:30px;height:30px;filter:drop-shadow(0 0 10px rgba(255,160,60,.6))}
 .brand b{font-family:var(--display);font-weight:400;font-size:1.45rem;color:var(--gold);letter-spacing:.3px;line-height:1}
-.brand small{display:block;font-family:var(--en);font-style:italic;color:var(--muted);font-size:.85rem;line-height:1}
+.brand small{display:block;font-family:var(--en);color:var(--muted);font-size:.85rem;line-height:1}
 .nav-links{display:flex;align-items:center;gap:22px;font-family:var(--ui);font-size:.9rem}
 .nav-links a.text{color:var(--muted);transition:color .2s}
 .nav-links a.text:hover{color:var(--gold)}
@@ -215,6 +215,218 @@ footer .brand{justify-content:center;margin-bottom:14px}
 .toast{position:fixed;left:50%;bottom:30px;transform:translate(-50%,40px);opacity:0;background:var(--gold);color:var(--night);padding:10px 18px;border-radius:999px;font-family:var(--ui);font-weight:600;font-size:.85rem;z-index:200;transition:.3s}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 
+
+/* ===== brand + menu ===== */
+.brand img{width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);box-shadow:0 0 16px rgba(255,140,40,.55)}
+.menu-btn{display:inline-flex;align-items:center;gap:9px;padding:9px 15px;border:1px solid var(--line);border-radius:999px;font-family:var(--ui);font-size:.85rem;font-weight:600;letter-spacing:.05em;transition:border-color .2s,background .2s}
+.menu-btn:hover{border-color:var(--gold);background:rgba(242,184,75,.08)}
+.bars{width:16px;height:12px;position:relative;display:block}
+.bars i{position:absolute;left:0;right:0;height:2px;background:currentColor;border-radius:2px;transition:.3s}
+.bars i:nth-child(1){top:0}.bars i:nth-child(2){top:5px}.bars i:nth-child(3){top:10px}
+.menu-open .bars i:nth-child(1){top:5px;transform:rotate(45deg)}
+.menu-open .bars i:nth-child(2){opacity:0}
+.menu-open .bars i:nth-child(3){top:5px;transform:rotate(-45deg)}
+.menu{position:absolute;right:16px;top:74px;width:min(390px,calc(100vw - 32px));background:rgba(30,18,11,.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:22px;padding:8px 18px 18px;box-shadow:0 30px 70px -20px #000;transform-origin:top right;transform:scale(.94) translateY(-8px);opacity:0;pointer-events:none;transition:.3s cubic-bezier(.2,.8,.2,1);max-height:calc(100svh - 92px);overflow:auto}
+.menu-open .menu{transform:none;opacity:1;pointer-events:auto}
+.mi{display:flex;align-items:center;gap:14px;padding:13px 2px;border-bottom:1px solid rgba(242,184,75,.13);opacity:0;transform:translateX(14px);transition:opacity .35s,transform .35s}
+.menu-open .mi{opacity:1;transform:none}
+.mi .ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:rgba(242,184,75,.1);font-size:1.15rem;flex:none;transition:background .2s}
+.mi .tx{flex:1;display:flex;flex-direction:column;line-height:1.3}
+.mi .tx .hi{font-size:1.12rem;color:var(--ink)}
+.mi .tx .en{font-size:.88rem}
+html[data-lang="en"] .mi .tx .en{font-size:1.02rem}
+.mi .ar{color:var(--gold);transition:transform .2s}
+.mi:hover .ar{transform:translateX(4px)}
+.mi:hover .ic{background:rgba(242,184,75,.22)}
+.mi:hover .tx .hi{color:var(--gold)}
+.menu-foot{display:flex;gap:10px;margin-top:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+
+/* ===== devotion corner ===== */
+.votd{position:relative;border-radius:26px;overflow:hidden;min-height:360px;display:grid;grid-template-columns:1fr 1.1fr;border:1px solid var(--line);margin-bottom:60px;background:var(--wood);box-shadow:0 40px 80px -40px #000}
+.votd .art{position:relative;overflow:hidden;min-height:260px}
+.votd .art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:kenburns 18s ease-in-out infinite alternate}
+@keyframes kenburns{from{transform:scale(1.02)}to{transform:scale(1.16) translate(-3%,-2%)}}
+.votd .art::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 50%,var(--wood))}
+.votd .txt{padding:40px 44px 36px 20px;display:flex;flex-direction:column;justify-content:center;gap:14px;position:relative}
+.lbl{font-family:var(--ui);font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal)}
+.votd .v{font-family:var(--display);font-size:clamp(1.5rem,3vw,2.15rem);color:#ffd98f;line-height:1.5;text-shadow:0 0 30px rgba(255,150,50,.3)}
+.votd .m{font-size:1.06rem}
+.dayflag{display:inline-flex;align-self:flex-start;gap:8px;padding:7px 14px;border-radius:999px;background:rgba(200,65,42,.22);border:1px solid rgba(255,138,61,.5);font-size:.95rem;animation:glowPulse 2.6s ease-in-out infinite}
+@keyframes glowPulse{50%{box-shadow:0 0 22px rgba(255,120,40,.45)}}
+.row-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.row-btns .btn{padding:11px 18px;font-size:.88rem}
+.wa{background:#25d366;color:#04311a}
+.wa:hover{box-shadow:0 10px 30px -8px rgba(37,211,102,.7)}
+
+.tabs{position:relative;display:flex;gap:4px;margin:0 auto 36px;padding:6px;border:1px solid var(--line);border-radius:999px;width:max-content;max-width:100%;overflow-x:auto;background:rgba(28,17,11,.7);scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{position:relative;z-index:1;padding:10px 18px;border-radius:999px;font-size:1.05rem;white-space:nowrap;color:var(--muted);transition:color .3s;display:flex;gap:7px;align-items:center}
+.tab .en{font-size:.85rem;color:inherit}
+.tab[aria-selected="true"]{color:#2a1306}
+.tab-ind{position:absolute;top:6px;bottom:6px;left:6px;width:0;border-radius:999px;background:linear-gradient(135deg,#ffd27a,var(--gold) 45%,var(--flame));transition:left .45s cubic-bezier(.2,.8,.2,1),width .45s cubic-bezier(.2,.8,.2,1);box-shadow:0 6px 20px -6px rgba(255,140,60,.8)}
+.panel{display:none}
+.panel.on{display:block;animation:panelIn .7s cubic-bezier(.2,.8,.2,1)}
+@keyframes panelIn{from{opacity:0;transform:translateY(24px)}}
+
+/* chalisa reader */
+.mode{display:flex;justify-content:center;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.reader{position:relative;border-radius:28px;overflow:hidden;min-height:600px;border:1px solid var(--line);display:flex;flex-direction:column;justify-content:flex-end;box-shadow:0 40px 90px -30px #000;touch-action:pan-y}
+.reader .bgs img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;opacity:0;transition:opacity 1.4s ease}
+.reader .bgs img.on{opacity:1;animation:kenburns 22s ease-in-out infinite alternate}
+.reader::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(18,10,7,.1) 0%,rgba(18,10,7,.45) 38%,rgba(18,10,7,.93) 72%)}
+.r-top{position:absolute;top:18px;left:18px;right:18px;z-index:2;display:flex;justify-content:space-between;align-items:center}
+.r-badge{font-family:var(--ui);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;padding:7px 12px;border-radius:999px;background:rgba(0,0,0,.45);backdrop-filter:blur(6px);border:1px solid var(--line);color:var(--gold-soft)}
+.r-body{position:relative;z-index:2;padding:30px clamp(18px,5vw,60px) 26px;text-align:center}
+.r-num{font-family:var(--display);color:var(--flame);font-size:1.15rem}
+.r-verse{font-family:var(--display);font-size:calc(var(--fs,1) * clamp(1.55rem,3.6vw,2.55rem));line-height:1.6;color:#ffe2a6;text-shadow:0 2px 18px rgba(0,0,0,.9),0 0 34px rgba(255,150,50,.35);margin:8px 0 14px;min-height:3.2em}
+.r-verse .w{display:inline-block;opacity:0;transform:translateY(14px);filter:blur(5px);animation:wIn .7s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes wIn{to{opacity:1;transform:none;filter:none}}
+.r-mean{font-size:calc(var(--fs,1) * 1.1rem);line-height:1.6;max-width:38em;margin:0 auto;color:#efe2c9!important;opacity:0;animation:fadeUp .8s 1s forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.r-ctrls{display:flex;justify-content:center;align-items:center;gap:12px;margin-top:22px}
+.cbtn{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;background:rgba(0,0,0,.4);backdrop-filter:blur(6px);transition:.2s;flex:none}
+.cbtn:hover{border-color:var(--gold);color:var(--gold)}
+.cbtn.big{width:64px;height:64px;background:linear-gradient(135deg,#ffd27a,var(--gold) 45%,var(--flame));color:#2a1306;border:0;box-shadow:0 8px 26px -6px rgba(255,140,60,.8)}
+.cbtn.sm{width:40px;height:40px;font-family:var(--ui);font-size:.8rem;font-weight:600}
+.r-prog{display:flex;gap:3px;margin-top:20px}
+.r-prog i{flex:1;height:5px;border-radius:3px;background:rgba(255,255,255,.16);cursor:pointer;transition:background .3s,transform .2s}
+.r-prog i:hover{transform:scaleY(1.8)}
+.r-prog i.done{background:var(--gold)}
+.r-prog i.cur{background:var(--flame);box-shadow:0 0 10px var(--flame)}
+.full{display:none;columns:2 400px;column-gap:44px}
+.full.on{display:block}
+.fv{break-inside:avoid;padding:16px 18px;margin-bottom:10px;border-radius:16px;border:1px solid transparent;transition:.3s;cursor:pointer}
+.fv:hover{border-color:var(--line);background:rgba(242,184,75,.06)}
+.fv .n{font-family:var(--display);color:var(--flame);font-size:.95rem}
+.fv .t{font-size:1.28rem;line-height:1.65;color:var(--ink)}
+.fv .en{font-size:1rem;display:block;margin-top:6px;line-height:1.55}
+.fv.doha .t{color:var(--gold)}
+.fv-head{column-span:all;text-align:center;font-family:var(--display);color:var(--gold);font-size:1.5rem;margin:6px 0 16px}
+
+/* aarti */
+.aarti{display:grid;grid-template-columns:.95fr 1.05fr;gap:44px;align-items:center}
+.thali-wrap{position:relative;width:min(440px,86vw);aspect-ratio:1;margin:auto}
+.thali-wrap .halo2{position:absolute;inset:-12%;border-radius:50%;background:radial-gradient(circle,rgba(255,150,50,.45),transparent 62%);animation:breathe 4s ease-in-out infinite}
+.thali-wrap .bgimg{position:absolute;inset:4%;border-radius:50%;overflow:hidden;border:3px solid rgba(242,184,75,.5);box-shadow:0 0 0 12px rgba(242,184,75,.08)}
+.thali-wrap .bgimg img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;filter:brightness(.6)}
+.thali{position:absolute;inset:26%;filter:drop-shadow(0 18px 24px rgba(0,0,0,.6))}
+.thali.playing{animation:orbit 3.2s linear infinite}
+@keyframes orbit{from{transform:rotate(0) translateX(9%) rotate(0)}to{transform:rotate(360deg) translateX(9%) rotate(-360deg)}}
+.fl{transform-box:fill-box;transform-origin:50% 100%;animation:flick .18s ease-in-out infinite alternate}
+.fl:nth-of-type(2n){animation-duration:.23s}
+@keyframes flick{from{transform:scale(1,1) skewX(-2deg)}to{transform:scale(.92,1.1) skewX(3deg)}}
+.bell{position:absolute;right:-2%;top:2%;width:74px;height:74px;border-radius:50%;background:rgba(0,0,0,.45);border:1px solid var(--line);display:grid;place-items:center;backdrop-filter:blur(6px);z-index:3}
+.bell svg{width:40px;height:40px;transform-origin:50% 8%}
+.bell.ring svg{animation:swing 1s ease-out}
+@keyframes swing{15%{transform:rotate(22deg)}35%{transform:rotate(-18deg)}55%{transform:rotate(12deg)}75%{transform:rotate(-6deg)}}
+.bell small{position:absolute;bottom:-22px;font-family:var(--ui);font-size:.7rem;color:var(--muted);white-space:nowrap}
+.al-list{display:flex;flex-direction:column;gap:2px}
+.al{padding:9px 16px;border-radius:14px;transition:all .5s cubic-bezier(.2,.8,.2,1);border-left:3px solid transparent}
+.al .t{font-size:1.22rem;line-height:1.55;transition:color .4s,text-shadow .4s}
+.al .en{font-size:.95rem;display:block}
+.al.on{background:linear-gradient(90deg,rgba(242,184,75,.18),transparent);border-left-color:var(--gold);transform:translateX(8px)}
+.al.on .t{color:#ffd98f;text-shadow:0 0 18px rgba(255,150,50,.6)}
+.al.past{opacity:.55}
+.al.chorus .t{color:var(--gold)}
+
+/* mantras */
+.mbanner{position:relative;height:220px;border-radius:24px;overflow:hidden;margin-bottom:26px;border:1px solid var(--line);display:grid;place-items:center;text-align:center}
+.mbanner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 60%;animation:kenburns 20s ease-in-out infinite alternate}
+.mbanner::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,10,7,.2),rgba(18,10,7,.75));z-index:1}
+.mbanner div{position:relative;z-index:2}
+.mbanner .om{font-family:var(--display);font-size:4.4rem;color:#ffd27a;line-height:1;text-shadow:0 0 30px rgba(255,150,50,.9);animation:omPulse 3s ease-in-out infinite}
+@keyframes omPulse{50%{text-shadow:0 0 60px rgba(255,150,50,1),0 0 10px #fff;transform:scale(1.06)}}
+.mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:20px}
+.mcard{perspective:1200px;height:320px;cursor:pointer;outline:none}
+.mcard .in{position:relative;width:100%;height:100%;transition:transform .9s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d}
+.mcard.flip .in{transform:rotateY(180deg)}
+.mcard:hover .front{border-color:rgba(242,184,75,.6)}
+.mface{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:22px;border:1px solid var(--line);padding:26px 24px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;overflow:hidden;background:radial-gradient(circle at 50% 0%,rgba(255,150,50,.18),transparent 60%),linear-gradient(160deg,var(--wood-2),var(--night-2));transition:border-color .3s}
+.mface.back{transform:rotateY(180deg);background:radial-gradient(circle at 50% 100%,rgba(200,65,42,.25),transparent 60%),linear-gradient(160deg,#3b1d12,#1c110b)}
+.mface .wm{position:absolute;right:-6px;top:-26px;font-family:var(--display);font-size:7rem;color:var(--flame);opacity:.08;pointer-events:none}
+.mface .mt{font-family:var(--display);color:#ffd98f;font-size:1.4rem;line-height:1.6}
+.mface .mt.big{font-size:2rem}
+.mface .tr{margin-top:10px;font-size:.95rem}
+.mface .src{margin-top:14px;font-family:var(--ui);font-size:.7rem;letter-spacing:.14em;color:var(--teal);text-transform:uppercase}
+.mface .hint{position:absolute;bottom:12px;font-family:var(--ui);font-size:.7rem;color:var(--muted);letter-spacing:.08em}
+.mface .mean{font-size:1rem;line-height:1.6;margin-bottom:16px}
+.mface .mean .en{display:block;margin-top:6px}
+.mface .row-btns{justify-content:center}
+.mface .row-btns .btn{padding:9px 14px;font-size:.82rem}
+
+/* japa */
+.japa{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+.mala{position:relative;width:min(460px,88vw);aspect-ratio:1;margin:auto}
+.mala svg{position:absolute;inset:0;width:100%;height:100%;transition:transform .55s cubic-bezier(.2,.8,.2,1)}
+.mala .b{fill:#4a2c18;stroke:#7a4a26;stroke-width:.35;transition:fill .35s}
+.mala .b.on{fill:#f2b84b;stroke:#ffd98f}
+.mala .b.cur{fill:#ff8a3d;stroke:#fff}
+.jbtn{position:absolute;inset:21%;border-radius:50%;overflow:hidden;border:4px solid var(--gold);box-shadow:0 0 0 10px rgba(242,184,75,.12),0 0 70px rgba(255,140,40,.55);cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;transition:transform .12s;touch-action:manipulation}
+.jbtn img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.jbtn .cnt{position:absolute;left:0;right:0;bottom:0;padding:30px 0 18px;background:linear-gradient(transparent,rgba(0,0,0,.88));font-family:var(--display);font-size:2.6rem;color:#fff;text-align:center;line-height:1}
+.jbtn .cnt small{display:block;font-family:var(--ui);font-size:.7rem;letter-spacing:.15em;color:var(--gold-soft);margin-top:4px}
+.jbtn.tap{transform:scale(.95)}
+.rip{position:absolute;inset:21%;border-radius:50%;border:3px solid var(--gold);animation:rip .8s ease-out forwards;pointer-events:none}
+@keyframes rip{to{transform:scale(1.45);opacity:0}}
+.pop{position:absolute;left:50%;top:18%;font-family:var(--display);color:#ffd98f;font-size:1.25rem;pointer-events:none;white-space:nowrap;text-shadow:0 0 12px rgba(255,150,50,.8);animation:popUp 1.1s ease-out forwards;z-index:3}
+@keyframes popUp{from{opacity:1;transform:translate(-50%,0) scale(.8)}to{opacity:0;transform:translate(-50%,-70px) scale(1.1)}}
+.jm-now{font-family:var(--display);font-size:clamp(1.7rem,3.4vw,2.4rem);color:#ffd98f;line-height:1.35;text-shadow:0 0 24px rgba(255,150,50,.35);margin:8px 0 4px}
+.jm-now.bump{animation:bump .3s}
+@keyframes bump{50%{transform:scale(1.04)}}
+.jstats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0}
+.jstat{padding:16px 10px;border-radius:16px;border:1px solid var(--line);text-align:center;background:rgba(42,24,16,.5)}
+.jstat b{display:block;font-family:var(--display);font-weight:400;color:var(--gold);font-size:1.9rem;line-height:1.1}
+.jstat span{font-size:.85rem;color:var(--muted)}
+.jchips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 6px}
+.jchips .chip{font-family:var(--hi);font-size:.98rem}
+
+/* petals */
+.petals{position:fixed;inset:0;pointer-events:none;z-index:150;overflow:hidden}
+.petal{position:absolute;top:-30px;width:14px;height:18px;border-radius:70% 0 70% 0;background:radial-gradient(circle at 30% 30%,#ffc04d,#e8562a);animation:fall linear forwards;opacity:.95}
+.petal.m{background:radial-gradient(circle at 30% 30%,#ffe08a,#f29a1f)}
+@keyframes fall{to{transform:translate(var(--dx),112vh) rotate(var(--r))}}
+
+/* suggest */
+.suggest{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.sbox{position:relative;padding:34px;border-radius:24px;border:1px solid var(--line);background:linear-gradient(160deg,rgba(58,34,22,.65),rgba(28,17,11,.4));overflow:hidden}
+.sbox h3{font-family:var(--display);font-weight:400;color:var(--gold);font-size:1.8rem;line-height:1.2}
+.sbox h3 .en{display:block;font-size:.6em;margin-top:4px}
+.sbox p{margin:10px 0 18px}
+.sbox .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.sbox .chip{font-family:var(--hi);font-size:1rem}
+.sbox .deco{position:absolute;right:-30px;bottom:-30px;width:180px;opacity:.13;pointer-events:none}
+
+
+.dayflag[hidden]{display:none}
+.lbl .hi,.r-badge,.src,.kicker .hi{letter-spacing:0!important}
+.src{letter-spacing:.04em}
+/* bilingual spacing + contrast */
+html[data-lang="both"] span.hi + span.en{margin-left:.35em}
+h1 .en,h2 .en,h3 .en,h4 .en,.lead .en,.al .en,.fv .en,.mean .en,.r-mean,.pill h4 .en,.mi .tx .en,.p-side .en{margin-left:0!important}
+html[data-lang="both"] .nav-links a.text .en{display:none}
+.btn-gold .en,.ig-grad .en,.wa .en,.tab[aria-selected="true"] .en,.chip[aria-pressed="true"] .en{color:inherit}
+
+@media (max-width:900px){
+  .votd{grid-template-columns:1fr}
+  .votd .art{height:250px}
+  .votd .art::after{background:linear-gradient(180deg,transparent 50%,var(--wood))}
+  .votd .txt{padding:6px 24px 30px;text-align:center;align-items:center}
+  .votd .dayflag{align-self:center}
+  .row-btns{justify-content:center}
+  .aarti,.japa,.suggest{grid-template-columns:1fr}
+  .reader{min-height:560px}
+  .japa > div:last-child{text-align:center}
+  .jchips{justify-content:center}
+}
+@media (max-width:700px){
+  header .nav-links > .lang{display:none}
+  html[data-lang="both"] .tab .en{display:none}
+  .tab{padding:9px 14px}
+  .nav .ig-grad span{display:none}
+  .bell{right:0}
+  .sbox{padding:26px 20px}
+}
+
 @media (max-width:900px){
   .hero{grid-template-columns:1fr;text-align:center;padding-top:32px;gap:56px}
   .kicker,.cta,.stats{justify-content:center}
@@ -257,28 +469,46 @@ footer .brand{justify-content:center;margin-bottom:14px}
 <body>
 <canvas id="embers" aria-hidden="true"></canvas>
 
-<header>
+<header id="hdr">
   <div class="wrap nav">
     <a href="#top" class="brand" aria-label="Home">
-      <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4c7 11 11 17 11 25a11 11 0 0 1-22 0c0-8 4-14 11-25z" fill="#ffb547"/><path d="M32 18c3 6 5 9 5 13a5 5 0 0 1-10 0c0-4 2-7 5-13z" fill="#fff3c4"/><path d="M5 42h54c-3 11-14 18-27 18S8 53 5 42z" fill="#c8642a"/><path d="M5 42h54" stroke="#f2b84b" stroke-width="2"/></svg>
-      <span><b>कथा दीप</b><small>Katha Deep</small></span>
+      <img src="assets/logo.jpg" alt="">
+      <span><b>संकटमोचन</b><small>Hanumanverse</small></span>
     </a>
     <nav class="nav-links">
       <a class="text" href="#reels"><span class="hi">रील्स</span><span class="en">Reels</span></a>
-      <a class="text" href="#stories"><span class="hi">कथाएँ</span><span class="en">Stories</span></a>
-      <a class="text" href="#about"><span class="hi">परिचय</span><span class="en">About</span></a>
+      <a class="text" href="#chalisa"><span class="hi">चालीसा</span><span class="en">Chalisa</span></a>
+      <a class="text" href="#japa"><span class="hi">जप माला</span><span class="en">Japa</span></a>
       <div class="lang" role="group" aria-label="Language">
         <button data-set="hi" aria-pressed="false">हिं</button>
         <button data-set="both" aria-pressed="true">हिं + En</button>
         <button data-set="en" aria-pressed="false">En</button>
       </div>
-      <a class="btn ig-grad js-ig" href="#" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
-        <span>Follow</span>
-      </a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu"><span class="bars"><i></i><i></i><i></i></span><span class="hi">मेनू</span><span class="en" style="font-family:var(--ui);color:inherit">Menu</span></button>
     </nav>
   </div>
+  <div class="menu" id="menu" role="menu">
+    <a class="mi" href="#reels"><span class="ic">🎬</span><span class="tx"><span class="hi">रील्स</span><span class="en">Reels</span></span><span class="ar">→</span></a>
+    <a class="mi" href="#stories"><span class="ic">📜</span><span class="tx"><span class="hi">कथाएँ</span><span class="en">Stories</span></span><span class="ar">→</span></a>
+    <a class="mi" href="#chalisa"><span class="ic">📖</span><span class="tx"><span class="hi">हनुमान चालीसा</span><span class="en">Hanuman Chalisa</span></span><span class="ar">→</span></a>
+    <a class="mi" href="#aarti"><span class="ic">🪔</span><span class="tx"><span class="hi">आरती</span><span class="en">Aarti</span></span><span class="ar">→</span></a>
+    <a class="mi" href="#mantra"><span class="ic">🕉️</span><span class="tx"><span class="hi">मंत्र</span><span class="en">Mantras</span></span><span class="ar">→</span></a>
+    <a class="mi" href="#japa"><span class="ic">📿</span><span class="tx"><span class="hi">जप माला</span><span class="en">Japa counter</span></span><span class="ar">→</span></a>
+    <a class="mi" href="#suggest"><span class="ic">💬</span><span class="tx"><span class="hi">अगली कथा सुझाएँ</span><span class="en">Suggest a story</span></span><span class="ar">→</span></a>
+    <a class="mi" href="#about"><span class="ic">🙏</span><span class="tx"><span class="hi">परिचय</span><span class="en">About</span></span><span class="ar">→</span></a>
+    <div class="menu-foot">
+      <div class="lang" role="group" aria-label="Language">
+        <button data-set="hi" aria-pressed="false">हिं</button>
+        <button data-set="both" aria-pressed="true">हिं + En</button>
+        <button data-set="en" aria-pressed="false">En</button>
+      </div>
+      <a class="btn ig-grad js-ig" href="#" target="_blank" rel="noopener" style="padding:9px 16px;font-size:.85rem">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>Follow
+      </a>
+    </div>
+  </div>
 </header>
+
 
 <main id="top">
   <div class="wrap hero">
@@ -340,6 +570,171 @@ footer .brand{justify-content:center;margin-bottom:14px}
     </div>
   </section>
 
+  <section id="bhakti">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="rule"><i></i></div>
+        <h2><span class="hi">भक्ति कोना</span><span class="en">Devotion Corner</span></h2>
+        <p><span class="hi">पढ़िए, गाइए, जपिए — हर दिन बजरंगबली के साथ।</span> <span class="en">Read, sing and chant with Bajrangbali, every day.</span></p>
+      </div>
+
+      <div class="votd reveal" id="votd">
+        <div class="art"><img id="votdImg" src="assets/art/glow.jpg" alt=""></div>
+        <div class="txt">
+          <span class="dayflag" id="dayflag" hidden></span>
+          <span class="lbl"><span class="hi">आज की चौपाई</span> <span class="en">· Verse of the day</span></span>
+          <div class="v" id="votdV"></div>
+          <div class="m en" id="votdM"></div>
+          <div class="row-btns">
+            <button class="btn btn-gold" id="votdRead">📖 <span class="hi">चालीसा पढ़ें</span><span class="en" style="color:inherit">Read Chalisa</span></button>
+            <a class="btn wa" id="votdWa" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="tabs" role="tablist" id="tabs">
+        <span class="tab-ind" id="tabInd"></span>
+        <button class="tab" role="tab" data-tab="chalisa" aria-selected="true">📖 <span class="hi">चालीसा</span><span class="en">Chalisa</span></button>
+        <button class="tab" role="tab" data-tab="aarti" aria-selected="false">🪔 <span class="hi">आरती</span><span class="en">Aarti</span></button>
+        <button class="tab" role="tab" data-tab="mantra" aria-selected="false">🕉️ <span class="hi">मंत्र</span><span class="en">Mantras</span></button>
+        <button class="tab" role="tab" data-tab="japa" aria-selected="false">📿 <span class="hi">जप माला</span><span class="en">Japa</span></button>
+      </div>
+
+      <!-- CHALISA -->
+      <div class="panel on" id="p-chalisa" role="tabpanel">
+        <div class="mode">
+          <button class="chip" data-mode="reader" aria-pressed="true"><span class="hi">पाठ मोड</span> <span class="en">Reading mode</span></button>
+          <button class="chip" data-mode="full" aria-pressed="false"><span class="hi">पूरा पाठ</span> <span class="en">Full text</span></button>
+        </div>
+        <div class="reader" id="reader">
+          <div class="bgs" id="rBgs"></div>
+          <div class="r-top">
+            <span class="r-badge">श्री हनुमान चालीसा</span>
+            <div style="display:flex;gap:8px">
+              <button class="cbtn sm" id="fsDown" aria-label="Smaller text">A−</button>
+              <button class="cbtn sm" id="fsUp" aria-label="Larger text">A+</button>
+            </div>
+          </div>
+          <div class="r-body">
+            <div class="r-num" id="rNum"></div>
+            <div class="r-verse" id="rVerse"></div>
+            <p class="r-mean en" id="rMean"></p>
+            <div class="r-ctrls">
+              <button class="cbtn" id="rPrev" aria-label="Previous verse"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 6l-6 6 6 6"/></svg></button>
+              <button class="cbtn big" id="rPlay" aria-label="Auto play"></button>
+              <button class="cbtn" id="rNext" aria-label="Next verse"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg></button>
+            </div>
+            <div class="r-prog" id="rProg"></div>
+          </div>
+        </div>
+        <div class="full" id="full"></div>
+      </div>
+
+      <!-- AARTI -->
+      <div class="panel" id="p-aarti" role="tabpanel">
+        <div class="aarti">
+          <div>
+            <div class="thali-wrap">
+              <div class="halo2"></div>
+              <div class="bgimg"><img src="assets/art/glow.jpg" alt=""></div>
+              <svg class="thali" id="thali" viewBox="0 0 200 200" aria-hidden="true">
+                <defs>
+                  <radialGradient id="pl" cx=".45" cy=".4" r=".65"><stop offset="0" stop-color="#ffe9a8"/><stop offset=".55" stop-color="#e8aa40"/><stop offset="1" stop-color="#8f5418"/></radialGradient>
+                  <radialGradient id="fg"><stop offset="0" stop-color="#fffbe0"/><stop offset=".35" stop-color="#ffd25a"/><stop offset=".7" stop-color="#ff8a2a" stop-opacity=".8"/><stop offset="1" stop-color="#ff5a1a" stop-opacity="0"/></radialGradient>
+                  <radialGradient id="gl"><stop offset="0" stop-color="#ffb547" stop-opacity=".7"/><stop offset="1" stop-color="#ffb547" stop-opacity="0"/></radialGradient>
+                </defs>
+                <circle cx="100" cy="100" r="94" fill="url(#pl)" stroke="#6d3b10" stroke-width="3"/>
+                <circle cx="100" cy="100" r="84" fill="none" stroke="#a5661d" stroke-width="1.6" stroke-dasharray="2 5"/>
+                <circle cx="100" cy="100" r="58" fill="none" stroke="#b7782a" stroke-width="1"/>
+                <g id="flowers"></g>
+                <circle cx="100" cy="92" r="40" fill="url(#gl)"/>
+                <path d="M74 106 Q100 132 126 106 Q100 114 74 106Z" fill="#7a2d0c"/>
+                <ellipse cx="100" cy="106" rx="26" ry="7" fill="#c0601f" stroke="#7a2d0c" stroke-width="1.2"/>
+                <ellipse cx="100" cy="105" rx="16" ry="3.5" fill="#f2c56b"/>
+                <g class="fl"><ellipse cx="100" cy="86" rx="10" ry="20" fill="url(#fg)"/><path d="M100 70 C106 82 106 94 100 102 C94 94 94 82 100 70Z" fill="#ffd36b"/><path d="M100 82 C102 88 102 96 100 100 C98 96 98 88 100 82Z" fill="#fff8d8"/></g>
+                <g id="minis"></g>
+                <circle cx="148" cy="148" r="9" fill="#c8202a" stroke="#7a1015" stroke-width="1.2"/>
+                <circle cx="52" cy="148" r="9" fill="#f5d36a" stroke="#a57a1a" stroke-width="1.2"/>
+              </svg>
+              <button class="bell" id="bell" aria-label="Ring the bell">
+                <svg viewBox="0 0 48 48"><path d="M24 4v4" stroke="#f2b84b" stroke-width="3" stroke-linecap="round"/><path d="M12 34c0-14 3-24 12-24s12 10 12 24z" fill="url(#bg1)" stroke="#8a5a1a" stroke-width="1.5"/><defs><linearGradient id="bg1" x1="0" x2="1"><stop offset="0" stop-color="#ffe08a"/><stop offset=".5" stop-color="#e8a83a"/><stop offset="1" stop-color="#9a6018"/></linearGradient></defs><rect x="9" y="33" width="30" height="4" rx="2" fill="#c98a2a"/><circle cx="24" cy="40" r="3.5" fill="#d9952f"/></svg>
+                <small><span class="hi">घंटी बजाएँ</span><span class="en">Ring</span></small>
+              </button>
+            </div>
+            <div class="row-btns" style="justify-content:center;margin-top:34px">
+              <button class="btn btn-gold" id="aPlay">🪔 <span class="hi">आरती शुरू करें</span><span class="en" style="color:inherit">Start Aarti</span></button>
+              <button class="btn btn-ghost" id="aPetals">🌸 <span class="hi">पुष्प वर्षा</span><span class="en" style="color:inherit">Shower flowers</span></button>
+            </div>
+          </div>
+          <div>
+            <div class="lbl" style="margin-bottom:10px"><span class="hi">आरती कीजै हनुमान लला की</span> <span class="en">· Aarti of Hanuman ji</span></div>
+            <div class="al-list" id="alist"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MANTRA -->
+      <div class="panel" id="p-mantra" role="tabpanel">
+        <div class="mbanner">
+          <img src="assets/art/shore.jpg" alt="">
+          <div><div class="om">ॐ</div><p style="margin-top:8px"><span class="hi">कार्ड पर टैप करें — अर्थ जानें</span> <span class="en">Tap a card to reveal its meaning</span></p></div>
+        </div>
+        <div class="mgrid" id="mgrid"></div>
+      </div>
+
+      <!-- JAPA -->
+      <div class="panel" id="p-japa" role="tabpanel">
+        <div class="japa">
+          <div class="mala" id="mala">
+            <svg id="malaSvg" viewBox="0 0 100 100" aria-hidden="true"></svg>
+            <div class="jbtn" id="jbtn" role="button" tabindex="0" aria-label="Count one chant">
+              <img src="assets/logo.jpg" alt="">
+              <div class="cnt"><span id="jCount">0</span><small>/ 108</small></div>
+            </div>
+          </div>
+          <div>
+            <div class="lbl"><span class="hi">अभी जप रहे हैं</span> <span class="en">· Now chanting</span></div>
+            <div class="jm-now" id="jNow"></div>
+            <p><span class="hi">बीच में हनुमान जी पर टैप करें — हर टैप एक मनका। १०८ पूरे होने पर एक माला।</span> <span class="en">Tap Hanuman ji in the centre for each chant. 108 beads make one mala.</span></p>
+            <div class="jchips" id="jchips"></div>
+            <div class="jstats">
+              <div class="jstat"><b id="jS1">0</b><span class="hi">इस माला में</span> <span class="en">this mala</span></div>
+              <div class="jstat"><b id="jS2">0</b><span class="hi">मालाएँ पूर्ण</span> <span class="en">malas done</span></div>
+              <div class="jstat"><b id="jS3">0</b><span class="hi">कुल जप</span> <span class="en">total chants</span></div>
+            </div>
+            <div class="row-btns" style="justify-content:inherit">
+              <button class="btn btn-ghost" id="jReset">↺ <span class="hi">फिर से शुरू</span><span class="en" style="color:inherit">Reset</span></button>
+              <button class="btn wa" id="jShare">WhatsApp</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="suggest" style="padding-top:30px">
+    <div class="wrap">
+      <div class="suggest">
+        <div class="sbox reveal">
+          <img class="deco" src="assets/logo.jpg" alt="" style="border-radius:50%">
+          <h3><span class="hi">अगली कथा आप चुनें</span><span class="en">You pick the next story</span></h3>
+          <p><span class="hi">कौन-सी कथा देखना चाहेंगे? चुनिए और हमें इंस्टाग्राम पर भेजिए।</span> <span class="en">Which story should we animate next? Pick one and send it to us on Instagram.</span></p>
+          <div class="chips" id="sChips"></div>
+          <button class="btn ig-grad" id="sSend">💬 <span class="hi">इंस्टाग्राम पर भेजें</span><span class="en" style="color:inherit">Send on Instagram</span></button>
+        </div>
+        <div class="sbox reveal">
+          <h3><span class="hi">परिवार के साथ बाँटिए</span><span class="en">Share with your family</span></h3>
+          <p><span class="hi">ये कथाएँ बच्चों और बड़ों तक पहुँचाइए — एक शेयर से एक दीया और जलता है।</span> <span class="en">Pass these stories on to children and elders. Every share lights one more lamp.</span></p>
+          <div class="row-btns">
+            <a class="btn wa" id="shWa" target="_blank" rel="noopener">WhatsApp</a>
+            <button class="btn btn-ghost" id="shCopy">🔗 <span class="hi">लिंक कॉपी करें</span><span class="en" style="color:inherit">Copy link</span></button>
+            <button class="btn btn-ghost" id="shNative">↗ <span class="hi">शेयर</span><span class="en" style="color:inherit">Share</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <div class="shloka">
     <div class="wrap reveal">
       <div class="rule"><i></i></div>
@@ -378,9 +773,10 @@ footer .brand{justify-content:center;margin-bottom:14px}
 </main>
 
 <footer>
-  <div class="brand"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4c7 11 11 17 11 25a11 11 0 0 1-22 0c0-8 4-14 11-25z" fill="#ffb547"/><path d="M5 42h54c-3 11-14 18-27 18S8 53 5 42z" fill="#c8642a"/></svg><span><b>कथा दीप</b></span></div>
+  <div class="brand"><img src="assets/logo.jpg" alt=""><span><b>संकटमोचन हनुमानवर्स</b></span></div>
   <p><span class="hi">कथा सुनाइए, संस्कार बढ़ाइए।</span> <span class="en">Share the story, keep the lamp alive.</span></p>
-  <p style="margin-top:10px">© <span id="yr"></span> · <a class="js-ig js-handle" href="#" target="_blank" rel="noopener" style="color:var(--gold)">@yourhandle</a></p>
+  <p style="margin-top:10px">© <span id="yr"></span> Sankatmochan Hanumanverse · <a class="js-ig js-handle" href="#" target="_blank" rel="noopener" style="color:var(--gold)">@yourhandle</a></p>
+  <p style="margin-top:8px;font-size:.78rem;opacity:.8">सर्वाधिकार सुरक्षित। इन वीडियो, चित्रों और कथाओं को बिना अनुमति डाउनलोड, कॉपी या दोबारा पोस्ट न करें।<br>All rights reserved. The videos, artwork and text on this site may not be downloaded, copied or re-posted without permission.</p>
 </footer>
 
 <!-- player -->
@@ -423,35 +819,35 @@ const SITE = {
 
 const REELS = [
   {
-    id: "prahlad-narasimha", deity: "vishnu", dur: "2:52",
+    id: "prahlad-narasimha", deity: "vishnu", dur: "2:55",
     hi: "प्रह्लाद और नरसिंह", en: "Prahlad & Narasimha",
     lineHi: "भगवान हर खंभे में हैं।", lineEn: "The Lord lives in every pillar.",
     descHi: "हिरण्यकशिपु को वरदान था — न दिन में मरे, न रात में; न घर के अंदर, न बाहर; न किसी अस्त्र से। पर उसका अपना बेटा प्रह्लाद हर साँस में 'नारायण' जपता था। होलिका की आग भी उसे छू न सकी। और फिर, संध्या के समय, देहरी पर, खंभा फटा — और नरसिंह प्रकट हुए।",
     descEn: "Hiranyakashipu's boon made him nearly unkillable — not by day or night, not inside or outside, by no weapon at all. Yet his own son Prahlad chanted Narayana with every breath. Holika's fire could not touch him. And at dusk, on the threshold, a pillar split open — and Narasimha appeared."
   },
   {
-    id: "neelkanth-samudra-manthan", deity: "shiva", dur: "1:47",
+    id: "neelkanth-samudra-manthan", deity: "shiva", dur: "1:50",
     hi: "नीलकंठ — समुद्र मंथन", en: "Neelkanth — The Churning of the Ocean",
     lineHi: "जिसने संसार का विष पी लिया।", lineEn: "The one who drank the world's poison.",
     descHi: "देव और असुर अमृत के लिए क्षीरसागर को मथ रहे थे — मंदार पर्वत मथानी बना, वासुकि नाग रस्सी। पर अमृत से पहले निकला हलाहल — ऐसा विष कि तीनों लोक राख हो जाते। तब महादेव ने उसे पी लिया और कंठ में रोक लिया। उनका कंठ नीला हो गया — वे नीलकंठ कहलाए।",
     descEn: "Gods and demons churned the cosmic ocean for nectar — Mount Mandara the churning rod, the serpent Vasuki the rope. But before the nectar came Halahala, a poison that would turn all three worlds to ash. Shiva drank it and held it in his throat, which turned blue forever — and he became Neelkanth."
   },
   {
-    id: "hanuman-leap-to-lanka", deity: "hanuman", dur: "1:13",
+    id: "hanuman-leap-to-lanka", deity: "hanuman", dur: "1:16",
     hi: "सुंदरकांड — लंका की छलाँग", en: "Sundarkand — The Leap to Lanka",
     lineHi: "हनुमान, तुम पवनपुत्र हो।", lineEn: "Hanuman, you are the son of the Wind.",
     descHi: "समुद्र के किनारे वानर सेना चुप थी — सौ योजन पार कौन जाए? तब जाम्बवान ने हनुमान को उनकी भूली हुई शक्ति याद दिलाई। हनुमान ने 'जय श्री राम' कहा और आकाश में छलाँग लगा दी — रास्ते में सुरसा का मुँह भी उन्हें रोक न सका। उस पार थीं माता सीता।",
     descEn: "At the ocean's edge the army fell silent — who could cross a hundred yojanas? Then Jambavan reminded Hanuman of the strength he had forgotten. With 'Jai Shri Ram' he leapt into the sky; not even Surasa's open jaws could stop him. On the far shore waited Mother Sita."
   },
   {
-    id: "ganesha-parikrama", deity: "ganesha", dur: "1:13",
+    id: "ganesha-parikrama", deity: "ganesha", dur: "1:16",
     hi: "गणेश की परिक्रमा", en: "Ganesha's Parikrama",
     lineHi: "मेरे माता-पिता ही मेरा संसार हैं।", lineEn: "My parents are my whole world.",
     descHi: "नारद मुनि कैलाश पर एक दिव्य फल लाए। शिव ने कहा — जो पहले संसार की परिक्रमा करके लौटेगा, फल उसी का। कार्तिकेय मोर पर बैठे और उड़ चले। गणेश मुस्कुराए, और अपने माता-पिता के चारों ओर तीन बार घूम गए। बुद्धि ने दौड़ जीत ली।",
     descEn: "Sage Narada brought a divine fruit to Kailash. Whoever circles the world first, said Shiva, shall have it. Kartikeya mounted his peacock and flew away. Ganesha simply smiled — and walked three times around his parents. Wisdom won the race."
   },
   {
-    id: "gajendra-moksha", deity: "vishnu", dur: "1:05",
+    id: "gajendra-moksha", deity: "vishnu", dur: "1:08",
     hi: "गजेन्द्र मोक्ष", en: "Gajendra Moksha",
     lineHi: "जब अपना बल छूटा, तब प्रभु ने थाम लिया।", lineEn: "When his own strength let go, the Lord held him.",
     descHi: "गजराज गजेन्द्र सरोवर में जल पीने उतरा, और एक मगर ने उसका पैर पकड़ लिया। संघर्ष हज़ार वर्षों तक चला। जब सारा बल टूट गया, गजेन्द्र ने सूँड़ में एक कमल उठाकर नारायण को पुकारा — और विष्णु गरुड़ पर सवार होकर दौड़े चले आए।",
@@ -623,6 +1019,264 @@ $("#pShare").onclick=async()=>{
 /* deep link */
 const m2=location.hash.match(/^#reel\/(.+)$/);
 if(m2){const i=REELS.findIndex(r=>r.id===m2[1]); if(i>-1) openPlayer(i)}
+
+/* ================= DEVOTION CORNER ================= */
+const SITE_URL = location.origin + location.pathname;
+const CHALISA = [
+ {k:"doha",t:"श्रीगुरु चरन सरोज रज, निज मनु मुकुरु सुधारि।|बरनउँ रघुबर बिमल जसु, जो दायकु फल चारि॥",e:"Cleansing the mirror of my mind with the dust of my Guru's lotus feet, I sing the pure glory of Shri Ram, which grants the four fruits of life."},
+ {k:"doha",t:"बुद्धिहीन तनु जानिके, सुमिरौं पवन-कुमार।|बल बुधि बिद्या देहु मोहिं, हरहु कलेस बिकार॥",e:"Knowing myself to be lacking in wisdom, I remember you, Son of the Wind. Grant me strength, wisdom and knowledge; take away my sorrows and flaws."},
+ {t:"जय हनुमान ज्ञान गुन सागर।|जय कपीस तिहुँ लोक उजागर॥",e:"Victory to Hanuman, ocean of wisdom and virtue. Victory to the lord of the vanaras, who lights up the three worlds."},
+ {t:"राम दूत अतुलित बल धामा।|अंजनि-पुत्र पवनसुत नामा॥",e:"Messenger of Ram, home of matchless strength — you are known as Anjani's son and the Son of the Wind."},
+ {t:"महाबीर बिक्रम बजरंगी।|कुमति निवार सुमति के संगी॥",e:"Great hero, mighty Bajrangi with a body like a thunderbolt — you drive away bad thoughts and stand beside good sense."},
+ {t:"कंचन बरन बिराज सुबेसा।|कानन कुंडल कुंचित केसा॥",e:"Golden in colour and beautifully dressed, with earrings in your ears and curly hair."},
+ {t:"हाथ बज्र औ ध्वजा बिराजै।|काँधे मूँज जनेऊ साजै॥",e:"A thunderbolt-mace and a flag shine in your hands; a sacred thread of munja grass adorns your shoulder."},
+ {t:"संकर सुवन केसरीनंदन।|तेज प्रताप महा जग बंदन॥",e:"Born of Shiva's grace, beloved son of Kesari — your radiance and glory are honoured by the whole world."},
+ {t:"बिद्यावान गुनी अति चातुर।|राम काज करिबे को आतुर॥",e:"Learned, virtuous and very wise, you are always eager to do Ram's work."},
+ {t:"प्रभु चरित्र सुनिबे को रसिया।|राम लखन सीता मन बसिया॥",e:"You delight in hearing the Lord's story; Ram, Lakshman and Sita live in your heart."},
+ {t:"सूक्ष्म रूप धरि सियहिं दिखावा।|बिकट रूप धरि लंक जरावा॥",e:"Taking a tiny form you appeared before Sita; taking a fearsome form you set Lanka ablaze."},
+ {t:"भीम रूप धरि असुर सँहारे।|रामचंद्र के काज सँवारे॥",e:"Taking a mighty form you destroyed the demons and completed Ramchandra's mission."},
+ {t:"लाय सजीवन लखन जियाये।|श्रीरघुबीर हरषि उर लाये॥",e:"You brought the Sanjeevani herb and revived Lakshman; overjoyed, Shri Ram held you to his heart."},
+ {t:"रघुपति कीन्ही बहुत बड़ाई।|तुम मम प्रिय भरतहि सम भाई॥",e:"Ram praised you greatly: \"You are as dear to me as my brother Bharat.\""},
+ {t:"सहस बदन तुम्हरो जस गावैं।|अस कहि श्रीपति कंठ लगावैं॥",e:"\"May the thousand-mouthed serpent sing your glory,\" said the Lord, and embraced you."},
+ {t:"सनकादिक ब्रह्मादि मुनीसा।|नारद सारद सहित अहीसा॥",e:"The sages Sanaka and others, Brahma and the great munis, Narada, Saraswati and Sheshnag —"},
+ {t:"जम कुबेर दिगपाल जहाँ ते।|कबि कोबिद कहि सके कहाँ ते॥",e:"Yama, Kubera and the guardians of the directions — even they, and all poets and scholars, cannot fully describe your glory."},
+ {t:"तुम उपकार सुग्रीवहिं कीन्हा।|राम मिलाय राज पद दीन्हा॥",e:"You did Sugriva a great kindness: you brought him to Ram and gave him back his kingdom."},
+ {t:"तुम्हरो मंत्र बिभीषन माना।|लंकेस्वर भए सब जग जाना॥",e:"Vibhishana followed your advice and became king of Lanka — the whole world knows it."},
+ {t:"जुग सहस्र जोजन पर भानू।|लील्यो ताहि मधुर फल जानू॥",e:"The sun, thousands of yojanas away, you swallowed, thinking it was a sweet fruit."},
+ {t:"प्रभु मुद्रिका मेलि मुख माहीं।|जलधि लाँघि गये अचरज नाहीं॥",e:"Holding the Lord's ring in your mouth, you leapt across the ocean — no wonder at all for you."},
+ {t:"दुर्गम काज जगत के जेते।|सुगम अनुग्रह तुम्हरे तेते॥",e:"Every difficult task in the world becomes easy by your grace."},
+ {t:"राम दुआरे तुम रखवारे।|होत न आज्ञा बिनु पैसारे॥",e:"You guard Ram's door; no one may enter without your permission."},
+ {t:"सब सुख लहै तुम्हारी सरना।|तुम रच्छक काहू को डर ना॥",e:"All happiness is found in your shelter; with you as protector, there is nothing to fear."},
+ {t:"आपन तेज सम्हारो आपै।|तीनों लोक हाँक तें काँपै॥",e:"Only you can hold your own power; the three worlds tremble at your roar."},
+ {t:"भूत पिसाच निकट नहिं आवै।|महाबीर जब नाम सुनावै॥",e:"No ghost or evil spirit comes near when the name of the Great Hero is chanted."},
+ {t:"नासै रोग हरै सब पीरा।|जपत निरंतर हनुमत बीरा॥",e:"Illness ends and all pain is removed by constantly chanting the name of brave Hanuman."},
+ {t:"संकट तें हनुमान छुड़ावै।|मन क्रम बचन ध्यान जो लावै॥",e:"Hanuman frees from every trouble all who remember him in thought, deed and word."},
+ {t:"सब पर राम तपस्वी राजा।|तिन के काज सकल तुम साजा॥",e:"Ram, the ascetic king, is above all — and you carry out all his work."},
+ {t:"और मनोरथ जो कोई लावै।|सोइ अमित जीवन फल पावै॥",e:"Whoever comes to you with any wish receives the boundless fruit of life."},
+ {t:"चारों जुग परताप तुम्हारा।|है परसिद्ध जगत उजियारा॥",e:"Your glory spans all four ages; your light is famous throughout the world."},
+ {t:"साधु संत के तुम रखवारे।|असुर निकंदन राम दुलारे॥",e:"You protect saints and the good, destroy demons, and are Ram's beloved."},
+ {t:"अष्ट सिद्धि नौ निधि के दाता।|अस बर दीन जानकी माता॥",e:"Mother Sita blessed you with the power to grant the eight siddhis and nine treasures."},
+ {t:"राम रसायन तुम्हरे पासा।|सदा रहो रघुपति के दासा॥",e:"You hold the nectar of Ram's name; may you always remain Raghupati's servant."},
+ {t:"तुम्हरे भजन राम को पावै।|जनम जनम के दुख बिसरावै॥",e:"By worshipping you one reaches Ram and forgets the sorrows of many lifetimes."},
+ {t:"अंत काल रघुबर पुर जाई।|जहाँ जन्म हरि-भक्त कहाई॥",e:"At life's end one goes to Ram's abode, and wherever born again is known as a devotee of Hari."},
+ {t:"और देवता चित्त न धरई।|हनुमत सेइ सर्ब सुख करई॥",e:"Even without keeping other gods in mind, serving Hanuman brings every happiness."},
+ {t:"संकट कटै मिटै सब पीरा।|जो सुमिरै हनुमत बलबीरा॥",e:"Troubles end and all pain fades for whoever remembers mighty Hanuman."},
+ {t:"जै जै जै हनुमान गोसाईं।|कृपा करहु गुरुदेव की नाईं॥",e:"Victory, victory, victory to Lord Hanuman! Bless me as my own Guru would."},
+ {t:"जो सत बार पाठ कर कोई।|छूटहि बंदि महा सुख होई॥",e:"Whoever recites this a hundred times is freed from bondage and finds great joy."},
+ {t:"जो यह पढ़ै हनुमान चालीसा।|होय सिद्धि साखी गौरीसा॥",e:"Whoever reads this Hanuman Chalisa attains success — Lord Shiva himself is witness."},
+ {t:"तुलसीदास सदा हरि चेरा।|कीजै नाथ हृदय महँ डेरा॥",e:"Tulsidas, forever Hari's servant, prays: Lord, make your home in my heart."},
+ {k:"doha",t:"पवन तनय संकट हरन, मंगल मूरति रूप।|राम लखन सीता सहित, हृदय बसहु सुर भूप॥",e:"Son of the Wind, remover of troubles, embodiment of all that is auspicious — dwell in my heart together with Ram, Lakshman and Sita, O king of gods."}
+];
+const AARTI = [
+ {t:"आरती कीजै हनुमान लला की।|दुष्ट दलन रघुनाथ कला की॥",e:"Let us offer aarti to beloved Hanuman, destroyer of the wicked, bearer of Ram's divine power.",c:1},
+ {t:"जाके बल से गिरिवर काँपे।|रोग दोष जाके निकट न झाँके॥",e:"Mountains tremble at his strength; illness and evil dare not come near him."},
+ {t:"अंजनि पुत्र महाबलदायी।|संतन के प्रभु सदा सहाई॥",e:"Anjani's son, giver of great strength, ever the helper of saints."},
+ {t:"दे बीरा रघुनाथ पठाए।|लंका जारि सिया सुधि लाए॥",e:"Ram sent him on his mission; he burned Lanka and brought back news of Sita."},
+ {t:"लंका सो कोट समुद्र सी खाई।|जात पवनसुत बार न लाई॥",e:"Lanka was a fortress with the ocean as its moat — the Son of the Wind crossed it without delay."},
+ {t:"लंका जारि असुर संहारे।|सियारामजी के काज सँवारे॥",e:"He burned Lanka, destroyed the demons, and fulfilled the work of Sita and Ram."},
+ {t:"लक्ष्मण मूर्छित पड़े सकारे।|आनि सजीवन प्राण उबारे॥",e:"When Lakshman lay unconscious, he brought the Sanjeevani herb and saved his life."},
+ {t:"पैठि पाताल तोरि जम-कारे।|अहिरावण की भुजा उखारे॥",e:"He entered the underworld, broke open its prison, and tore off Ahiravan's arms."},
+ {t:"बाएँ भुजा असुर दल मारे।|दाहिने भुजा संतजन तारे॥",e:"With his left arm he struck down the demon armies; with his right he saved the saints."},
+ {t:"सुर नर मुनि आरती उतारें।|जय जय जय हनुमान उचारें॥",e:"Gods, people and sages offer him aarti, chanting \"Jai, Jai, Jai Hanuman!\""},
+ {t:"कंचन थार कपूर लौ छाई।|आरती करत अंजना माई॥",e:"The golden plate glows with camphor flame as Mother Anjana performs the aarti."},
+ {t:"जो हनुमानजी की आरती गावे।|बसि बैकुंठ परम पद पावे॥",e:"Whoever sings Hanuman ji's aarti dwells in Vaikuntha and reaches the highest state."},
+ {t:"आरती कीजै हनुमान लला की।|दुष्ट दलन रघुनाथ कला की॥",e:"Let us offer aarti to beloved Hanuman, destroyer of the wicked, bearer of Ram's divine power.",c:1}
+];
+const MANTRAS = [
+ {t:"ॐ हं हनुमते नमः",tr:"Om Ham Hanumate Namah",src:"बीज मंत्र · Beej mantra",hi:"हनुमान जी को नमन — साहस, बल और निर्भयता के लिए।",e:"Salutations to Hanuman — chanted for courage, strength and fearlessness.",big:1,j:1},
+ {t:"श्री राम जय राम जय जय राम",tr:"Shri Ram Jai Ram Jai Jai Ram",src:"राम तारक मंत्र · Ram mantra",hi:"हनुमान जी का सबसे प्रिय मंत्र — श्री राम की जय।",e:"Hanuman ji's most beloved chant — victory to Shri Ram.",j:2},
+ {t:"मनोजवं मारुततुल्यवेगं जितेन्द्रियं बुद्धिमतां वरिष्ठम्।|वातात्मजं वानरयूथमुख्यं श्रीरामदूतं शरणं प्रपद्ये॥",src:"श्री राम रक्षा स्तोत्र · Ram Raksha Stotra",hi:"मन जैसे तेज़, वायु जैसे वेगवान, इंद्रियों के विजेता, बुद्धिमानों में श्रेष्ठ — श्रीराम के दूत की शरण लेता हूँ।",e:"I take refuge in Ram's messenger — swift as the mind, fast as the wind, master of the senses, wisest of the wise, son of the Wind, leader of the vanara army."},
+ {t:"अतुलितबलधामं हेमशैलाभदेहं दनुजवनकृशानुं ज्ञानिनामग्रगण्यम्।|सकलगुणनिधानं वानराणामधीशं रघुपतिप्रियभक्तं वातजातं नमामि॥",src:"सुंदरकांड, रामचरितमानस · Sundarkand",hi:"अतुलित बल के धाम, सोने के पर्वत जैसी देह वाले, ज्ञानियों में अग्रणी, सब गुणों के भंडार — पवनपुत्र को प्रणाम।",e:"I bow to the Son of the Wind — home of matchless strength, body shining like a golden mountain, fire to the forest of demons, foremost of the wise, treasury of all virtues, Ram's beloved devotee."},
+ {t:"ॐ आञ्जनेयाय विद्महे वायुपुत्राय धीमहि।|तन्नो हनुमत् प्रचोदयात्॥",tr:"Om Anjaneyaya Vidmahe Vayuputraya Dhimahi, Tanno Hanumat Prachodayat",src:"हनुमान गायत्री · Hanuman Gayatri",hi:"अंजनी पुत्र का ध्यान करते हैं, पवनपुत्र का चिंतन करते हैं — हनुमान जी हमें सही राह दिखाएँ।",e:"We meditate on Anjani's son, the Son of the Wind — may Hanuman inspire and guide us."},
+ {t:"जय श्री राम",tr:"Jai Shri Ram",src:"जयघोष · Victory chant",hi:"हर संकट में, हर ख़ुशी में — बस एक नाम।",e:"In every trouble and every joy — just one name.",big:1,j:0}
+];
+const JAPA_M = ["जय श्री राम","ॐ हं हनुमते नमः","श्री राम जय राम जय जय राम","ॐ नमः शिवाय"];
+const STORY_IDEAS = ["लंका दहन","संजीवनी बूटी","बाल हनुमान और सूर्य","राम सेतु","अहिरावण वध","हनुमान और भीम","शबरी के बेर","केवट की भक्ति","ध्रुव की तपस्या","सावित्री और सत्यवान"];
+
+const lines = s => s.split("|");
+const artFor = i => { const n=i-1; if(i<2||i===42) return "glow"; if(n===9||n===10) return "lanka"; if(n===11||n===19) return "fly"; if(n===18) return "shore"; if(n===16||n===17) return "army"; return ["rise","glow","forest","rise"][n%4]; };
+const kindLabel = i => (i<2||i===42) ? bi("दोहा","Doha") : bi("चौपाई "+toDeva(i-1)+" / ४०","Chaupai "+(i-1)+" / 40");
+const store = { get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}, set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}} };
+
+/* ---------- menu ---------- */
+const hdr=$("#hdr"), menuBtn=$("#menuBtn");
+function setMenu(open){ hdr.classList.toggle("menu-open",open); menuBtn.setAttribute("aria-expanded",open);
+  document.querySelectorAll(".mi").forEach((a,i)=>a.style.transitionDelay=open?(60+i*35)+"ms":"0ms"); }
+menuBtn.onclick=e=>{e.stopPropagation(); setMenu(!hdr.classList.contains("menu-open"))};
+document.addEventListener("click",e=>{ if(hdr.classList.contains("menu-open") && !e.target.closest("#menu")) setMenu(false) });
+document.addEventListener("keydown",e=>{ if(e.key==="Escape") setMenu(false) });
+document.querySelectorAll("#menu a.mi").forEach(a=>a.addEventListener("click",()=>setMenu(false)));
+
+/* ---------- tabs ---------- */
+const TABS=["chalisa","aarti","mantra","japa"];
+function moveInd(){ const t=document.querySelector('.tab[aria-selected="true"]'); if(!t) return; const ind=$("#tabInd"); ind.style.left=t.offsetLeft+"px"; ind.style.width=t.offsetWidth+"px"; }
+function openTab(id,scroll){
+  document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.tab===id));
+  document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("on",p.id==="p-"+id));
+  moveInd(); if(id!=="aarti") stopAarti(); if(id!=="chalisa") stopAuto();
+  if(scroll) $("#tabs").scrollIntoView({behavior:"smooth",block:"start"});
+}
+document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>openTab(t.dataset.tab));
+addEventListener("resize",moveInd); document.fonts && document.fonts.ready.then(moveInd); setTimeout(moveInd,300);
+document.addEventListener("click",e=>{ const a=e.target.closest('a[href^="#"]'); if(!a) return; const id=a.getAttribute("href").slice(1); if(TABS.includes(id)){ e.preventDefault(); openTab(id,true); history.replaceState(null,"","#"+id); }});
+
+/* ---------- petals + bell ---------- */
+function petals(n=46){ if(matchMedia("(prefers-reduced-motion:reduce)").matches) return;
+  let box=$(".petals"); if(!box){ box=document.createElement("div"); box.className="petals"; document.body.appendChild(box); }
+  for(let i=0;i<n;i++){ const p=document.createElement("span"); p.className="petal"+(Math.random()<.4?" m":"");
+    const d=3.5+Math.random()*3.5; p.style.left=Math.random()*100+"vw"; p.style.animationDuration=d+"s"; p.style.animationDelay=Math.random()*1.6+"s";
+    p.style.setProperty("--dx",(Math.random()*160-80)+"px"); p.style.setProperty("--r",(Math.random()*720-360)+"deg"); p.style.transform=`scale(${.6+Math.random()*.8})`;
+    box.appendChild(p); setTimeout(()=>p.remove(),(d+2)*1000); } }
+function bellSound(){ try{ const ac=bellSound.ac||(bellSound.ac=new (window.AudioContext||window.webkitAudioContext)()); ac.resume&&ac.resume(); const t=ac.currentTime;
+  [[620,1,3.2],[1480,.55,2.2],[2410,.35,1.6],[3550,.18,1],[5100,.08,.6]].forEach(([f,g,d])=>{ const o=ac.createOscillator(),v=ac.createGain(); o.type="sine"; o.frequency.value=f;
+    v.gain.setValueAtTime(0,t); v.gain.linearRampToValueAtTime(g*.28,t+.008); v.gain.exponentialRampToValueAtTime(.0001,t+d); o.connect(v).connect(ac.destination); o.start(t); o.stop(t+d+.1); }); }catch(e){} }
+function ring(){ const b=$("#bell"); b.classList.remove("ring"); void b.offsetWidth; b.classList.add("ring"); bellSound(); }
+$("#bell").onclick=ring;
+
+/* ---------- verse of the day ---------- */
+(()=>{ const now=new Date(), doy=Math.floor((now-new Date(now.getFullYear(),0,0))/864e5), i=2+(doy%40), v=CHALISA[i];
+  $("#votdV").innerHTML=lines(v.t).join("<br>"); $("#votdM").textContent=v.e; $("#votdImg").src=`assets/art/${artFor(i)}.jpg`;
+  const d=now.getDay(), f=$("#dayflag");
+  if(d===2){ f.hidden=false; f.innerHTML=bi("🚩 आज मंगलवार है — बजरंगबली का दिन","🚩 Tuesday — Hanuman ji's day"); }
+  else if(d===6){ f.hidden=false; f.innerHTML=bi("🚩 आज शनिवार है — हनुमान जी की विशेष पूजा","🚩 Saturday — special day of Hanuman puja"); }
+  $("#votdWa").href="https://wa.me/?text="+encodeURIComponent(`🙏 आज की चौपाई\n\n${lines(v.t).join("\n")}\n\n${v.e}\n\n🚩 ${SITE_URL}`);
+  $("#votdRead").onclick=()=>{ openTab("chalisa",true); setMode("reader"); go(i); };
+})();
+
+/* ---------- chalisa reader ---------- */
+let ci=0, auto=null, fs=store.get("hv-fs",1);
+const reader=$("#reader");
+const arts=[...new Set(CHALISA.map((_,i)=>artFor(i)))];
+$("#rBgs").innerHTML=arts.map(a=>`<img data-a="${a}" src="assets/art/${a}.jpg" alt="" loading="lazy">`).join("");
+$("#rProg").innerHTML=CHALISA.map((_,i)=>`<i data-i="${i}" title="${i+1}"></i>`).join("");
+reader.style.setProperty("--fs",fs);
+function go(i){ ci=Math.max(0,Math.min(CHALISA.length-1,i)); const v=CHALISA[ci];
+  document.querySelectorAll("#rBgs img").forEach(im=>im.classList.toggle("on",im.dataset.a===artFor(ci)));
+  $("#rNum").innerHTML=kindLabel(ci);
+  let k=0; $("#rVerse").innerHTML=lines(v.t).map(l=>l.split(" ").map(w=>`<span class="w" style="animation-delay:${(k++)*0.075}s">${w}</span>`).join(" ")).join("<br>");
+  const m=$("#rMean"); m.textContent=v.e; m.style.animation="none"; void m.offsetWidth; m.style.animation="";
+  document.querySelectorAll("#rProg i").forEach((s,j)=>{ s.className=j<ci?"done":j===ci?"cur":""; });
+  if(ci===CHALISA.length-1 && auto){ stopAuto(); setTimeout(()=>{petals(60);ring()},1600); }
+}
+const playIco=`<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>`, pauseIco=`<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>`;
+function stopAuto(){ clearInterval(auto); auto=null; $("#rPlay").innerHTML=playIco; }
+function startAuto(){ if(ci===CHALISA.length-1) go(0); auto=setInterval(()=>go(ci+1),9000); $("#rPlay").innerHTML=pauseIco; }
+$("#rPlay").innerHTML=playIco;
+$("#rPlay").onclick=()=>auto?stopAuto():startAuto();
+$("#rNext").onclick=()=>go(ci+1); $("#rPrev").onclick=()=>go(ci-1);
+$("#rProg").onclick=e=>{ const s=e.target.closest("i"); if(s) go(+s.dataset.i) };
+$("#fsUp").onclick=()=>{ fs=Math.min(1.5,+(fs+.1).toFixed(2)); reader.style.setProperty("--fs",fs); store.set("hv-fs",fs) };
+$("#fsDown").onclick=()=>{ fs=Math.max(.8,+(fs-.1).toFixed(2)); reader.style.setProperty("--fs",fs); store.set("hv-fs",fs) };
+let rx=null; reader.addEventListener("touchstart",e=>rx=e.touches[0].clientX,{passive:true});
+reader.addEventListener("touchend",e=>{ if(rx===null) return; const d=e.changedTouches[0].clientX-rx; if(Math.abs(d)>50) go(ci+(d<0?1:-1)); rx=null });
+document.addEventListener("keydown",e=>{ if(P.classList.contains("open")||!$("#p-chalisa").classList.contains("on")||!$("#reader").offsetParent) return;
+  const r=reader.getBoundingClientRect(); if(r.bottom<0||r.top>innerHeight) return;
+  if(e.key==="ArrowRight"){go(ci+1)} else if(e.key==="ArrowLeft"){go(ci-1)} });
+go(0);
+/* full text */
+$("#full").innerHTML=`<div class="fv-head">॥ श्री हनुमान चालीसा ॥</div>`+CHALISA.map((v,i)=>`<div class="fv reveal ${v.k||""}" data-i="${i}"><div class="n">${(i<2||i===42)?"दोहा":toDeva(i-1)}</div><div class="t">${lines(v.t).join("<br>")}</div><span class="en">${v.e}</span></div>`).join("");
+document.querySelectorAll("#full .fv").forEach(el=>{ io.observe(el); el.onclick=()=>{ setMode("reader"); go(+el.dataset.i); reader.scrollIntoView({behavior:"smooth",block:"center"}); } });
+function setMode(m){ document.querySelectorAll("[data-mode]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.mode===m));
+  reader.style.display=m==="reader"?"":"none"; $("#full").classList.toggle("on",m==="full"); if(m==="full") stopAuto(); }
+document.querySelectorAll("[data-mode]").forEach(b=>b.onclick=()=>setMode(b.dataset.mode));
+
+/* ---------- aarti ---------- */
+(()=>{ // flowers + mini diyas on thali
+  let f=""; for(let i=0;i<22;i++){ const a=i/22*Math.PI*2, x=100+70*Math.cos(a), y=100+70*Math.sin(a); f+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${i%2?4.2:5.2}" fill="${i%2?"#ffb000":"#e8452a"}" stroke="#7a2d0c" stroke-width=".6"/><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="1.6" fill="#fff3c4"/>`; }
+  $("#flowers").innerHTML=f;
+  let m=""; [[100,40],[160,100],[40,100]].forEach(([x,y])=>{ m+=`<ellipse cx="${x}" cy="${y+6}" rx="10" ry="3.5" fill="#c0601f" stroke="#7a2d0c" stroke-width=".8"/><g class="fl"><ellipse cx="${x}" cy="${y-3}" rx="4.5" ry="9" fill="url(#fg)"/><path d="M${x} ${y-10} C${x+3} ${y-4} ${x+3} ${y+1} ${x} ${y+4} C${x-3} ${y+1} ${x-3} ${y-4} ${x} ${y-10}Z" fill="#ffd36b"/></g>`; });
+  $("#minis").innerHTML=m;
+})();
+$("#alist").innerHTML=AARTI.map((v,i)=>`<div class="al ${v.c?"chorus":""}" data-i="${i}"><div class="t">${lines(v.t).join(" ")}</div><span class="en">${v.e}</span></div>`).join("");
+let at=null, ai=-1;
+function aStep(){ ai++; const els=document.querySelectorAll(".al");
+  if(ai>=els.length){ stopAarti(); petals(70); ring(); toast("🙏 जय बजरंगबली · Jai Bajrangbali"); return; }
+  els.forEach((el,j)=>{ el.classList.toggle("on",j===ai); el.classList.toggle("past",j<ai); });
+  if(ai%4===0) ring(); }
+function stopAarti(){ clearInterval(at); at=null; $("#thali").classList.remove("playing"); document.querySelectorAll(".al").forEach(el=>el.classList.remove("on","past"));
+  $("#aPlay").innerHTML=`🪔 ${bi("आरती शुरू करें","Start Aarti")}`; }
+$("#aPlay").onclick=()=>{ if(at){ stopAarti(); return; } ai=-1; $("#thali").classList.add("playing"); aStep(); at=setInterval(aStep,5200);
+  $("#aPlay").innerHTML=`⏸ ${bi("रोकें","Stop")}`; };
+$("#aPetals").onclick=()=>petals(60);
+
+/* ---------- mantras ---------- */
+$("#mgrid").innerHTML=MANTRAS.map((m,i)=>`
+  <div class="mcard reveal" tabindex="0" data-i="${i}">
+    <div class="in">
+      <div class="mface front"><span class="wm">ॐ</span>
+        <div class="mt ${m.big?"big":""}">${lines(m.t).join("<br>")}</div>
+        ${m.tr?`<div class="tr en">${m.tr}</div>`:""}
+        <div class="src">${m.src}</div>
+        <div class="hint">↻ <span class="hi">अर्थ के लिए टैप करें</span><span class="en"> Tap for meaning</span></div>
+      </div>
+      <div class="mface back"><span class="wm">ॐ</span>
+        <div class="mean"><span class="hi">${m.hi}</span><span class="en">${m.e}</span></div>
+        <div class="row-btns">
+          ${m.j!==undefined?`<button class="btn btn-gold" data-japa="${m.j}">📿 ${bi("जप करें","Chant")}</button>`:""}
+          <button class="btn btn-ghost" data-copy="${i}">⧉ ${bi("कॉपी","Copy")}</button>
+        </div>
+      </div>
+    </div>
+  </div>`).join("");
+document.querySelectorAll(".mcard").forEach(c=>{ io.observe(c);
+  c.addEventListener("click",e=>{
+    const j=e.target.closest("[data-japa]"), cp=e.target.closest("[data-copy]");
+    if(j){ e.stopPropagation(); setJapaM(+j.dataset.japa); openTab("japa",true); return; }
+    if(cp){ e.stopPropagation(); const m=MANTRAS[+cp.dataset.copy]; navigator.clipboard&&navigator.clipboard.writeText(lines(m.t).join("\n")).then(()=>toast("कॉपी हो गया · Copied")).catch(()=>{}); return; }
+    c.classList.toggle("flip"); });
+  c.addEventListener("keydown",e=>{ if(e.key==="Enter") c.classList.toggle("flip") }); });
+
+/* ---------- japa mala ---------- */
+const J=Object.assign({m:0,c:0,malas:0,total:0},store.get("hv-japa",{}));
+(()=>{ let s=""; for(let i=0;i<108;i++){ const a=(i/108)*Math.PI*2-Math.PI/2, x=50+45*Math.cos(a), y=50+45*Math.sin(a); s+=`<circle class="b" data-i="${i}" cx="${x.toFixed(2)}" cy="${y.toFixed(2)}" r="1.75"/>`; }
+  s+=`<circle cx="50" cy="${(50-45).toFixed(2)}" r="3.4" fill="#c8412a" stroke="#ffd98f" stroke-width=".5"/><path d="M50 8.4 L48.2 13 L51.8 13Z" fill="#c8412a"/>`;
+  $("#malaSvg").innerHTML=s; })();
+$("#jchips").innerHTML=JAPA_M.map((m,i)=>`<button class="chip" data-jm="${i}">${m}</button>`).join("");
+document.querySelectorAll("[data-jm]").forEach(b=>b.onclick=()=>setJapaM(+b.dataset.jm));
+const beads=[...document.querySelectorAll("#malaSvg .b")];
+function jRender(){ $("#jCount").textContent=toDeva(J.c); $("#jS1").textContent=J.c; $("#jS2").textContent=J.malas; $("#jS3").textContent=J.total.toLocaleString("en-IN");
+  $("#jNow").textContent=JAPA_M[J.m]; document.querySelectorAll("[data-jm]").forEach(b=>b.setAttribute("aria-pressed",+b.dataset.jm===J.m));
+  beads.forEach((b,i)=>{ b.classList.toggle("on",i<J.c); b.classList.toggle("cur",i===J.c-1); });
+  $("#malaSvg").style.transform=`rotate(${-(J.c)*(360/108)}deg)`; store.set("hv-japa",J); }
+function setJapaM(i){ J.m=i; jRender(); const n=$("#jNow"); n.classList.remove("bump"); void n.offsetWidth; n.classList.add("bump"); }
+function chant(){ J.c++; J.total++;
+  const jb=$("#jbtn"), mala=$("#mala"); jb.classList.add("tap"); setTimeout(()=>jb.classList.remove("tap"),120);
+  const r=document.createElement("span"); r.className="rip"; mala.appendChild(r); setTimeout(()=>r.remove(),800);
+  const p=document.createElement("span"); p.className="pop"; p.textContent=JAPA_M[J.m]; mala.appendChild(p); setTimeout(()=>p.remove(),1100);
+  try{ navigator.vibrate&&navigator.vibrate(12) }catch(e){}
+  if(J.c>=108){ J.c=0; J.malas++; jRender(); $("#malaSvg").style.transform="rotate(0deg)"; petals(70); ring(); toast("🙏 एक माला पूर्ण! · One mala complete"); try{navigator.vibrate&&navigator.vibrate([60,60,120])}catch(e){} return; }
+  jRender(); }
+$("#jbtn").addEventListener("click",chant);
+$("#jbtn").addEventListener("keydown",e=>{ if(e.key===" "||e.key==="Enter"){ e.preventDefault(); chant(); } });
+$("#jReset").onclick=()=>{ J.c=0; jRender(); toast("↺ नई माला · New mala") };
+$("#jShare").onclick=()=>open("https://wa.me/?text="+encodeURIComponent(`📿 मैंने आज ${J.total} बार जप किया — "${JAPA_M[J.m]}" 🙏\nआप भी जप कीजिए: ${SITE_URL}#japa`),"_blank");
+jRender();
+
+/* ---------- suggest + share ---------- */
+let pick=null;
+$("#sChips").innerHTML=STORY_IDEAS.map(s=>`<button class="chip" data-s="${s}" aria-pressed="false">${s}</button>`).join("");
+document.querySelectorAll("[data-s]").forEach(b=>b.onclick=()=>{ pick=b.dataset.s; document.querySelectorAll("[data-s]").forEach(x=>x.setAttribute("aria-pressed",x===b)); });
+$("#sSend").onclick=async()=>{ const msg=`🙏 जय श्री राम! अगली कथा: ${pick||"(आपकी पसंद)"}`;
+  try{ await navigator.clipboard.writeText(msg); toast("संदेश कॉपी हुआ — इंस्टाग्राम में पेस्ट करें · Message copied") }catch(e){}
+  setTimeout(()=>open(`https://ig.me/m/${SITE.instagramHandle}`,"_blank"),500); };
+const shareText=`🚩 संकटमोचन हनुमानवर्स — पौराणिक कथाएँ, चालीसा, आरती और जप माला\n${SITE_URL}`;
+$("#shWa").href="https://wa.me/?text="+encodeURIComponent(shareText);
+$("#shCopy").onclick=()=>navigator.clipboard&&navigator.clipboard.writeText(SITE_URL).then(()=>toast("लिंक कॉपी हो गया · Link copied")).catch(()=>{});
+$("#shNative").onclick=async()=>{ try{ if(navigator.share) await navigator.share({title:"Sankatmochan Hanumanverse",text:shareText,url:SITE_URL}); else { await navigator.clipboard.writeText(SITE_URL); toast("लिंक कॉपी हो गया · Link copied") } }catch(e){} };
+
+/* deep link to a tab */
+{ const h=location.hash.slice(1); if(TABS.includes(h)) setTimeout(()=>openTab(h,true),400); }
+
+
+/* ---------- content protection ---------- */
+document.querySelectorAll("video").forEach(v=>{
+  v.setAttribute("controlsList","nodownload noremoteplayback");
+  v.disablePictureInPicture=true; v.setAttribute("disablepictureinpicture","");
+});
+document.addEventListener("contextmenu",e=>{
+  if(e.target.closest("video,img,.card,.s-media,.phone,.p-video")){e.preventDefault(); toast("© Sankatmochan Hanumanverse")}
+});
+document.addEventListener("dragstart",e=>{ if(e.target.closest("video,img")) e.preventDefault() });
 
 /* ---------- embers ---------- */
 (()=>{
