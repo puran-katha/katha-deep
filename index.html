@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="hi" data-lang="both">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>कथा दीप · Katha Deep — पौराणिक कथाएँ, Stories from Indian Mythology</title>
+<meta name="description" content="हिंदू पौराणिक कथाओं पर एनिमेटेड रील्स — गणेश, हनुमान, शिव, गजेन्द्र मोक्ष, प्रह्लाद और नरसिंह। Animated reels of stories from Indian mythology, in Hindi with English subtitles.">
+<meta property="og:title" content="कथा दीप · Katha Deep">
+<meta property="og:description" content="Animated mythology reels in Hindi with English subtitles. पौराणिक कथाएँ, हर रील में एक दीया।">
+<meta property="og:image" content="assets/og-image.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#120a07">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 6c6 10 10 16 10 23a10 10 0 0 1-20 0c0-7 4-13 10-23z' fill='%23ffb547'/%3E%3Cpath d='M6 42h52c-3 10-13 16-26 16S9 52 6 42z' fill='%23c8642a'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Tiro+Devanagari+Hindi:ital@0;1&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#120a07; --night-2:#1c110b; --wood:#2a1810; --wood-2:#3a2216;
+  --gold:#f2b84b; --gold-soft:#e9c98a; --flame:#ff8a3d; --vermilion:#c8412a;
+  --teal:#7fd8c6; --ink:#f6ead6; --muted:#bfa889; --line:rgba(242,184,75,.22);
+  --hi:"Tiro Devanagari Hindi", serif; --display:"Rozha One","Tiro Devanagari Hindi",serif;
+  --en:"Cormorant Garamond", Georgia, serif; --ui:"Inter",system-ui,sans-serif;
+  --r:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--night);color:var(--ink);font-family:var(--hi);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+::selection{background:var(--gold);color:var(--night)}
+
+/* language switching */
+html[data-lang="hi"] .en{display:none!important}
+html[data-lang="en"] .hi{display:none!important}
+.en{font-family:var(--en);font-style:italic;color:var(--muted)}
+html[data-lang="en"] .en{font-style:normal;color:var(--ink)}
+.pair{display:flex;flex-direction:column;gap:.15em}
+
+/* embers */
+#embers{position:fixed;inset:0;pointer-events:none;z-index:0}
+main,header,footer{position:relative;z-index:1}
+main{overflow-x:clip}
+
+/* ornaments */
+.rule{display:flex;align-items:center;gap:12px;color:var(--gold);justify-content:center}
+.rule::before,.rule::after{content:"";height:1px;flex:1;max-width:160px;background:linear-gradient(90deg,transparent,var(--gold))}
+.rule::after{transform:scaleX(-1)}
+.rule i{width:8px;height:8px;transform:rotate(45deg);background:var(--gold);display:block}
+.wrap{width:min(1180px,100% - 32px);margin-inline:auto}
+
+/* header */
+header{position:sticky;top:0;z-index:30;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(18,10,7,.72);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:66px;gap:12px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand svg{width:30px;height:30px;filter:drop-shadow(0 0 10px rgba(255,160,60,.6))}
+.brand b{font-family:var(--display);font-weight:400;font-size:1.45rem;color:var(--gold);letter-spacing:.3px;line-height:1}
+.brand small{display:block;font-family:var(--en);font-style:italic;color:var(--muted);font-size:.85rem;line-height:1}
+.nav-links{display:flex;align-items:center;gap:22px;font-family:var(--ui);font-size:.9rem}
+.nav-links a.text{color:var(--muted);transition:color .2s}
+.nav-links a.text:hover{color:var(--gold)}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px;font-family:var(--ui);font-size:.8rem}
+.lang button{padding:5px 11px;border-radius:999px;color:var(--muted);transition:.2s}
+.lang button[aria-pressed="true"]{background:var(--gold);color:var(--night);font-weight:600}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:999px;font-family:var(--ui);font-weight:600;font-size:.95rem;transition:transform .2s, box-shadow .2s, background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{background:linear-gradient(135deg,#ffd27a,var(--gold) 45%,var(--flame));color:#2a1306;box-shadow:0 8px 30px -8px rgba(255,140,60,.7)}
+.btn-gold:hover{box-shadow:0 12px 40px -6px rgba(255,140,60,.9)}
+.btn-ghost{border:1px solid var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--gold);background:rgba(242,184,75,.08)}
+.btn svg{width:18px;height:18px}
+.ig-grad{background:linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7);color:#fff;box-shadow:0 8px 30px -8px rgba(238,42,123,.7)}
+.nav .btn{padding:9px 16px;font-size:.85rem}
+
+/* hero */
+.hero{min-height:calc(100svh - 66px);display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:40px;padding:48px 0 72px}
+.kicker{font-family:var(--ui);font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);display:flex;gap:10px;align-items:center;margin-bottom:22px}
+.kicker::before{content:"";width:28px;height:1px;background:var(--teal)}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(2.9rem,7vw,5.6rem);line-height:1.05;color:var(--gold);text-shadow:0 0 40px rgba(255,150,50,.35)}
+.hero h1 .en{font-size:.42em;display:block;margin-top:.5em;letter-spacing:.01em;line-height:1.2}
+.hero p.lead{margin:26px 0 34px;font-size:1.18rem;max-width:34em;color:var(--ink)}
+.hero p.lead .en{font-size:1.15rem;margin-top:6px;display:block}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+.stats{display:flex;gap:34px;margin-top:44px;font-family:var(--ui)}
+.stats b{display:block;font-family:var(--display);font-weight:400;color:var(--gold);font-size:2rem;line-height:1}
+.stats span{font-size:.8rem;color:var(--muted)}
+
+.phone-stage{position:relative;display:grid;place-items:center}
+.halo{position:absolute;width:120%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(255,150,60,.35),transparent 60%);filter:blur(10px);animation:breathe 6s ease-in-out infinite}
+.rays{position:absolute;width:150%;aspect-ratio:1;background:repeating-conic-gradient(from 0deg,rgba(242,184,75,.10) 0 6deg,transparent 6deg 18deg);mask:radial-gradient(circle,#000 20%,transparent 65%);-webkit-mask:radial-gradient(circle,#000 20%,transparent 65%);animation:spin 80s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes breathe{50%{transform:scale(1.08);opacity:.8}}
+.phone{position:relative;width:min(320px,74vw);aspect-ratio:9/16;border-radius:34px;padding:9px;background:linear-gradient(160deg,#5a3a22,#1d110a 40%,#4a2c18);box-shadow:0 40px 80px -20px #000,0 0 0 1px rgba(242,184,75,.35),inset 0 0 0 1px rgba(255,255,255,.06);transform:rotate(-3deg);transition:transform .6s}
+.phone:hover{transform:rotate(0) scale(1.02)}
+.phone video{width:100%;height:100%;object-fit:cover;border-radius:26px;background:#000}
+.phone .tap{position:absolute;inset:9px;border-radius:26px;display:flex;align-items:flex-end;justify-content:space-between;padding:16px;background:linear-gradient(transparent 60%,rgba(0,0,0,.65));font-family:var(--ui);font-size:.85rem}
+.phone .tap .t{font-family:var(--hi);font-size:1.05rem}
+.play-dot{width:46px;height:46px;border-radius:50%;background:rgba(242,184,75,.95);display:grid;place-items:center;color:#2a1306;box-shadow:0 0 0 0 rgba(242,184,75,.7);animation:pulse 2.2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 16px rgba(242,184,75,0)}100%{box-shadow:0 0 0 0 rgba(242,184,75,0)}}
+.float-card{position:absolute;padding:10px 14px;border-radius:14px;background:rgba(42,24,16,.85);border:1px solid var(--line);backdrop-filter:blur(8px);font-size:.9rem;box-shadow:0 10px 30px -10px #000;animation:bob 5s ease-in-out infinite}
+.float-card .en{font-size:.85rem}
+.fc1{left:-6%;top:16%}
+.fc2{right:-4%;bottom:14%;animation-delay:-2.5s}
+@keyframes bob{50%{transform:translateY(-10px)}}
+
+/* marquee */
+.marquee{border-block:1px solid var(--line);background:linear-gradient(90deg,var(--wood),var(--night-2),var(--wood));overflow:hidden;white-space:nowrap;padding:16px 0}
+.marquee div{display:inline-flex;gap:40px;animation:scroll 40s linear infinite;font-family:var(--display);font-size:1.6rem;color:var(--gold-soft)}
+.marquee span.d{color:var(--flame)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* sections */
+section{padding:96px 0}
+.sec-head{text-align:center;margin-bottom:54px}
+.sec-head h2{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,5vw,3.4rem);color:var(--gold);line-height:1.15;margin-top:16px}
+.sec-head h2 .en{display:block;font-size:.5em;margin-top:6px}
+.sec-head p{color:var(--muted);margin-top:12px}
+
+/* reel grid */
+.filters{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:-24px 0 40px;font-family:var(--ui);font-size:.85rem}
+.chip{padding:8px 16px;border-radius:999px;border:1px solid var(--line);color:var(--muted);transition:.2s}
+.chip:hover{color:var(--ink);border-color:var(--gold)}
+.chip[aria-pressed="true"]{background:rgba(242,184,75,.15);color:var(--gold);border-color:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:22px}
+.card{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:9/16;background:var(--wood);cursor:pointer;isolation:isolate;box-shadow:0 20px 40px -20px #000;border:1px solid rgba(242,184,75,.15);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .35s;transform-style:preserve-3d}
+.card:hover,.card:focus-visible{border-color:rgba(242,184,75,.6);box-shadow:0 30px 60px -20px rgba(255,120,40,.45);outline:none}
+.card img,.card video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .4s,transform .8s}
+.card video{opacity:0}
+.card.previewing video{opacity:1}
+.card:hover img{transform:scale(1.05)}
+.card .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25),transparent 30%,transparent 50%,rgba(10,5,2,.92));z-index:1}
+.card .meta{position:absolute;left:0;right:0;bottom:0;padding:16px;z-index:2}
+.card h3{font-family:var(--display);font-weight:400;font-size:1.45rem;line-height:1.2;color:var(--gold)}
+.card h3 .en{display:block;font-family:var(--en);font-size:1rem;color:var(--ink);opacity:.85}
+.card .dur{position:absolute;top:12px;right:12px;z-index:2;font-family:var(--ui);font-size:.75rem;padding:4px 9px;border-radius:999px;background:rgba(0,0,0,.55);backdrop-filter:blur(4px)}
+.card .tag{position:absolute;top:12px;left:12px;z-index:2;font-family:var(--ui);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;padding:4px 9px;border-radius:999px;background:rgba(127,216,198,.16);color:var(--teal);border:1px solid rgba(127,216,198,.35)}
+.card .playbtn{position:absolute;inset:0;margin:auto;width:60px;height:60px;border-radius:50%;background:rgba(242,184,75,.92);color:#2a1306;display:grid;place-items:center;z-index:2;transform:scale(.6);opacity:0;transition:.3s}
+.card:hover .playbtn{transform:scale(1);opacity:1}
+.card.hide{display:none}
+
+/* stories */
+.story{display:grid;grid-template-columns:300px 1fr;gap:56px;align-items:center;padding:44px 0;border-top:1px solid var(--line)}
+.story:nth-child(even){grid-template-columns:1fr 300px}
+.story:nth-child(even) .s-media{order:2}
+.s-media{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:9/16;max-height:520px;cursor:pointer;box-shadow:0 30px 60px -25px #000;border:1px solid var(--line)}
+.s-media img{width:100%;height:100%;object-fit:cover;transition:transform 1s}
+.s-media:hover img{transform:scale(1.06)}
+.s-media .playbtn{position:absolute;inset:0;margin:auto;width:68px;height:68px;border-radius:50%;background:rgba(242,184,75,.92);color:#2a1306;display:grid;place-items:center;animation:pulse 2.2s infinite}
+.s-num{font-family:var(--display);color:var(--flame);font-size:1.1rem;opacity:.9}
+.s-text h3{font-family:var(--display);font-weight:400;font-size:clamp(2rem,4vw,2.8rem);color:var(--gold);line-height:1.15;margin:6px 0 4px}
+.s-text h3 .en{display:block;font-size:.55em;margin-top:4px}
+.s-text .quote{margin:22px 0;padding:18px 22px;border-left:3px solid var(--gold);background:linear-gradient(90deg,rgba(242,184,75,.08),transparent);border-radius:0 12px 12px 0;font-size:1.25rem}
+.s-text .quote .en{font-size:1.05rem;display:block;margin-top:4px}
+.s-text p{font-size:1.08rem;margin-bottom:10px}
+.s-text p.en{font-size:1.15rem;line-height:1.5}
+.s-text .btn{margin-top:14px}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* shloka */
+.shloka{text-align:center;padding:110px 0;background:radial-gradient(ellipse at center,rgba(255,140,50,.14),transparent 65%)}
+.shloka blockquote{font-family:var(--display);font-size:clamp(1.6rem,4vw,2.6rem);color:var(--gold-soft);line-height:1.5;margin:26px auto 18px;max-width:22em}
+.shloka .en{font-size:1.25rem;max-width:34em;margin:0 auto;display:block}
+.shloka cite{display:block;margin-top:16px;font-family:var(--ui);font-style:normal;font-size:.8rem;letter-spacing:.2em;color:var(--teal);text-transform:uppercase}
+
+/* follow */
+.follow{position:relative;border-radius:28px;overflow:hidden;padding:64px 48px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;background:linear-gradient(135deg,var(--wood-2),var(--night-2));border:1px solid var(--line)}
+.follow::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 22px,rgba(242,184,75,.05) 22px 23px);pointer-events:none}
+.follow h2{font-family:var(--display);font-weight:400;font-size:clamp(2rem,4.5vw,3rem);color:var(--gold);line-height:1.15}
+.follow h2 .en{display:block;font-size:.55em;margin-top:6px}
+.follow p{margin:16px 0 28px;font-size:1.1rem}
+.handle{font-family:var(--ui);font-weight:600;color:var(--teal);font-size:1.1rem;margin-bottom:18px;display:block}
+.mosaic{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;transform:rotate(4deg)}
+.mosaic img{border-radius:10px;aspect-ratio:9/16;object-fit:cover;border:1px solid var(--line)}
+.mosaic img:nth-child(2){transform:translateY(-22px)}
+
+/* about */
+.about{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.pill{padding:28px;border-radius:var(--r);border:1px solid var(--line);background:linear-gradient(180deg,rgba(58,34,22,.55),rgba(28,17,11,.3));transition:transform .3s,border-color .3s}
+.pill:hover{transform:translateY(-6px);border-color:var(--gold)}
+.pill .ico{font-size:2rem;margin-bottom:10px;display:block}
+.pill h4{font-family:var(--display);font-weight:400;color:var(--gold);font-size:1.4rem;line-height:1.2}
+.pill h4 .en{display:block;font-size:.75em}
+.pill p{margin-top:8px;font-size:1rem}
+
+footer{border-top:1px solid var(--line);padding:40px 0 calc(40px + env(safe-area-inset-bottom));text-align:center;color:var(--muted);font-family:var(--ui);font-size:.85rem}
+footer .brand{justify-content:center;margin-bottom:14px}
+
+/* player */
+.player{position:fixed;inset:0;z-index:100;background:rgba(8,4,2,.96);display:none;align-items:center;justify-content:center;gap:40px;padding:20px}
+.player.open{display:flex;animation:fade .3s}
+@keyframes fade{from{opacity:0}}
+.p-video{position:relative;height:min(92svh,860px);aspect-ratio:9/16;max-width:100%;border-radius:22px;overflow:hidden;background:#000;box-shadow:0 0 120px -20px rgba(255,130,40,.45)}
+.p-video video{width:100%;height:100%;object-fit:contain;background:#000}
+.p-bar{position:absolute;left:0;right:0;top:0;height:4px;background:rgba(255,255,255,.18);cursor:pointer}
+.p-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--flame))}
+.p-ctrls{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:linear-gradient(transparent,rgba(0,0,0,.7));font-family:var(--ui);font-size:.8rem}
+.p-ctrls button{width:40px;height:40px;border-radius:50%;background:rgba(0,0,0,.45);display:grid;place-items:center;backdrop-filter:blur(6px)}
+.p-ctrls button svg{width:20px;height:20px}
+.p-big{position:absolute;inset:0;margin:auto;width:84px;height:84px;border-radius:50%;background:rgba(242,184,75,.92);color:#2a1306;display:none;place-items:center}
+.paused .p-big{display:grid}
+.p-side{width:360px;max-width:36vw}
+.p-side h3{font-family:var(--display);font-weight:400;color:var(--gold);font-size:2.2rem;line-height:1.15}
+.p-side h3 .en{display:block;font-size:.55em}
+.p-side p{margin:16px 0;font-size:1.05rem}
+.p-side .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.p-side .btn{padding:10px 16px;font-size:.85rem}
+.p-close{position:absolute;top:16px;right:16px;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;z-index:3;background:rgba(0,0,0,.4)}
+.p-nav{position:absolute;right:20px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px;z-index:3}
+.p-nav button{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;background:rgba(0,0,0,.4);transition:.2s}
+.p-nav button:hover,.p-close:hover{border-color:var(--gold);color:var(--gold)}
+.p-count{font-family:var(--ui);font-size:.8rem;color:var(--muted);letter-spacing:.15em}
+.toast{position:fixed;left:50%;bottom:30px;transform:translate(-50%,40px);opacity:0;background:var(--gold);color:var(--night);padding:10px 18px;border-radius:999px;font-family:var(--ui);font-weight:600;font-size:.85rem;z-index:200;transition:.3s}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;text-align:center;padding-top:32px;gap:56px}
+  .kicker,.cta,.stats{justify-content:center}
+  .hero p.lead{margin-inline:auto}
+  .story,.story:nth-child(even){grid-template-columns:1fr;gap:28px}
+  .story:nth-child(even) .s-media{order:0}
+  .s-media{max-width:300px;margin:auto;width:100%}
+  .follow{grid-template-columns:1fr;padding:44px 24px;text-align:center}
+  .mosaic{max-width:340px;margin:20px auto 0}
+  .about{grid-template-columns:1fr}
+  .nav-links a.text{display:none}
+  .player{flex-direction:column;gap:0;padding:0}
+  .p-video{height:100svh;width:100%;border-radius:0;aspect-ratio:auto}
+  .p-video video{object-fit:cover}
+  .p-side{position:absolute;left:0;right:0;bottom:64px;width:auto;max-width:none;padding:0 76px 0 18px;pointer-events:none;text-shadow:0 2px 10px #000}
+  .p-side{transition:opacity .5s}
+  .player.playing .p-side{opacity:0}
+  .p-side h3{font-size:1.5rem}
+  .p-side p,.p-side .p-count{display:none}
+  .p-side .row{pointer-events:auto;margin-top:10px}
+  .p-nav{right:12px}
+  .fc1{left:0}.fc2{right:0}
+}
+@media (max-width:520px){
+  .nav .btn span{display:none}
+  .brand small{display:none}
+  .grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .card h3{font-size:1.15rem}.card h3 .en{font-size:.85rem}
+  .card .meta{padding:12px}
+  .stats{gap:22px}
+  section{padding:72px 0}
+  .float-card{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<canvas id="embers" aria-hidden="true"></canvas>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="brand" aria-label="Home">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4c7 11 11 17 11 25a11 11 0 0 1-22 0c0-8 4-14 11-25z" fill="#ffb547"/><path d="M32 18c3 6 5 9 5 13a5 5 0 0 1-10 0c0-4 2-7 5-13z" fill="#fff3c4"/><path d="M5 42h54c-3 11-14 18-27 18S8 53 5 42z" fill="#c8642a"/><path d="M5 42h54" stroke="#f2b84b" stroke-width="2"/></svg>
+      <span><b>कथा दीप</b><small>Katha Deep</small></span>
+    </a>
+    <nav class="nav-links">
+      <a class="text" href="#reels"><span class="hi">रील्स</span><span class="en">Reels</span></a>
+      <a class="text" href="#stories"><span class="hi">कथाएँ</span><span class="en">Stories</span></a>
+      <a class="text" href="#about"><span class="hi">परिचय</span><span class="en">About</span></a>
+      <div class="lang" role="group" aria-label="Language">
+        <button data-set="hi" aria-pressed="false">हिं</button>
+        <button data-set="both" aria-pressed="true">हिं + En</button>
+        <button data-set="en" aria-pressed="false">En</button>
+      </div>
+      <a class="btn ig-grad js-ig" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+        <span>Follow</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div>
+      <div class="kicker"><span class="hi">पौराणिक कथाएँ</span><span class="en" style="font-style:normal;color:inherit">· Stories from the Puranas</span></div>
+      <h1><span class="hi">हर कथा में<br>एक दीया।</span><span class="en">A lamp lit in every story.</span></h1>
+      <p class="lead">
+        <span class="hi">गणेश की परिक्रमा से नरसिंह के अवतार तक — भारत की अमर कथाएँ, एनिमेशन और आवाज़ के साथ, बस एक मिनट में।</span>
+        <span class="en">From Ganesha's circle of devotion to Narasimha bursting from a pillar — India's timeless tales, animated and narrated, in about a minute each.</span>
+      </p>
+      <div class="cta">
+        <a class="btn btn-gold" href="#reels">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          <span class="hi">रील्स देखें</span><span class="en" style="font-style:normal;color:inherit">Watch reels</span>
+        </a>
+        <a class="btn btn-ghost js-ig" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          <span class="js-handle">@yourhandle</span>
+        </a>
+      </div>
+      <div class="stats">
+        <div><b class="js-count">5</b><span class="hi">कथाएँ</span> <span class="en">stories</span></div>
+        <div><b>२</b><span class="hi">भाषाएँ</span> <span class="en">languages</span></div>
+        <div><b>∞</b><span class="hi">भक्ति</span> <span class="en">devotion</span></div>
+      </div>
+    </div>
+    <div class="phone-stage">
+      <div class="rays"></div><div class="halo"></div>
+      <div class="phone" id="heroPhone" role="button" tabindex="0" aria-label="Play featured reel">
+        <video id="heroVideo" muted playsinline loop preload="metadata" poster="assets/posters/prahlad-narasimha.jpg"></video>
+        <div class="tap"><span class="t" id="heroTitle">प्रह्लाद और नरसिंह</span><span class="play-dot"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+      </div>
+      <div class="float-card fc1"><span class="hi">🪔 नई कथा हर हफ़्ते</span><br><span class="en">New story every week</span></div>
+      <div class="float-card fc2"><span class="hi">🔊 हिंदी में कथा</span><br><span class="en">English subtitles</span></div>
+    </div>
+  </div>
+
+  <div class="marquee" aria-hidden="true"><div id="marq"></div></div>
+
+  <section id="reels">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="rule"><i></i></div>
+        <h2><span class="hi">सभी रील्स</span><span class="en">All Reels</span></h2>
+        <p><span class="hi">कार्ड पर कर्सर रखें — झलक देखें। क्लिक करें — पूरी कथा।</span> <span class="en">Hover to preview, tap to watch.</span></p>
+      </div>
+      <div class="filters" id="filters"></div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section id="stories" style="padding-top:20px">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="rule"><i></i></div>
+        <h2><span class="hi">कथाओं के पीछे</span><span class="en">The stories behind the reels</span></h2>
+      </div>
+      <div id="storyList"></div>
+    </div>
+  </section>
+
+  <div class="shloka">
+    <div class="wrap reveal">
+      <div class="rule"><i></i></div>
+      <blockquote>यदा यदा हि धर्मस्य ग्लानिर्भवति भारत।<br>अभ्युत्थानमधर्मस्य तदात्मानं सृजाम्यहम्॥</blockquote>
+      <span class="en">Whenever righteousness declines and unrighteousness rises, O Bharata, then I manifest Myself.</span>
+      <cite>भगवद् गीता 4.7 · Bhagavad Gita</cite>
+    </div>
+  </div>
+
+  <section id="about" style="padding-top:40px">
+    <div class="wrap">
+      <div class="about">
+        <div class="pill reveal"><span class="ico">🎨</span><h4><span class="hi">हाथ से बनी दुनिया</span><span class="en">Hand-crafted worlds</span></h4><p><span class="hi">हर दृश्य मंदिर-चित्रकला और छाया-कठपुतली से प्रेरित।</span> <span class="en">Every scene inspired by temple art and shadow puppetry.</span></p></div>
+        <div class="pill reveal"><span class="ico">🎙️</span><h4><span class="hi">हिंदी में कथा</span><span class="en">Told in Hindi</span></h4><p><span class="hi">दादी-नानी वाली कथा, अंग्रेज़ी उपशीर्षक के साथ।</span> <span class="en">Grandmother-style storytelling, with English subtitles for everyone.</span></p></div>
+        <div class="pill reveal"><span class="ico">⏱️</span><h4><span class="hi">एक मिनट, एक सीख</span><span class="en">One minute, one lesson</span></h4><p><span class="hi">छोटी रील्स, गहरे अर्थ — बच्चों और बड़ों दोनों के लिए।</span> <span class="en">Short reels, deep meaning — for kids and grown-ups alike.</span></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:20px">
+    <div class="wrap">
+      <div class="follow reveal">
+        <div style="position:relative">
+          <h2><span class="hi">कथा का सफ़र साथ चलिए</span><span class="en">Walk the story-path with us</span></h2>
+          <p><span class="hi">इंस्टाग्राम पर फ़ॉलो करें, अपने परिवार के साथ शेयर करें, और कमेंट में बताइए — अगली कथा कौन-सी हो?</span> <span class="en">Follow on Instagram, share with your family, and tell us in the comments which story should come next.</span></p>
+          <span class="handle js-handle">@yourhandle</span>
+          <a class="btn ig-grad js-ig" href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+            <span class="hi">इंस्टाग्राम पर फ़ॉलो करें</span><span class="en" style="font-style:normal;color:inherit">Follow on Instagram</span>
+          </a>
+        </div>
+        <div class="mosaic" id="mosaic"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="brand"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4c7 11 11 17 11 25a11 11 0 0 1-22 0c0-8 4-14 11-25z" fill="#ffb547"/><path d="M5 42h54c-3 11-14 18-27 18S8 53 5 42z" fill="#c8642a"/></svg><span><b>कथा दीप</b></span></div>
+  <p><span class="hi">कथा सुनाइए, संस्कार बढ़ाइए।</span> <span class="en">Share the story, keep the lamp alive.</span></p>
+  <p style="margin-top:10px">© <span id="yr"></span> · <a class="js-ig js-handle" href="#" target="_blank" rel="noopener" style="color:var(--gold)">@yourhandle</a></p>
+</footer>
+
+<!-- player -->
+<div class="player" id="player" role="dialog" aria-modal="true" aria-label="Reel player">
+  <button class="p-close" id="pClose" aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <div class="p-video" id="pWrap">
+    <video id="pVideo" playsinline preload="auto"></video>
+    <div class="p-bar" id="pBar"><i></i></div>
+    <button class="p-big" aria-label="Play"><svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+    <div class="p-ctrls">
+      <span id="pTime">0:00</span>
+      <button id="pMute" aria-label="Mute"></button>
+    </div>
+  </div>
+  <div class="p-side">
+    <div class="p-count" id="pCount"></div>
+    <h3 id="pTitle"></h3>
+    <p id="pDesc"></p>
+    <div class="row">
+      <a class="btn ig-grad js-ig" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg>Instagram</a>
+      <button class="btn btn-ghost" id="pShare"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7M16 6l-4-4-4 4M12 2v14"/></svg><span class="hi">शेयर</span><span class="en" style="font-style:normal;color:inherit">Share</span></button>
+    </div>
+  </div>
+  <div class="p-nav">
+    <button id="pPrev" aria-label="Previous reel"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 15l6-6 6 6"/></svg></button>
+    <button id="pNext" aria-label="Next reel"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ======================================================
+   ✏️  EDIT HERE — your Instagram + your reels
+   To add a reel: put the .mp4 in assets/reels/, a poster
+   .jpg in assets/posters/, and copy one block below.
+   ====================================================== */
+const SITE = {
+  instagramHandle: "yourhandle",          // ← without the @
+};
+
+const REELS = [
+  {
+    id: "prahlad-narasimha", deity: "vishnu", dur: "2:52",
+    hi: "प्रह्लाद और नरसिंह", en: "Prahlad & Narasimha",
+    lineHi: "भगवान हर खंभे में हैं।", lineEn: "The Lord lives in every pillar.",
+    descHi: "हिरण्यकशिपु को वरदान था — न दिन में मरे, न रात में; न घर के अंदर, न बाहर; न किसी अस्त्र से। पर उसका अपना बेटा प्रह्लाद हर साँस में 'नारायण' जपता था। होलिका की आग भी उसे छू न सकी। और फिर, संध्या के समय, देहरी पर, खंभा फटा — और नरसिंह प्रकट हुए।",
+    descEn: "Hiranyakashipu's boon made him nearly unkillable — not by day or night, not inside or outside, by no weapon at all. Yet his own son Prahlad chanted Narayana with every breath. Holika's fire could not touch him. And at dusk, on the threshold, a pillar split open — and Narasimha appeared."
+  },
+  {
+    id: "neelkanth-samudra-manthan", deity: "shiva", dur: "1:47",
+    hi: "नीलकंठ — समुद्र मंथन", en: "Neelkanth — The Churning of the Ocean",
+    lineHi: "जिसने संसार का विष पी लिया।", lineEn: "The one who drank the world's poison.",
+    descHi: "देव और असुर अमृत के लिए क्षीरसागर को मथ रहे थे — मंदार पर्वत मथानी बना, वासुकि नाग रस्सी। पर अमृत से पहले निकला हलाहल — ऐसा विष कि तीनों लोक राख हो जाते। तब महादेव ने उसे पी लिया और कंठ में रोक लिया। उनका कंठ नीला हो गया — वे नीलकंठ कहलाए।",
+    descEn: "Gods and demons churned the cosmic ocean for nectar — Mount Mandara the churning rod, the serpent Vasuki the rope. But before the nectar came Halahala, a poison that would turn all three worlds to ash. Shiva drank it and held it in his throat, which turned blue forever — and he became Neelkanth."
+  },
+  {
+    id: "hanuman-leap-to-lanka", deity: "hanuman", dur: "1:13",
+    hi: "सुंदरकांड — लंका की छलाँग", en: "Sundarkand — The Leap to Lanka",
+    lineHi: "हनुमान, तुम पवनपुत्र हो।", lineEn: "Hanuman, you are the son of the Wind.",
+    descHi: "समुद्र के किनारे वानर सेना चुप थी — सौ योजन पार कौन जाए? तब जाम्बवान ने हनुमान को उनकी भूली हुई शक्ति याद दिलाई। हनुमान ने 'जय श्री राम' कहा और आकाश में छलाँग लगा दी — रास्ते में सुरसा का मुँह भी उन्हें रोक न सका। उस पार थीं माता सीता।",
+    descEn: "At the ocean's edge the army fell silent — who could cross a hundred yojanas? Then Jambavan reminded Hanuman of the strength he had forgotten. With 'Jai Shri Ram' he leapt into the sky; not even Surasa's open jaws could stop him. On the far shore waited Mother Sita."
+  },
+  {
+    id: "ganesha-parikrama", deity: "ganesha", dur: "1:13",
+    hi: "गणेश की परिक्रमा", en: "Ganesha's Parikrama",
+    lineHi: "मेरे माता-पिता ही मेरा संसार हैं।", lineEn: "My parents are my whole world.",
+    descHi: "नारद मुनि कैलाश पर एक दिव्य फल लाए। शिव ने कहा — जो पहले संसार की परिक्रमा करके लौटेगा, फल उसी का। कार्तिकेय मोर पर बैठे और उड़ चले। गणेश मुस्कुराए, और अपने माता-पिता के चारों ओर तीन बार घूम गए। बुद्धि ने दौड़ जीत ली।",
+    descEn: "Sage Narada brought a divine fruit to Kailash. Whoever circles the world first, said Shiva, shall have it. Kartikeya mounted his peacock and flew away. Ganesha simply smiled — and walked three times around his parents. Wisdom won the race."
+  },
+  {
+    id: "gajendra-moksha", deity: "vishnu", dur: "1:05",
+    hi: "गजेन्द्र मोक्ष", en: "Gajendra Moksha",
+    lineHi: "जब अपना बल छूटा, तब प्रभु ने थाम लिया।", lineEn: "When his own strength let go, the Lord held him.",
+    descHi: "गजराज गजेन्द्र सरोवर में जल पीने उतरा, और एक मगर ने उसका पैर पकड़ लिया। संघर्ष हज़ार वर्षों तक चला। जब सारा बल टूट गया, गजेन्द्र ने सूँड़ में एक कमल उठाकर नारायण को पुकारा — और विष्णु गरुड़ पर सवार होकर दौड़े चले आए।",
+    descEn: "Gajendra, king of elephants, stepped into a lake to drink — and a crocodile seized his leg. The struggle lasted a thousand years. When all his strength was gone, he raised a lotus in his trunk and called out to Narayana — and Vishnu came racing on Garuda."
+  }
+];
+
+const DEITIES = {
+  all:{hi:"सभी",en:"All"}, vishnu:{hi:"विष्णु",en:"Vishnu"}, shiva:{hi:"शिव",en:"Shiva"},
+  hanuman:{hi:"हनुमान",en:"Hanuman"}, ganesha:{hi:"गणेश",en:"Ganesha"}
+};
+
+/* ====================================================== */
+const $ = s => document.querySelector(s);
+const vid = id => `assets/reels/${id}.mp4`;
+const pos = id => `assets/posters/${id}.jpg`;
+const bi = (hi,en,tag="span") => `<${tag} class="hi">${hi}</${tag}><${tag} class="en">${en}</${tag}>`;
+const toDeva = n => String(n).replace(/\d/g,d=>"०१२३४५६७८९"[d]);
+
+/* Instagram links */
+const igUrl = `https://www.instagram.com/${SITE.instagramHandle}/`;
+document.querySelectorAll(".js-ig").forEach(a=>a.href=igUrl);
+document.querySelectorAll(".js-handle").forEach(e=>e.textContent="@"+SITE.instagramHandle);
+$("#yr").textContent = new Date().getFullYear();
+$(".js-count").textContent = REELS.length;
+
+/* language toggle */
+function setLang(l){
+  document.documentElement.dataset.lang=l;
+  document.documentElement.lang = l==="en"?"en":"hi";
+  document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.set===l));
+  try{localStorage.setItem("kd-lang",l)}catch(e){}
+}
+document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>setLang(b.dataset.set));
+try{const s=localStorage.getItem("kd-lang"); if(s) setLang(s)}catch(e){}
+
+/* marquee */
+const words=["गणेश","हनुमान","शिव","विष्णु","प्रह्लाद","नरसिंह","गजेन्द्र","नीलकंठ","राम","सीता"];
+const m=words.map(w=>`<span>${w}</span><span class="d">✦</span>`).join("");
+$("#marq").innerHTML=m+m;
+
+/* filters */
+const used=["all",...new Set(REELS.map(r=>r.deity))];
+$("#filters").innerHTML=used.map((d,i)=>`<button class="chip" data-f="${d}" aria-pressed="${i===0}">${bi(DEITIES[d]?.hi||d,DEITIES[d]?.en||d)}</button>`).join("");
+$("#filters").addEventListener("click",e=>{
+  const b=e.target.closest(".chip"); if(!b) return;
+  document.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",c===b));
+  document.querySelectorAll(".card").forEach(c=>c.classList.toggle("hide",b.dataset.f!=="all"&&c.dataset.deity!==b.dataset.f));
+});
+
+/* grid */
+const playSvg=`<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>`;
+$("#grid").innerHTML=REELS.map((r,i)=>`
+  <article class="card reveal" tabindex="0" data-i="${i}" data-deity="${r.deity}" aria-label="${r.en}">
+    <img src="${pos(r.id)}" alt="${r.en}" loading="lazy">
+    <video muted playsinline loop preload="none" data-src="${vid(r.id)}"></video>
+    <div class="shade"></div>
+    <span class="tag">${bi(DEITIES[r.deity].hi,DEITIES[r.deity].en)}</span>
+    <span class="dur">▶ ${r.dur}</span>
+    <span class="playbtn">${playSvg}</span>
+    <div class="meta"><h3>${bi(r.hi,r.en)}</h3></div>
+  </article>`).join("");
+
+const canHover = matchMedia("(hover:hover)").matches;
+document.querySelectorAll(".card").forEach(card=>{
+  const v=card.querySelector("video");
+  card.addEventListener("click",()=>openPlayer(+card.dataset.i));
+  card.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openPlayer(+card.dataset.i)}});
+  if(canHover){
+    let t;
+    card.addEventListener("mouseenter",()=>{t=setTimeout(()=>{ if(!v.src) v.src=v.dataset.src; v.currentTime=8; v.play().then(()=>card.classList.add("previewing")).catch(()=>{}) },250)});
+    card.addEventListener("mouseleave",()=>{clearTimeout(t);card.classList.remove("previewing");v.pause()});
+    card.addEventListener("mousemove",e=>{
+      const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+      card.style.transform=`perspective(800px) rotateY(${x*10}deg) rotateX(${-y*10}deg) translateY(-6px)`;
+    });
+    card.addEventListener("mouseleave",()=>card.style.transform="");
+  }
+});
+
+/* stories */
+$("#storyList").innerHTML=REELS.map((r,i)=>`
+  <div class="story reveal">
+    <div class="s-media" data-i="${i}" role="button" tabindex="0" aria-label="Play ${r.en}">
+      <img src="${pos(r.id)}" alt="${r.en}" loading="lazy"><span class="playbtn">${playSvg}</span>
+    </div>
+    <div class="s-text">
+      <div class="s-num">${bi("कथा "+toDeva(i+1),"Story "+(i+1))}</div>
+      <h3>${bi(r.hi,r.en)}</h3>
+      <div class="quote">${bi("“"+r.lineHi+"”","“"+r.lineEn+"”")}</div>
+      <p class="hi">${r.descHi}</p>
+      <p class="en">${r.descEn}</p>
+      <button class="btn btn-gold" data-i="${i}">${playSvg}${bi("रील देखें","Watch the reel")} · ${r.dur}</button>
+    </div>
+  </div>`).join("");
+document.querySelectorAll("#storyList [data-i]").forEach(el=>{
+  el.addEventListener("click",()=>openPlayer(+el.dataset.i));
+  el.addEventListener("keydown",e=>{if(e.key==="Enter")openPlayer(+el.dataset.i)});
+});
+
+/* mosaic */
+$("#mosaic").innerHTML=REELS.slice(0,3).map(r=>`<img src="${pos(r.id)}" alt="" loading="lazy">`).join("");
+
+/* hero phone: cycle muted previews */
+const hv=$("#heroVideo"); let hi=0;
+function heroLoad(i){ const r=REELS[i]; hv.poster=pos(r.id); hv.src=vid(r.id); $("#heroTitle").textContent=r.hi; hv.play().catch(()=>{}); }
+hv.addEventListener("loadedmetadata",()=>{ if(hv.duration>20) hv.currentTime=6 },{});
+hv.addEventListener("timeupdate",()=>{ if(hv.currentTime>18){ hi=(hi+1)%REELS.length; heroLoad(hi) }});
+if(!matchMedia("(prefers-reduced-motion:reduce)").matches) heroLoad(0);
+$("#heroPhone").onclick=()=>openPlayer(hi);
+$("#heroPhone").onkeydown=e=>{if(e.key==="Enter")openPlayer(hi)};
+
+/* reveal on scroll */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+
+/* ---------- player ---------- */
+const P=$("#player"), pv=$("#pVideo"), wrap=$("#pWrap"); let cur=0, lastFocus;
+const icon={on:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4zM15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg>`,
+            off:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4zM23 9l-6 6M17 9l6 6"/></svg>`};
+const fmt=s=>isFinite(s)?`${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,"0")}`:"0:00";
+function load(i){
+  cur=(i+REELS.length)%REELS.length; const r=REELS[cur];
+  pv.poster=pos(r.id); pv.src=vid(r.id); pv.currentTime=0;
+  $("#pTitle").innerHTML=bi(r.hi,r.en);
+  $("#pDesc").innerHTML=bi(r.descHi,r.descEn);
+  $("#pCount").textContent=`${String(cur+1).padStart(2,"0")} / ${String(REELS.length).padStart(2,"0")}`;
+  history.replaceState(null,"","#reel/"+r.id);
+  pv.play().then(()=>wrap.classList.remove("paused")).catch(()=>wrap.classList.add("paused"));
+}
+function openPlayer(i){
+  lastFocus=document.activeElement; hv.pause();
+  P.classList.add("open"); document.body.style.overflow="hidden"; load(i); $("#pClose").focus();
+}
+function closePlayer(){
+  pv.pause(); P.classList.remove("open"); document.body.style.overflow="";
+  history.replaceState(null,"",location.pathname); hv.play().catch(()=>{}); lastFocus&&lastFocus.focus();
+}
+const toggle=()=>pv.paused?pv.play():pv.pause();
+let uiT;
+pv.onplay=()=>{wrap.classList.remove("paused"); clearTimeout(uiT); uiT=setTimeout(()=>P.classList.add("playing"),3000)};
+pv.onpause=()=>{wrap.classList.add("paused"); clearTimeout(uiT); P.classList.remove("playing")};
+pv.onclick=toggle; wrap.querySelector(".p-big").onclick=toggle;
+pv.ontimeupdate=()=>{ $("#pBar i").style.width=(pv.currentTime/pv.duration*100||0)+"%"; $("#pTime").textContent=`${fmt(pv.currentTime)} / ${fmt(pv.duration)}` };
+pv.onended=()=>load(cur+1);
+$("#pBar").onclick=e=>{const r=e.currentTarget.getBoundingClientRect(); pv.currentTime=(e.clientX-r.left)/r.width*pv.duration};
+const setMuteIcon=()=>$("#pMute").innerHTML=pv.muted?icon.off:icon.on; setMuteIcon();
+$("#pMute").onclick=()=>{pv.muted=!pv.muted;setMuteIcon()};
+$("#pClose").onclick=closePlayer; $("#pNext").onclick=()=>load(cur+1); $("#pPrev").onclick=()=>load(cur-1);
+P.addEventListener("click",e=>{if(e.target===P)closePlayer()});
+document.addEventListener("keydown",e=>{
+  if(!P.classList.contains("open"))return;
+  if(e.key==="Escape")closePlayer();
+  else if(e.key==="ArrowDown"||e.key==="ArrowRight"){e.preventDefault();load(cur+1)}
+  else if(e.key==="ArrowUp"||e.key==="ArrowLeft"){e.preventDefault();load(cur-1)}
+  else if(e.key===" "){e.preventDefault();toggle()}
+  else if(e.key==="m"){pv.muted=!pv.muted;setMuteIcon()}
+});
+/* swipe */
+let sy=null; wrap.addEventListener("touchstart",e=>sy=e.touches[0].clientY,{passive:true});
+wrap.addEventListener("touchend",e=>{ if(sy===null)return; const d=e.changedTouches[0].clientY-sy; if(Math.abs(d)>60) load(cur+(d<0?1:-1)); sy=null });
+/* share */
+function toast(t){const el=$("#toast");el.textContent=t;el.classList.add("show");setTimeout(()=>el.classList.remove("show"),2200)}
+$("#pShare").onclick=async()=>{
+  const r=REELS[cur], url=location.origin+location.pathname+"#reel/"+r.id;
+  const data={title:`${r.hi} · ${r.en}`,text:`${r.lineHi} — ${r.lineEn}`,url};
+  try{ if(navigator.share){await navigator.share(data)} else {await navigator.clipboard.writeText(url); toast("लिंक कॉपी हो गया · Link copied")} }catch(e){}
+};
+/* deep link */
+const m2=location.hash.match(/^#reel\/(.+)$/);
+if(m2){const i=REELS.findIndex(r=>r.id===m2[1]); if(i>-1) openPlayer(i)}
+
+/* ---------- embers ---------- */
+(()=>{
+  if(matchMedia("(prefers-reduced-motion:reduce)").matches) return;
+  const c=$("#embers"),x=c.getContext("2d"); let W,H,ps=[];
+  const rs=()=>{W=c.width=innerWidth*devicePixelRatio;H=c.height=innerHeight*devicePixelRatio;c.style.width=innerWidth+"px";c.style.height=innerHeight+"px"};
+  rs(); addEventListener("resize",rs);
+  const N=innerWidth<600?28:55;
+  const mk=(y)=>({x:Math.random()*W,y:y??H+10,r:(Math.random()*1.8+.6)*devicePixelRatio,vy:(Math.random()*.5+.2)*devicePixelRatio,vx:(Math.random()-.5)*.3,a:Math.random()*.6+.3,p:Math.random()*6});
+  for(let i=0;i<N;i++) ps.push(mk(Math.random()*H));
+  (function f(){
+    x.clearRect(0,0,W,H);
+    for(const p of ps){
+      p.y-=p.vy; p.p+=.02; p.x+=p.vx+Math.sin(p.p)*.3;
+      if(p.y<-10) Object.assign(p,mk());
+      const g=x.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*4);
+      g.addColorStop(0,`rgba(255,190,90,${p.a})`); g.addColorStop(1,"rgba(255,120,40,0)");
+      x.fillStyle=g; x.beginPath(); x.arc(p.x,p.y,p.r*4,0,7); x.fill();
+    }
+    requestAnimationFrame(f);
+  })();
+})();
+</script>
+</body>
+</html>
