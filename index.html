@@ -466,6 +466,134 @@ html[data-lang="both"] .nav-links a.text .en{display:none}
   *,*::before,*::after{animation:none!important;transition:none!important}
   .reveal{opacity:1;transform:none}
 }
+
+/* ===== text selector + all-deity aarti ===== */
+.textsel{display:flex;justify-content:center;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.tsel{display:flex;align-items:center;gap:10px;padding:12px 20px;border-radius:18px;border:1px solid var(--line);background:rgba(242,184,75,.04);transition:.3s;font-size:1.1rem}
+.tsel b{font-family:var(--display);font-weight:400;font-size:1.25rem;color:var(--gold-soft)}
+.tsel .en{font-size:.95rem}
+.tsel:hover{border-color:var(--gold)}
+.tsel[aria-pressed="true"]{background:linear-gradient(135deg,rgba(255,180,80,.22),rgba(200,65,42,.18));border-color:var(--gold);box-shadow:0 10px 30px -12px rgba(255,140,40,.6)}
+.tsel[aria-pressed="true"] b{color:#ffd98f}
+.reader.swap{animation:swapIn .8s cubic-bezier(.2,.8,.2,1)}
+@keyframes swapIn{from{opacity:.2;transform:scale(.96) translateY(10px)}}
+.deity-pick{display:flex;gap:16px;overflow-x:auto;padding:8px 6px 16px;margin:0 0 26px;scroll-snap-type:x mandatory;justify-content:safe center;scrollbar-width:none}
+.deity-pick::-webkit-scrollbar{display:none}
+.dp{flex:none;display:flex;flex-direction:column;align-items:center;gap:8px;scroll-snap-align:center;transition:.3s;opacity:.72;min-width:72px}
+.dp .av{width:66px;height:66px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,var(--c1),var(--c2));border:2px solid rgba(255,255,255,.15);box-shadow:0 8px 20px -8px #000;transition:.35s cubic-bezier(.2,.8,.2,1)}
+.dp .av svg{width:36px;height:36px}
+.dp .nm{display:flex;flex-direction:column;align-items:center;line-height:1.2;font-size:.98rem}
+.dp .nm .en{font-size:.85rem}
+.dp:hover{opacity:1}.dp:hover .av{transform:translateY(-3px)}
+.dp[aria-pressed="true"]{opacity:1}
+.dp[aria-pressed="true"] .av{transform:scale(1.14);border-color:#fff3c4;box-shadow:0 0 0 4px rgba(255,255,255,.07),0 0 30px var(--c1)}
+.dp[aria-pressed="true"] .nm .hi{color:var(--gold)}
+.thali-wrap .emblem{position:absolute;inset:4%;border-radius:50%;overflow:hidden;border:3px solid var(--acc,var(--gold));box-shadow:0 0 0 12px rgba(255,255,255,.04),0 0 70px var(--glow,rgba(255,150,50,.45))}
+.thali-wrap .emblem:empty{display:none}
+.thali-wrap .emblem svg{width:100%;height:100%;display:block}
+.thali-wrap .bgimg{transition:opacity .6s}
+.thali-wrap:not(.has-art) .bgimg{opacity:0}
+.e-spin,.e-spinr,.e-spin2{transform-box:view-box;transform-origin:50% 50%}
+.e-spin{animation:spin 60s linear infinite}.e-spinr{animation:spin 40s linear infinite reverse}.e-spin2{animation:spin 90s linear infinite}
+.live .e-spin{animation-duration:12s}.live .e-spinr{animation-duration:8s}.live .e-spin2{animation-duration:20s}
+.thali-wrap .halo2{background:radial-gradient(circle,var(--glow,rgba(255,150,50,.45)),transparent 62%)}
+.thali-wrap.live .halo2{animation-duration:1.4s}
+.thali-wrap.swap .emblem,.thali-wrap.swap .bgimg{animation:dpIn .9s cubic-bezier(.2,.8,.2,1)}
+.thali-wrap.swap .thali:not(.playing){animation:dpIn2 .9s cubic-bezier(.2,.8,.2,1)}
+@keyframes dpIn{from{transform:scale(.7) rotate(-120deg);opacity:0}}
+@keyframes dpIn2{from{transform:scale(.4) rotate(180deg);opacity:0}}
+#alist .al{animation:alIn .55s both cubic-bezier(.2,.8,.2,1)}
+@keyframes alIn{from{opacity:0;transform:translateX(-14px)}}
+#p-aarti .al.on{border-left-color:var(--acc,var(--gold))}
+#p-aarti .al.on .t{text-shadow:0 0 18px var(--glow,rgba(255,150,50,.6))}
+.petal{background:radial-gradient(circle at 30% 30%,var(--p1,#ffc04d),var(--p2,#e8562a))}
+.petal.m{background:radial-gradient(circle at 30% 30%,var(--p3,#ffe08a),var(--p1,#f29a1f))}
+@media (max-width:520px){.tsel{padding:10px 14px}.tsel b{font-size:1.1rem}.tsel .en{display:none!important}.deity-pick{justify-content:flex-start}}
+
+/* ===== Kids games ===== */
+.gpick{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:30px}
+.gcard{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding:20px 20px 18px;border-radius:22px;text-align:left;overflow:hidden;isolation:isolate;background:linear-gradient(135deg,var(--g1),#1a0f0a 75%);border:1px solid var(--line);transition:.35s cubic-bezier(.2,.8,.2,1)}
+.gcard::after{content:"";position:absolute;right:-30px;top:-30px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,var(--g2),transparent 65%);opacity:.45;z-index:-1;transition:.4s}
+.gcard:hover{transform:translateY(-4px)}
+.gcard[aria-pressed="true"]{border-color:var(--g2);box-shadow:0 18px 40px -16px var(--g2)}
+.gcard[aria-pressed="true"]::after{opacity:.8;transform:scale(1.3)}
+.gemo{font-size:2.2rem;line-height:1;animation:bob 3s ease-in-out infinite}
+.gcard b{font-family:var(--display);font-weight:400;font-size:1.4rem;color:var(--gold);line-height:1.2}
+.gcard b .en{display:block;font-size:.65em}
+.gcard small{font-size:.92rem;color:var(--ink);opacity:.85}
+.gcard small .en{display:block;font-size:.95em}
+.gpanel{display:none;animation:panelIn .6s cubic-bezier(.2,.8,.2,1)}
+.gpanel.on{display:block}
+
+/* leap */
+.leap-wrap{position:relative;width:min(420px,100%);margin:auto;border-radius:24px;overflow:hidden;border:2px solid var(--line);box-shadow:0 30px 60px -20px #000,0 0 60px -20px rgba(255,140,40,.5);touch-action:manipulation;user-select:none;-webkit-user-select:none}
+#leapCv{display:block;width:100%;height:auto;aspect-ratio:420/600;cursor:pointer}
+.leap-hud{position:absolute;top:12px;left:12px;right:12px;display:flex;justify-content:space-between;font-family:var(--ui);font-size:1rem;pointer-events:none}
+.leap-hud span{padding:6px 12px;border-radius:999px;background:rgba(0,0,0,.45);backdrop-filter:blur(4px)}
+.leap-hud b{color:var(--gold)}
+.leap-ov{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:28px;background:radial-gradient(circle at 50% 40%,rgba(30,15,8,.55),rgba(10,5,2,.88));transition:opacity .3s}
+.leap-ov.hide{opacity:0;pointer-events:none}
+.lo-emo{font-size:3.6rem;animation:bob 2s ease-in-out infinite}
+.leap-ov h3{font-family:var(--display);font-weight:400;color:var(--gold);font-size:2rem;line-height:1.2;margin:8px 0}
+.leap-ov h3 .en{display:block;font-size:.55em}
+.leap-ov p{margin-bottom:18px;font-size:1.02rem}
+
+/* quiz */
+.quiz{max-width:640px;margin:auto}
+.qz-top{display:flex;justify-content:space-between;align-items:center;font-family:var(--ui);font-size:.9rem;color:var(--muted);margin-bottom:8px}
+.qz-stars{font-size:1.1rem;letter-spacing:2px}
+.qz-bar{height:8px;border-radius:8px;background:rgba(255,255,255,.08);overflow:hidden;margin-bottom:18px}
+.qz-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#ffd27a,var(--flame));border-radius:8px;transition:width .5s}
+.qz-card{border-radius:26px;padding:28px 24px;background:linear-gradient(160deg,#3a2216,#1c110b);border:1px solid var(--line);text-align:center;animation:qzIn .5s cubic-bezier(.2,.8,.2,1)}
+@keyframes qzIn{from{opacity:0;transform:translateX(40px) rotate(2deg)}}
+.qz-emo{font-size:3.6rem;line-height:1;margin-bottom:10px;display:inline-block;animation:bob 3s ease-in-out infinite}
+.qz-q{font-family:var(--display);font-size:1.6rem;color:#ffe6b0;line-height:1.35}
+.qz-q .en{display:block;font-size:.62em;margin-top:4px}
+.qz-opts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+.qz-opt{padding:14px 12px;border-radius:16px;border:2px solid var(--line);background:rgba(242,184,75,.05);font-size:1.15rem;transition:.2s;line-height:1.25}
+.qz-opt .en{display:block;font-size:.85rem}
+.qz-opt:hover{border-color:var(--gold);transform:translateY(-2px)}
+.qz-opt.right{background:rgba(46,196,120,.25);border-color:#2ec478;animation:pop .4s}
+.qz-opt.wrong{background:rgba(230,57,70,.22);border-color:#e63946;animation:shake .4s}
+.qz-opt:disabled{cursor:default}
+@keyframes pop{50%{transform:scale(1.07)}}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.qz-fact{margin-top:16px;padding:12px 16px;border-radius:14px;background:rgba(127,216,198,.1);border:1px solid rgba(127,216,198,.3);font-size:1rem;animation:fadeUp .5s}
+.qz-fact .en{display:block}
+.qz-next{margin-top:16px}
+.qz-end .big{font-family:var(--display);font-size:3.4rem;color:var(--gold);line-height:1}
+.qz-end .st{font-size:2rem;margin:8px 0;letter-spacing:4px}
+
+/* match */
+.mt-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:16px}
+.mt-lv{display:flex;gap:8px}
+.mt-stats{display:flex;gap:16px;font-family:var(--ui);font-size:.9rem;color:var(--muted)}
+.mt-stats b{color:var(--gold)}
+.mt-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:620px;margin:auto}
+.mt-c{aspect-ratio:3/4;perspective:800px;cursor:pointer}
+.mt-c .in{position:relative;width:100%;height:100%;transition:transform .55s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d}
+.mt-c.open .in,.mt-c.done .in{transform:rotateY(180deg)}
+.mt-f{position:absolute;inset:0;border-radius:16px;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border:2px solid var(--line);padding:6px;text-align:center}
+.mt-front{background:radial-gradient(circle at 50% 40%,#5a3418,#24140c);font-size:2rem}
+.mt-front::before{content:"🕉";opacity:.85;filter:drop-shadow(0 0 8px rgba(255,170,60,.7))}
+.mt-back{transform:rotateY(180deg);background:linear-gradient(160deg,var(--c1,#ffb627),var(--c2,#c8412a));color:#fff}
+.mt-back .e{font-size:clamp(1.8rem,7vw,2.6rem);line-height:1}
+.mt-back .n{font-family:var(--display);font-size:clamp(1rem,3.6vw,1.35rem);line-height:1.15;text-shadow:0 1px 6px rgba(0,0,0,.5)}
+.mt-back .s{font-family:var(--ui);font-size:.68rem;opacity:.9}
+.mt-c.done .mt-back{box-shadow:0 0 0 3px #fff3c4,0 0 24px var(--c1);animation:pop .5s}
+.mt-c.nope .in{animation:shake .4s}
+.mt-learn{text-align:center;margin-top:18px;min-height:3em}
+.mt-learn b{color:var(--gold)}
+@media (max-width:760px){
+  .gpick{grid-template-columns:1fr;gap:10px}
+  .gcard{flex-direction:row;flex-wrap:wrap;align-items:center;padding:14px 16px}
+  .gcard .gemo{font-size:1.8rem}
+  .gcard small{width:100%}
+  .gcard[aria-pressed="false"] small{display:none}
+  .qz-opts{grid-template-columns:1fr}
+  .qz-q{font-size:1.35rem}
+  .mt-grid{gap:8px}
+}
 </style>
 </head>
 <body>
@@ -481,6 +609,7 @@ html[data-lang="both"] .nav-links a.text .en{display:none}
       <a class="text" href="#reels"><span class="hi">रील्स</span><span class="en">Reels</span></a>
       <a class="text" href="#chalisa"><span class="hi">चालीसा</span><span class="en">Chalisa</span></a>
       <a class="text" href="#japa"><span class="hi">जप माला</span><span class="en">Japa</span></a>
+      <a class="text" href="#games"><span class="hi">🎮 खेल</span><span class="en">Games</span></a>
       <div class="lang" role="group" aria-label="Language">
         <button data-set="hi" aria-pressed="false">हिं</button>
         <button data-set="both" aria-pressed="true">हिं + En</button>
@@ -493,9 +622,11 @@ html[data-lang="both"] .nav-links a.text .en{display:none}
     <a class="mi" href="#reels"><span class="ic">🎬</span><span class="tx"><span class="hi">रील्स</span><span class="en">Reels</span></span><span class="ar">→</span></a>
     <a class="mi" href="#stories"><span class="ic">📜</span><span class="tx"><span class="hi">कथाएँ</span><span class="en">Stories</span></span><span class="ar">→</span></a>
     <a class="mi" href="#chalisa"><span class="ic">📖</span><span class="tx"><span class="hi">हनुमान चालीसा</span><span class="en">Hanuman Chalisa</span></span><span class="ar">→</span></a>
-    <a class="mi" href="#aarti"><span class="ic">🪔</span><span class="tx"><span class="hi">आरती</span><span class="en">Aarti</span></span><span class="ar">→</span></a>
+    <a class="mi" href="#bajrang"><span class="ic">🏹</span><span class="tx"><span class="hi">बजरंग बाण</span><span class="en">Bajrang Baan</span></span><span class="ar">→</span></a>
+    <a class="mi" href="#aarti"><span class="ic">🪔</span><span class="tx"><span class="hi">आरती संग्रह</span><span class="en">Aartis — Ganesh, Shiv, Vishnu, Lakshmi, Durga, Ram, Krishna</span></span><span class="ar">→</span></a>
     <a class="mi" href="#mantra"><span class="ic">🕉️</span><span class="tx"><span class="hi">मंत्र</span><span class="en">Mantras</span></span><span class="ar">→</span></a>
     <a class="mi" href="#japa"><span class="ic">📿</span><span class="tx"><span class="hi">जप माला</span><span class="en">Japa counter</span></span><span class="ar">→</span></a>
+    <a class="mi" href="#games"><span class="ic">🎮</span><span class="tx"><span class="hi">बच्चों के खेल</span><span class="en">Kids' games — quiz, memory, Hanuman's leap</span></span><span class="ar">→</span></a>
     <a class="mi" href="#suggest"><span class="ic">💬</span><span class="tx"><span class="hi">अगली कथा सुझाएँ</span><span class="en">Suggest a story</span></span><span class="ar">→</span></a>
     <a class="mi" href="#about"><span class="ic">🙏</span><span class="tx"><span class="hi">परिचय</span><span class="en">About</span></span><span class="ar">→</span></a>
     <div class="menu-foot">
@@ -596,7 +727,7 @@ html[data-lang="both"] .nav-links a.text .en{display:none}
 
       <div class="tabs" role="tablist" id="tabs">
         <span class="tab-ind" id="tabInd"></span>
-        <button class="tab" role="tab" data-tab="chalisa" aria-selected="true">📖 <span class="hi">चालीसा</span><span class="en">Chalisa</span></button>
+        <button class="tab" role="tab" data-tab="chalisa" aria-selected="true">📖 <span class="hi">चालीसा · बाण</span><span class="en">Chalisa · Baan</span></button>
         <button class="tab" role="tab" data-tab="aarti" aria-selected="false">🪔 <span class="hi">आरती</span><span class="en">Aarti</span></button>
         <button class="tab" role="tab" data-tab="mantra" aria-selected="false">🕉️ <span class="hi">मंत्र</span><span class="en">Mantras</span></button>
         <button class="tab" role="tab" data-tab="japa" aria-selected="false">📿 <span class="hi">जप माला</span><span class="en">Japa</span></button>
@@ -604,6 +735,7 @@ html[data-lang="both"] .nav-links a.text .en{display:none}
 
       <!-- CHALISA -->
       <div class="panel on" id="p-chalisa" role="tabpanel">
+        <div class="textsel" role="group" aria-label="Choose text"><button class="tsel" data-text="chalisa" aria-pressed="true">📖 <b>हनुमान चालीसा</b><span class="en">Hanuman Chalisa</span></button><button class="tsel" data-text="bajrang" aria-pressed="false">🏹 <b>बजरंग बाण</b><span class="en">Bajrang Baan</span></button></div>
         <div class="mode">
           <button class="chip" data-mode="reader" aria-pressed="true"><span class="hi">पाठ मोड</span> <span class="en">Reading mode</span></button>
           <button class="chip" data-mode="full" aria-pressed="false"><span class="hi">पूरा पाठ</span> <span class="en">Full text</span></button>
@@ -611,7 +743,7 @@ html[data-lang="both"] .nav-links a.text .en{display:none}
         <div class="reader" id="reader">
           <div class="bgs" id="rBgs"></div>
           <div class="r-top">
-            <span class="r-badge">श्री हनुमान चालीसा</span>
+            <span class="r-badge" id="rTitle">श्री हनुमान चालीसा</span>
             <div style="display:flex;gap:8px">
               <button class="cbtn sm" id="fsDown" aria-label="Smaller text">A−</button>
               <button class="cbtn sm" id="fsUp" aria-label="Larger text">A+</button>
@@ -634,11 +766,13 @@ html[data-lang="both"] .nav-links a.text .en{display:none}
 
       <!-- AARTI -->
       <div class="panel" id="p-aarti" role="tabpanel">
+        <div class="deity-pick" id="deityPick" role="group" aria-label="Choose deity"></div>
         <div class="aarti">
           <div>
             <div class="thali-wrap">
               <div class="halo2"></div>
               <div class="bgimg"><img src="assets/art/glow.jpg" alt=""></div>
+              <div class="emblem" id="emblem"></div>
               <svg class="thali" id="thali" viewBox="0 0 200 200" aria-hidden="true">
                 <defs>
                   <radialGradient id="pl" cx=".45" cy=".4" r=".65"><stop offset="0" stop-color="#ffe9a8"/><stop offset=".55" stop-color="#e8aa40"/><stop offset="1" stop-color="#8f5418"/></radialGradient>
@@ -669,7 +803,7 @@ html[data-lang="both"] .nav-links a.text .en{display:none}
             </div>
           </div>
           <div>
-            <div class="lbl" style="margin-bottom:10px"><span class="hi">आरती कीजै हनुमान लला की</span> <span class="en">· Aarti of Hanuman ji</span></div>
+            <div class="lbl" id="aLbl" style="margin-bottom:10px"><span class="hi">आरती कीजै हनुमान लला की</span> <span class="en">· Aarti of Hanuman ji</span></div>
             <div class="al-list" id="alist"></div>
           </div>
         </div>
@@ -710,6 +844,69 @@ html[data-lang="both"] .nav-links a.text .en{display:none}
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+    <section id="games" style="padding-top:40px">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="rule"><i></i></div>
+        <h2><span class="hi">बाल कोना — खेल</span><span class="en">Kids' Corner — Games</span></h2>
+        <p><span class="hi">खेलो, सीखो और भगवान की कथाएँ याद करो! 🎉</span> <span class="en">Play, learn and remember the stories of the gods!</span></p>
+      </div>
+      <div class="gpick" id="gpick">
+        <button class="gcard" data-g="leap" aria-pressed="true" style="--g1:#1b2a6b;--g2:#ff8a3d">
+          <span class="gemo">🐒💨</span>
+          <b><span class="hi">हनुमान की उड़ान</span><span class="en">Hanuman's Leap</span></b>
+          <small><span class="hi">समुद्र पार करो, राम-सिक्के जमा करो</span><span class="en">Fly across the ocean, collect Ram coins</span></small>
+        </button>
+        <button class="gcard" data-g="quiz" aria-pressed="false" style="--g1:#5a1a6b;--g2:#ffb627">
+          <span class="gemo">🤔❓</span>
+          <b><span class="hi">भक्ति क्विज़</span><span class="en">Bhakti Quiz</span></b>
+          <small><span class="hi">10 सवाल — कितने सही?</span><span class="en">10 questions — how many can you get?</span></small>
+        </button>
+        <button class="gcard" data-g="match" aria-pressed="false" style="--g1:#0d5c4f;--g2:#ff5d8f">
+          <span class="gemo">🐭🦁</span>
+          <b><span class="hi">वाहन मिलाओ</span><span class="en">Match the Vahana</span></b>
+          <small><span class="hi">भगवान और उनके वाहन की जोड़ी बनाओ</span><span class="en">Pair each god with their vahana</span></small>
+        </button>
+      </div>
+
+      <!-- LEAP -->
+      <div class="gpanel on" id="g-leap">
+        <div class="leap-wrap">
+          <canvas id="leapCv" width="420" height="600" aria-label="Hanuman's Leap game"></canvas>
+          <div class="leap-hud"><span>🪙 <b id="lScore">0</b></span><span>🏆 <b id="lBest">0</b></span></div>
+          <div class="leap-ov" id="leapOv">
+            <div class="lo-emo">🐒</div>
+            <h3 id="loTitle"><span class="hi">हनुमान की उड़ान</span><span class="en">Hanuman's Leap</span></h3>
+            <p id="loText"><span class="hi">टैप करो (या स्पेसबार) — हनुमान जी ऊपर उड़ेंगे! चट्टानों और बादलों से बचो, सुनहरे “राम” सिक्के जमा करो।</span> <span class="en">Tap (or Space) to fly up. Dodge the rocks and storm clouds, collect golden “Ram” coins!</span></p>
+            <button class="btn btn-gold" id="loBtn">▶ <span class="hi">जय श्री राम — शुरू!</span><span class="en" style="color:inherit">Jai Shri Ram — Start!</span></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- QUIZ -->
+      <div class="gpanel" id="g-quiz">
+        <div class="quiz">
+          <div class="qz-top"><span id="qzNum"></span><span class="qz-stars" id="qzStars"></span></div>
+          <div class="qz-bar"><i id="qzBar"></i></div>
+          <div class="qz-card" id="qzCard"></div>
+        </div>
+      </div>
+
+      <!-- MATCH -->
+      <div class="gpanel" id="g-match">
+        <div class="mt-top">
+          <div class="mt-lv">
+            <button class="chip" data-lv="6" aria-pressed="true"><span class="hi">आसान</span> <span class="en">Easy</span></button>
+            <button class="chip" data-lv="8" aria-pressed="false"><span class="hi">कठिन</span> <span class="en">Hard</span></button>
+          </div>
+          <div class="mt-stats"><span>🔄 <b id="mtMoves">0</b> <span class="hi">चालें</span><span class="en">moves</span></span><span>✅ <b id="mtPairs">0</b></span><span>⏱ <b id="mtTime">0</b>s</span></div>
+        </div>
+        <div class="mt-grid" id="mtGrid"></div>
+        <p class="mt-learn" id="mtLearn"><span class="hi">कार्ड पलटो — भगवान का नाम और उनका वाहन ढूँढो!</span> <span class="en">Flip the cards — find each god and their vahana!</span></p>
       </div>
     </div>
   </section>
@@ -1120,7 +1317,8 @@ function openTab(id,scroll){
 }
 document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>openTab(t.dataset.tab));
 addEventListener("resize",moveInd); document.fonts && document.fonts.ready.then(moveInd); setTimeout(moveInd,300);
-document.addEventListener("click",e=>{ const a=e.target.closest('a[href^="#"]'); if(!a) return; const id=a.getAttribute("href").slice(1); if(TABS.includes(id)){ e.preventDefault(); openTab(id,true); history.replaceState(null,"","#"+id); }});
+document.addEventListener("click",e=>{ const a=e.target.closest('a[href^="#"]'); if(!a) return; const id=a.getAttribute("href").slice(1); if(id==="bajrang"){ e.preventDefault(); openTab("chalisa",true); setMode("reader"); setText("bajrang"); history.replaceState(null,"","#bajrang"); return; }
+  if(TABS.includes(id)){ e.preventDefault(); openTab(id,true); history.replaceState(null,"","#"+id); }});
 
 /* ---------- petals + bell ---------- */
 function petals(n=46){ if(matchMedia("(prefers-reduced-motion:reduce)").matches) return;
@@ -1142,27 +1340,151 @@ $("#bell").onclick=ring;
   if(d===2){ f.hidden=false; f.innerHTML=bi("🚩 आज मंगलवार है — बजरंगबली का दिन","🚩 Tuesday — Hanuman ji's day"); }
   else if(d===6){ f.hidden=false; f.innerHTML=bi("🚩 आज शनिवार है — हनुमान जी की विशेष पूजा","🚩 Saturday — special day of Hanuman puja"); }
   $("#votdWa").href="https://wa.me/?text="+encodeURIComponent(`🙏 आज की चौपाई\n\n${lines(v.t).join("\n")}\n\n${v.e}\n\n🚩 ${SITE_URL}`);
-  $("#votdRead").onclick=()=>{ openTab("chalisa",true); setMode("reader"); go(i); };
+  $("#votdRead").onclick=()=>{ openTab("chalisa",true); setMode("reader"); setText("chalisa",i); };
 })();
 
-/* ---------- chalisa reader ---------- */
-let ci=0, auto=null, fs=store.get("hv-fs",1);
+/* ---------- Bajrang Baan + aartis of other deities ---------- */
+const BAJRANG = [
+ {k:"doha",t:"निश्चय प्रेम प्रतीति ते, बिनय करैं सनमान।|तेहि के कारज सकल सुभ, सिद्ध करैं हनुमान॥",e:"Those who pray with firm resolve, love, faith and humility — Hanuman makes all their good works succeed."},
+ {t:"जय हनुमंत संत हितकारी।|सुन लीजै प्रभु अरज हमारी॥",e:"Victory to Hanuman, friend of the saints — Lord, please hear our prayer."},
+ {t:"जन के काज बिलंब न कीजै।|आतुर दौरि महा सुख दीजै॥",e:"Do not delay your devotee's work — come running and grant great joy."},
+ {t:"जैसे कूदि सिंधु महिपारा।|सुरसा बदन पैठि बिस्तारा॥",e:"Just as you leapt across the ocean, and entered Surasa's widening mouth —"},
+ {t:"आगे जाय लंकिनी रोका।|मारेहु लात गई सुरलोका॥",e:"When Lankini blocked your way, one kick sent her to the heavens."},
+ {t:"जाय बिभीषन को सुख दीन्हा।|सीता निरखि परमपद लीन्हा॥",e:"You brought joy to Vibhishan, and seeing Sita, attained the highest bliss."},
+ {t:"बाग उजारि सिंधु महँ बोरा।|अति आतुर जमकातर तोरा॥",e:"You uprooted Ravana's garden and cast it into the sea, and broke even the noose of death."},
+ {t:"अक्षय कुमार मारि संहारा।|लूम लपेटि लंक को जारा॥",e:"You struck down Akshay Kumar and, with your blazing tail, set Lanka on fire."},
+ {t:"लाह समान लंक जरि गई।|जय जय धुनि सुरपुर नभ भई॥",e:"Lanka burned like lac, and cries of victory rang through the heavens."},
+ {t:"अब बिलंब केहि कारन स्वामी।|कृपा करहु उर अंतरयामी॥",e:"Why the delay now, my Lord? Have mercy, you who know every heart."},
+ {t:"जय जय लखन प्रान के दाता।|आतुर ह्वै दुख करहु निपाता॥",e:"Victory to the one who gave Lakshman his life — come quickly and end my sorrow."},
+ {t:"जै हनुमान जयति बल-सागर।|सुर-समूह-समरथ भट-नागर॥",e:"Victory to Hanuman, ocean of strength, mightiest of warriors among the gods."},
+ {t:"ॐ हनु हनु हनु हनुमंत हठीले।|बैरिहि मारु बज्र की कीले॥",e:"Om — strike, strike, determined Hanuman! Pin down the enemy with your thunderbolt."},
+ {t:"ॐ ह्रीं ह्रीं ह्रीं हनुमंत कपीसा।|ॐ हुं हुं हुं हनु अरि उर सीसा॥",e:"Om hreem — Hanuman, lord of the vanaras! Om hum — strike the enemy's heart and head."},
+ {t:"जय अंजनि कुमार बलवंता।|शंकरसुवन बीर हनुमंता॥",e:"Victory to mighty Anjani's son — brave Hanuman, born of Shankar's grace."},
+ {t:"बदन कराल काल-कुल-घालक।|राम सहाय सदा प्रतिपालक॥",e:"Fierce-faced destroyer of death's armies, ever Ram's helper and our protector."},
+ {t:"भूत, प्रेत, पिसाच निसाचर।|अगिन बेताल काल मारी मर॥",e:"Ghosts, spirits, demons of the night, fire-spirits, vetals, plague and death —"},
+ {t:"इन्हें मारु, तोहि सपथ राम की।|राखु नाथ मरजाद नाम की॥",e:"Destroy them all — by your oath to Ram! Lord, keep the honour of your name."},
+ {t:"सत्य होहु हरि सपथ पाइ कै।|राम दूत धरु मारु धाइ कै॥",e:"Be true to Hari's oath — messenger of Ram, rush forth, seize and strike!"},
+ {t:"जय जय जय हनुमंत अगाधा।|दुख पावत जन केहि अपराधा॥",e:"Victory to unfathomable Hanuman — for what fault must your devotee suffer?"},
+ {t:"पूजा जप तप नेम अचारा।|नहिं जानत कछु दास तुम्हारा॥",e:"Worship, chanting, austerity, rituals — your servant knows none of these."},
+ {t:"बन उपबन मग गिरि गृह माहीं।|तुम्हरे बल हौं डरपत नाहीं॥",e:"In forest, garden, road, mountain or home — by your strength, I fear nothing."},
+ {t:"जनकसुता हरि दास कहावौ।|ताकी सपथ बिलंब न लावौ॥",e:"You are called the servant of Sita and Ram — by their oath, do not delay."},
+ {t:"जै जै जै धुनि होत अकासा।|सुमिरत होय दुसह दुख नासा॥",e:"Cries of victory fill the sky; remembering you ends even unbearable sorrow."},
+ {t:"चरन पकरि, कर जोरि मनावौं।|यहि औसर अब केहि गोहरावौं॥",e:"Holding your feet with folded hands I plead — whom else could I call at such a time?"},
+ {t:"उठु, उठु, चलु, तोहि राम दुहाई।|पायँ परौं, कर जोरि मनाई॥",e:"Rise, rise, come — in Ram's name! I fall at your feet and beg with folded hands."},
+ {t:"ॐ चं चं चं चं चपल चलंता।|ॐ हनु हनु हनु हनु हनुमंता॥",e:"Om cham — swift and restless one! Om hanu hanu — Hanuman!"},
+ {t:"ॐ हं हं हाँक देत कपि चंचल।|ॐ सं सं सहमि पराने खल-दल॥",e:"Om ham — the lively vanara roars! Om sam — the armies of the wicked flee in terror."},
+ {t:"अपने जन को तुरत उबारौ।|सुमिरत होय आनंद हमारौ॥",e:"Rescue your devotee at once — remembering you fills us with joy."},
+ {t:"यह बजरंग-बाण जेहि मारै।|ताहि कहौ फिरि कवन उबारै॥",e:"Whoever this Bajrang Baan strikes — tell me, who could ever save them?"},
+ {t:"पाठ करै बजरंग-बाण की।|हनुमत रक्षा करै प्रान की॥",e:"Whoever recites the Bajrang Baan — Hanuman protects their very life."},
+ {t:"यह बजरंग बाण जो जापैं।|तासों भूत-प्रेत सब कापैं॥",e:"Whoever chants this Bajrang Baan — all ghosts and spirits tremble before them."},
+ {t:"धूप देय जो जपै हमेसा।|ताके तन नहिं रहै कलेसा॥",e:"Whoever offers incense and chants it always — no suffering remains in their body."},
+ {k:"doha",t:"उर प्रतीति दृढ़, सरन ह्वै, पाठ करै धरि ध्यान।|बाधा सब हर, करैं सब काम सफल हनुमान॥",e:"With firm faith in the heart, taking refuge and reciting with focus — Hanuman removes every obstacle and makes every task succeed."}
+];
+const bajArt = i => { if(i===0||i===BAJRANG.length-1) return "glow"; if(i===3) return "fly"; if(i>=4&&i<=8) return "lanka"; if(i===10) return "rise"; return ["rise","army","forest","glow","shore"][i%5]; };
+const bajKind = i => (i===0||i===BAJRANG.length-1) ? bi("दोहा","Doha") : bi("चौपाई "+toDeva(i)+" / ३२","Chaupai "+i+" / 32");
+const TEXTS = {
+  chalisa:{hi:"श्री हनुमान चालीसा",en:"Shri Hanuman Chalisa",v:CHALISA,art:artFor,kind:kindLabel,num:i=>(i<2||i===42)?"दोहा":toDeva(i-1)},
+  bajrang:{hi:"श्री बजरंग बाण",en:"Shri Bajrang Baan",v:BAJRANG,art:bajArt,kind:bajKind,num:i=>(i===0||i===BAJRANG.length-1)?"दोहा":toDeva(i)}
+};
+
+/* icons drawn around a 0,0 centre, ~24px */
+const IC = {
+  gada:`<circle cx="0" cy="-5" r="6.5"/><path d="M0 1v12M-3 13h6"/><path d="M-6.5 -5h13M0 -11.5v13"/>`,
+  modak:`<path d="M0 -11C4 -6 8 0 8 5C8 9 4 11 0 11C-4 11 -8 9 -8 5C-8 0 -4 -6 0 -11Z"/><path d="M0 -11V11M-4 -5C-5 2 -4 8 -2 11M4 -5C5 2 4 8 2 11"/>`,
+  trishul:`<path d="M0 -12V13M-8 -9C-8 -1 -5 3 0 3C5 3 8 -1 8 -9M0 -14l-2.5 5h5zM-8 -9l-2 3M8 -9l2 3M-3 8h6"/>`,
+  chakra:`<circle r="10"/><circle r="3"/><path d="M0 -10V-3M0 3V10M-10 0H-3M3 0H10M-7 -7L-2 -2M2 2L7 7M7 -7L2 -2M-2 2L-7 7"/>`,
+  lotus:`<path d="M0 -11C4 -6 4 2 0 6C-4 2 -4 -6 0 -11Z"/><path d="M0 6C-3 0 -9 -3 -11 -2C-10 4 -5 7 0 6Z"/><path d="M0 6C3 0 9 -3 11 -2C10 4 5 7 0 6Z"/><path d="M-9 9H9"/>`,
+  bow:`<path d="M-4 -12C9 -6 9 6 -4 12M-4 -12V12"/><path d="M-11 0H10M7 -3l3 3l-3 3M-11 -2.5l-2 2.5l2 2.5"/>`,
+  flute:`<path d="M-11 9L9 -11"/><circle cx="-5" cy="3" r=".9"/><circle cx="-1" cy="-1" r=".9"/><circle cx="3" cy="-5" r=".9"/><path d="M5 2C9 4 12 9 10 12C7 13 3 9 3 5Z"/><circle cx="8" cy="8" r="1.6"/>`
+};
+const AARTIS = {
+ hanuman:{hi:"हनुमान जी",en:"Hanuman",title:"आरती कीजै हनुमान लला की",ten:"Aarti of Hanuman ji",icon:"gada",c1:"#ff8a3d",c2:"#c8412a",p:["#ffc04d","#e8562a","#ffe08a"],glow:"rgba(255,140,50,.5)",art:"glow",jai:"जय बजरंगबली",jen:"Jai Bajrangbali",lines:AARTI},
+ ganesh:{hi:"गणेश जी",en:"Ganesh",title:"जय गणेश जय गणेश देवा",ten:"Aarti of Shri Ganesh",icon:"modak",c1:"#ffb627",c2:"#e63946",p:["#ffb627","#ff6b1a","#ffe08a"],glow:"rgba(255,170,40,.5)",jai:"गणपति बप्पा मोरया",jen:"Ganpati Bappa Morya",lines:[
+  {t:"जय गणेश जय गणेश जय गणेश देवा।|माता जाकी पार्वती पिता महादेवा॥",e:"Victory to Lord Ganesh — whose mother is Parvati and father is Mahadev.",c:1},
+  {t:"एक दंत दयावंत चार भुजा धारी।|माथे सिंदूर सोहे मूसे की सवारी॥",e:"One-tusked and compassionate, four-armed; vermilion shines on his forehead and he rides a mouse."},
+  {t:"पान चढ़े फूल चढ़े और चढ़े मेवा।|लड्डुअन का भोग लगे संत करें सेवा॥",e:"Offered betel, flowers and dry fruits, he is served laddus while saints worship him."},
+  {t:"अंधन को आँख देत कोढ़िन को काया।|बाँझन को पुत्र देत निर्धन को माया॥",e:"He gives sight to the blind, health to the sick, children to the childless and wealth to the poor."},
+  {t:"सूर श्याम शरण आए सफल कीजे सेवा।|माता जाकी पार्वती पिता महादेवा॥",e:"Sur Shyam has come to your refuge — make this worship fruitful."},
+  {t:"दीनन की लाज रखो शंभु सुत वारी।|कामना को पूर्ण करो जाऊँ बलिहारी॥",e:"Protect the honour of the humble, son of Shambhu; fulfil our wishes — I offer myself to you."},
+  {t:"जय गणेश जय गणेश जय गणेश देवा।|माता जाकी पार्वती पिता महादेवा॥",e:"Victory to Lord Ganesh — whose mother is Parvati and father is Mahadev.",c:1}]},
+ shiv:{hi:"शिव जी",en:"Shiva",title:"ॐ जय शिव ओंकारा",ten:"Aarti of Lord Shiva",icon:"trishul",c1:"#8fd3ff",c2:"#3a5a99",p:["#ffffff","#9fd8ff","#e8f4ff"],glow:"rgba(120,190,255,.45)",jai:"हर हर महादेव",jen:"Har Har Mahadev",lines:[
+  {t:"ॐ जय शिव ओंकारा, स्वामी जय शिव ओंकारा।|ब्रह्मा विष्णु सदाशिव, अर्द्धांगी धारा॥",e:"Victory to Shiva, the sacred Om — Brahma, Vishnu and Sadashiva, who holds Parvati as half of himself.",c:1},
+  {t:"एकानन चतुरानन पंचानन राजे।|हंसासन गरूड़ासन वृषवाहन साजे॥",e:"One-faced, four-faced and five-faced forms shine — seated on the swan, on Garuda, and riding the bull."},
+  {t:"दो भुज चार चतुर्भुज दसभुज अति सोहे।|त्रिगुण रूप निरखते त्रिभुवन जन मोहे॥",e:"Two arms, four arms, ten arms — seeing this threefold form, all three worlds are enchanted."},
+  {t:"अक्षमाला वनमाला मुण्डमाला धारी।|चंदन मृगमद सोहै, भाले शशिधारी॥",e:"Wearing rudraksha, forest-flower and skull garlands; sandal and musk adorn him, the moon upon his brow."},
+  {t:"श्वेताम्बर पीताम्बर बाघम्बर अंगे।|सनकादिक गरुड़ादिक भूतादिक संगे॥",e:"Clad in white, in yellow and in tiger skin; with sages, Garuda and spirits beside him."},
+  {t:"कर के मध्य कमंडल चक्र त्रिशूलधारी।|सुखकारी दुखहारी जगपालन कारी॥",e:"Holding the water-pot, discus and trident — giver of joy, remover of sorrow, sustainer of the world."},
+  {t:"ब्रह्मा विष्णु सदाशिव जानत अविवेका।|प्रणवाक्षर में शोभित ये तीनों एका॥",e:"Only the unwise see Brahma, Vishnu and Shiva as separate — in the syllable Om all three shine as one."},
+  {t:"त्रिगुणस्वामी जी की आरती जो कोई नर गावे।|कहत शिवानंद स्वामी मनवांछित फल पावे॥",e:"Whoever sings this aarti of the Lord of the three qualities, says Swami Shivanand, receives the heart's wish."},
+  {t:"ॐ जय शिव ओंकारा, स्वामी जय शिव ओंकारा।|ब्रह्मा विष्णु सदाशिव, अर्द्धांगी धारा॥",e:"Victory to Shiva, the sacred Om.",c:1}]},
+ vishnu:{hi:"विष्णु जी",en:"Vishnu",title:"ॐ जय जगदीश हरे",ten:"Aarti of Lord Vishnu",icon:"chakra",c1:"#ffd23f",c2:"#3a6ff7",p:["#ffd23f","#ffb000","#fff3b0"],glow:"rgba(255,210,70,.45)",jai:"ॐ नमो भगवते वासुदेवाय",jen:"Om Namo Bhagavate Vasudevaya",lines:[
+  {t:"ॐ जय जगदीश हरे, स्वामी जय जगदीश हरे।|भक्त जनों के संकट, क्षण में दूर करे॥",e:"Victory to Hari, Lord of the universe, who removes his devotees' troubles in an instant.",c:1},
+  {t:"जो ध्यावे फल पावे, दुख बिनसे मन का।|सुख सम्पत्ति घर आवे, कष्ट मिटे तन का॥",e:"Whoever meditates on you is rewarded — sorrow leaves the mind, joy and wealth come home, pain leaves the body."},
+  {t:"मात पिता तुम मेरे, शरण गहूँ मैं किसकी।|तुम बिन और न दूजा, आस करूँ मैं जिसकी॥",e:"You are my mother and father — whose refuge else would I seek? There is none but you to hope in."},
+  {t:"तुम पूरण परमात्मा, तुम अन्तर्यामी।|पारब्रह्म परमेश्वर, तुम सब के स्वामी॥",e:"You are the complete Supreme Soul who knows every heart — the highest Brahman, Lord of all."},
+  {t:"तुम करुणा के सागर, तुम पालनकर्ता।|मैं सेवक तुम स्वामी, कृपा करो भर्ता॥",e:"Ocean of compassion, sustainer of all — I am your servant and you my master; be kind to me."},
+  {t:"तुम हो एक अगोचर, सबके प्राणपति।|किस विधि मिलूँ दयामय, तुमको मैं कुमति॥",e:"You are the One beyond the senses, lord of every life — how can I, so foolish, reach you, merciful one?"},
+  {t:"दीनबन्धु दुखहर्ता, ठाकुर तुम मेरे।|अपने हाथ उठाओ, द्वार पड़ा तेरे॥",e:"Friend of the humble, remover of sorrow, my Lord — raise your hand to bless me; I lie at your door."},
+  {t:"विषय विकार मिटाओ, पाप हरो देवा।|श्रद्धा भक्ति बढ़ाओ, सन्तन की सेवा॥",e:"Wipe away worldly cravings and take away my sins; grow my faith, devotion and service to the saints."},
+  {t:"ॐ जय जगदीश हरे, स्वामी जय जगदीश हरे।|भक्त जनों के संकट, क्षण में दूर करे॥",e:"Victory to Hari, Lord of the universe.",c:1}]},
+ lakshmi:{hi:"लक्ष्मी माँ",en:"Lakshmi",title:"ॐ जय लक्ष्मी माता",ten:"Aarti of Mother Lakshmi",icon:"lotus",c1:"#ff8fc4",c2:"#d4a017",p:["#ff8fc4","#ff4f9a","#ffd6ea"],glow:"rgba(255,130,190,.42)",jai:"जय माँ लक्ष्मी",jen:"Jai Maa Lakshmi",lines:[
+  {t:"ॐ जय लक्ष्मी माता, मैया जय लक्ष्मी माता।|तुमको निशदिन सेवत, हरि विष्णु विधाता॥",e:"Victory to Mother Lakshmi, whom Vishnu and Brahma serve day and night.",c:1},
+  {t:"उमा रमा ब्रह्माणी, तुम ही जग-माता।|सूर्य-चन्द्रमा ध्यावत, नारद ऋषि गाता॥",e:"You are Uma, Rama and Brahmani — mother of the world; the sun and moon meditate on you and sage Narada sings your praise."},
+  {t:"दुर्गा रूप निरंजनी, सुख सम्पत्ति दाता।|जो कोई तुमको ध्यावत, ऋद्धि-सिद्धि धन पाता॥",e:"Pure one in the form of Durga, giver of joy and wealth — whoever meditates on you gains prosperity and success."},
+  {t:"तुम पाताल-निवासिनि, तुम ही शुभदाता।|कर्म-प्रभाव-प्रकाशिनी, भवनिधि की त्राता॥",e:"You dwell even in the depths and grant all that is good; you reveal the fruit of deeds and carry us across life's ocean."},
+  {t:"जिस घर में तुम रहतीं, सब सद्गुण आता।|सब सम्भव हो जाता, मन नहीं घबराता॥",e:"In the home where you live, every virtue arrives; everything becomes possible and the mind knows no fear."},
+  {t:"तुम बिन यज्ञ न होते, वस्त्र न कोई पाता।|खान-पान का वैभव, सब तुमसे आता॥",e:"Without you there would be no rituals and no clothing; all the richness of food and drink comes from you."},
+  {t:"शुभ-गुण मन्दिर सुन्दर, क्षीरोदधि-जाता।|रत्न चतुर्दश तुम बिन, कोई नहीं पाता॥",e:"Beautiful temple of virtues, born of the ocean of milk — without you no one gains the fourteen jewels."},
+  {t:"महालक्ष्मीजी की आरती, जो कोई जन गाता।|उर आनन्द समाता, पाप उतर जाता॥",e:"Whoever sings Mahalakshmi's aarti is filled with joy, and their sins fall away."},
+  {t:"ॐ जय लक्ष्मी माता, मैया जय लक्ष्मी माता।|तुमको निशदिन सेवत, हरि विष्णु विधाता॥",e:"Victory to Mother Lakshmi.",c:1}]},
+ durga:{hi:"दुर्गा माँ",en:"Durga",title:"जय अम्बे गौरी",ten:"Aarti of Mother Durga",icon:"trishul",c1:"#ff4d4d",c2:"#ffb703",p:["#ff3b3b","#c1121f","#ffb703"],glow:"rgba(255,70,60,.45)",jai:"जय माता दी",jen:"Jai Mata Di",lines:[
+  {t:"जय अम्बे गौरी, मैया जय श्यामा गौरी।|तुमको निशदिन ध्यावत, हरि ब्रह्मा शिवरी॥",e:"Victory to Mother Ambe, fair Gauri and dark Shyama — Vishnu, Brahma and Shiva meditate on you day and night.",c:1},
+  {t:"माँग सिंदूर विराजत, टीको मृगमद को।|उज्ज्वल से दोउ नैना, चंद्रवदन नीको॥",e:"Vermilion in her parting, a musk tilak on her brow; her eyes are radiant and her face lovely as the moon."},
+  {t:"कनक समान कलेवर, रक्ताम्बर राजै।|रक्तपुष्प गल माला, कंठन पर साजै॥",e:"Her form glows like gold, dressed in red; a garland of red flowers adorns her neck."},
+  {t:"केहरि वाहन राजत, खड्ग खप्पर धारी।|सुर-नर-मुनिजन सेवत, तिनके दुखहारी॥",e:"Riding the lion, bearing sword and bowl — gods, people and sages serve her, and she removes their sorrows."},
+  {t:"कानन कुण्डल शोभित, नासाग्रे मोती।|कोटिक चंद्र दिवाकर, सम राजत ज्योती॥",e:"Earrings shine in her ears, a pearl at her nose; her light equals millions of moons and suns."},
+  {t:"शुंभ-निशुंभ बिदारे, महिषासुर घाती।|धूम्र विलोचन नैना, निशदिन मदमाती॥",e:"She tore apart Shumbha and Nishumbha and slew Mahishasura; she destroyed Dhumralochan, ever filled with divine fervour."},
+  {t:"चण्ड-मुण्ड संहारे, शोणित बीज हरे।|मधु-कैटभ दोउ मारे, सुर भयहीन करे॥",e:"She destroyed Chanda, Munda and Raktabija, slew Madhu and Kaitabha, and freed the gods from fear."},
+  {t:"ब्रह्माणी, रुद्राणी, तुम कमला रानी।|आगम निगम बखानी, तुम शिव पटरानी॥",e:"You are Brahmani, Rudrani and Queen Kamala; the scriptures praise you, beloved queen of Shiva."},
+  {t:"चौंसठ योगिनी गावत, नृत्य करत भैरूँ।|बाजत ताल मृदंगा, अरु बाजत डमरू॥",e:"Sixty-four yoginis sing and Bhairav dances, to cymbals, drums and the damru."},
+  {t:"तुम ही जग की माता, तुम ही हो भरता।|भक्तन की दुख हरता, सुख संपति करता॥",e:"You are the mother of the world and its sustainer — you take away devotees' sorrows and bring joy and plenty."},
+  {t:"भुजा चार अति शोभित, वर मुद्रा धारी।|मनवांछित फल पावत, सेवत नर नारी॥",e:"Your four arms shine, one raised in blessing; all who serve you receive their heart's wish."},
+  {t:"कंचन थाल विराजत, अगर कपूर बाती।|श्रीमालकेतु में राजत, कोटि रतन ज्योती॥",e:"A golden plate glows with incense, camphor and wick; you shine with the light of countless jewels."},
+  {t:"श्री अम्बेजी की आरती, जो कोई नर गावै।|कहत शिवानंद स्वामी, सुख-संपति पावै॥",e:"Whoever sings Mother Ambe's aarti, says Swami Shivanand, gains happiness and prosperity."},
+  {t:"जय अम्बे गौरी, मैया जय श्यामा गौरी।|तुमको निशदिन ध्यावत, हरि ब्रह्मा शिवरी॥",e:"Victory to Mother Ambe.",c:1}]},
+ ram:{hi:"श्री राम",en:"Ram",title:"श्री रामचन्द्र कृपालु भजु मन",ten:"Shri Ram Stuti",icon:"bow",c1:"#ffa62b",c2:"#2a9d8f",p:["#ffa62b","#ff7b00","#ffe0a3"],glow:"rgba(255,165,50,.45)",jai:"जय श्री राम",jen:"Jai Shri Ram",lines:[
+  {t:"श्री रामचन्द्र कृपालु भजु मन, हरण भवभय दारुणं।|नवकंज लोचन कंज मुख, कर कंज पद कंजारुणं॥",e:"O mind, worship gracious Shri Ramchandra, who removes the dreadful fear of worldly life — lotus eyes, lotus face, lotus hands and rosy lotus feet.",c:1},
+  {t:"कन्दर्प अगणित अमित छवि, नवनील नीरद सुन्दरं।|पटपीत मानहुँ तडित रुचि शुचि, नौमि जनक सुतावरं॥",e:"His beauty outshines countless Kamadevas, lovely as a fresh dark cloud; his yellow robe gleams like lightning — I bow to Sita's beloved."},
+  {t:"भजु दीनबन्धु दिनेश दानव, दैत्य वंश निकन्दनं।|रघुनन्द आनन्द कन्द कोशल, चन्द दशरथ नन्दनं॥",e:"Worship the friend of the humble, the sun that ends the demon clans — joy of the Raghus, moon of Kosala, son of Dasharath."},
+  {t:"सिर मुकुट कुंडल तिलक चारु, उदारु अंग विभूषणं।|आजानु भुज शर चाप धर, संग्राम जित खरदूषणं॥",e:"Crown, earrings, a lovely tilak, ornaments on his noble form; arms reaching his knees, bearing bow and arrow — victor over Khara and Dushana."},
+  {t:"इति वदति तुलसीदास, शंकर शेष मुनि मन रंजनं।|मम हृदय कंज निवास कुरु, कामादि खल दल गंजनं॥",e:"So says Tulsidas: O delight of Shiva, Shesha and the sages — dwell in the lotus of my heart and crush desire and all my inner enemies."}]},
+ krishna:{hi:"श्री कृष्ण",en:"Krishna",title:"आरती कुंजबिहारी की",ten:"Aarti of Shri Krishna",icon:"flute",c1:"#4cc9f0",c2:"#3a0ca3",p:["#4cc9f0","#2ec4b6","#ffd166"],glow:"rgba(76,200,240,.42)",jai:"राधे राधे",jen:"Radhe Radhe",lines:[
+  {t:"आरती कुंजबिहारी की।|श्री गिरिधर कृष्णमुरारी की॥",e:"Aarti to Krishna who roams the groves — to Giridhar, Krishna Murari.",c:1},
+  {t:"गले में बैजंती माला, बजावै मुरली मधुर बाला।|श्रवण में कुण्डल झलकाला, नंद के आनंद नंदलाला॥",e:"Wearing the Vaijayanti garland, the young one plays his sweet flute; earrings sparkle in his ears — Nanda's joy, Nandlala."},
+  {t:"गगन सम अंग कांति काली, राधिका चमक रही आली।|लतन में ठाढ़े बनमाली, भ्रमर सी अलक, कस्तूरी तिलक, चंद्र सी झलक, ललित छवि श्यामा प्यारी की॥",e:"His form is dark as the sky, Radha shining beside him; he stands among the vines — curls like bees, a musk tilak, a moon-like glow, beloved of Radha."},
+  {t:"कनकमय मोर मुकुट बिलसै, देवता दरसन को तरसैं।|गगन सों सुमन रासि बरसै, बजे मुरचंग, मधुर मिरदंग, ग्वालिन संग, अतुल रति गोप कुमारी की॥",e:"His golden peacock crown gleams and the gods long to see him; flowers rain from the sky as music plays and the gopis dance in matchless love."},
+  {t:"जहाँ ते प्रकट भई गंगा, सकल मन हारिणि श्री गंगा।|स्मरन ते होत मोह भंगा, बसी शिव सीस, जटा के बीच, हरै अघ कीच, चरन छवि श्रीबनवारी की॥",e:"From his feet flows the Ganga who wins every heart; remembering her ends delusion — she lives in Shiva's locks and washes away sin."},
+  {t:"चमकती उज्ज्वल तट रेनू, बज रही वृंदावन बेनू।|चहुँ दिसि गोपि ग्वाल धेनू, हँसत मृदु मंद, चाँदनी चंद, कटत भव फंद, टेर सुन दीन दुखारी की॥",e:"The riverbank sands shine as his flute plays in Vrindavan, gopis, cowherds and cows all around; his gentle smile, like moonlight, cuts the bonds of the world when he hears the cry of the suffering."},
+  {t:"आरती कुंजबिहारी की।|श्री गिरिधर कृष्णमुरारी की॥",e:"Aarti to Krishna who roams the groves.",c:1}]}
+};
+
+/* ---------- reader (Chalisa + Bajrang Baan) ---------- */
+let T="chalisa", ci=0, auto=null, fs=store.get("hv-fs",1);
+const curT=()=>TEXTS[T];
 const reader=$("#reader");
-const arts=[...new Set(CHALISA.map((_,i)=>artFor(i)))];
-$("#rBgs").innerHTML=arts.map(a=>`<img data-a="${a}" src="assets/art/${a}.jpg" alt="" loading="lazy">`).join("");
-$("#rProg").innerHTML=CHALISA.map((_,i)=>`<i data-i="${i}" title="${i+1}"></i>`).join("");
+$("#rBgs").innerHTML=["glow","rise","fly","shore","army","forest","lanka"].map(a=>`<img data-a="${a}" src="assets/art/${a}.jpg" alt="" loading="lazy">`).join("");
 reader.style.setProperty("--fs",fs);
-function go(i){ ci=Math.max(0,Math.min(CHALISA.length-1,i)); const v=CHALISA[ci];
-  document.querySelectorAll("#rBgs img").forEach(im=>im.classList.toggle("on",im.dataset.a===artFor(ci)));
-  $("#rNum").innerHTML=kindLabel(ci);
+function go(i){ const t=curT(); ci=Math.max(0,Math.min(t.v.length-1,i)); const v=t.v[ci];
+  document.querySelectorAll("#rBgs img").forEach(im=>im.classList.toggle("on",im.dataset.a===t.art(ci)));
+  $("#rNum").innerHTML=t.kind(ci);
   let k=0; $("#rVerse").innerHTML=lines(v.t).map(l=>l.split(" ").map(w=>`<span class="w" style="animation-delay:${(k++)*0.075}s">${w}</span>`).join(" ")).join("<br>");
   const m=$("#rMean"); m.textContent=v.e; m.style.animation="none"; void m.offsetWidth; m.style.animation="";
   document.querySelectorAll("#rProg i").forEach((s,j)=>{ s.className=j<ci?"done":j===ci?"cur":""; });
-  if(ci===CHALISA.length-1 && auto){ stopAuto(); setTimeout(()=>{petals(60);ring()},1600); }
+  if(ci===t.v.length-1 && auto){ stopAuto(); setTimeout(()=>{petals(60);ring()},1600); }
 }
 const playIco=`<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>`, pauseIco=`<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>`;
 function stopAuto(){ clearInterval(auto); auto=null; $("#rPlay").innerHTML=playIco; }
-function startAuto(){ if(ci===CHALISA.length-1) go(0); auto=setInterval(()=>go(ci+1),9000); $("#rPlay").innerHTML=pauseIco; }
+function startAuto(){ if(ci===curT().v.length-1) go(0); auto=setInterval(()=>go(ci+1),9000); $("#rPlay").innerHTML=pauseIco; }
 $("#rPlay").innerHTML=playIco;
 $("#rPlay").onclick=()=>auto?stopAuto():startAuto();
 $("#rNext").onclick=()=>go(ci+1); $("#rPrev").onclick=()=>go(ci-1);
@@ -1174,32 +1496,68 @@ reader.addEventListener("touchend",e=>{ if(rx===null) return; const d=e.changedT
 document.addEventListener("keydown",e=>{ if(P.classList.contains("open")||!$("#p-chalisa").classList.contains("on")||!$("#reader").offsetParent) return;
   const r=reader.getBoundingClientRect(); if(r.bottom<0||r.top>innerHeight) return;
   if(e.key==="ArrowRight"){go(ci+1)} else if(e.key==="ArrowLeft"){go(ci-1)} });
-go(0);
-/* full text */
-$("#full").innerHTML=`<div class="fv-head">॥ श्री हनुमान चालीसा ॥</div>`+CHALISA.map((v,i)=>`<div class="fv reveal ${v.k||""}" data-i="${i}"><div class="n">${(i<2||i===42)?"दोहा":toDeva(i-1)}</div><div class="t">${lines(v.t).join("<br>")}</div><span class="en">${v.e}</span></div>`).join("");
-document.querySelectorAll("#full .fv").forEach(el=>{ io.observe(el); el.onclick=()=>{ setMode("reader"); go(+el.dataset.i); reader.scrollIntoView({behavior:"smooth",block:"center"}); } });
+function setText(name,at){
+  T=name; stopAuto(); const t=curT();
+  document.querySelectorAll("[data-text]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.text===name));
+  $("#rTitle").textContent=t.hi;
+  $("#rProg").innerHTML=t.v.map((_,i)=>`<i data-i="${i}" title="${i+1}"></i>`).join("");
+  $("#full").innerHTML=`<div class="fv-head">॥ ${t.hi} ॥</div>`+t.v.map((v,i)=>`<div class="fv reveal ${v.k||""}" data-i="${i}"><div class="n">${t.num(i)}</div><div class="t">${lines(v.t).join("<br>")}</div><span class="en">${v.e}</span></div>`).join("");
+  document.querySelectorAll("#full .fv").forEach(el=>{ io.observe(el); el.onclick=()=>{ setMode("reader"); go(+el.dataset.i); reader.scrollIntoView({behavior:"smooth",block:"center"}); } });
+  reader.classList.remove("swap"); void reader.offsetWidth; reader.classList.add("swap");
+  go(at||0);
+}
+document.querySelectorAll("[data-text]").forEach(b=>b.onclick=()=>setText(b.dataset.text));
 function setMode(m){ document.querySelectorAll("[data-mode]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.mode===m));
   reader.style.display=m==="reader"?"":"none"; $("#full").classList.toggle("on",m==="full"); if(m==="full") stopAuto(); }
 document.querySelectorAll("[data-mode]").forEach(b=>b.onclick=()=>setMode(b.dataset.mode));
+setText("chalisa");
 
-/* ---------- aarti ---------- */
+/* ---------- aarti (all deities) ---------- */
 (()=>{ // flowers + mini diyas on thali
-  let f=""; for(let i=0;i<22;i++){ const a=i/22*Math.PI*2, x=100+70*Math.cos(a), y=100+70*Math.sin(a); f+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${i%2?4.2:5.2}" fill="${i%2?"#ffb000":"#e8452a"}" stroke="#7a2d0c" stroke-width=".6"/><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="1.6" fill="#fff3c4"/>`; }
+  let f=""; for(let i=0;i<22;i++){ const a=i/22*Math.PI*2, x=100+70*Math.cos(a), y=100+70*Math.sin(a); f+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${i%2?4.2:5.2}" fill="${i%2?"var(--fa,#ffb000)":"var(--fb,#e8452a)"}" stroke="#7a2d0c" stroke-width=".6"/><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="1.6" fill="#fff3c4"/>`; }
   $("#flowers").innerHTML=f;
   let m=""; [[100,40],[160,100],[40,100]].forEach(([x,y])=>{ m+=`<ellipse cx="${x}" cy="${y+6}" rx="10" ry="3.5" fill="#c0601f" stroke="#7a2d0c" stroke-width=".8"/><g class="fl"><ellipse cx="${x}" cy="${y-3}" rx="4.5" ry="9" fill="url(#fg)"/><path d="M${x} ${y-10} C${x+3} ${y-4} ${x+3} ${y+1} ${x} ${y+4} C${x-3} ${y+1} ${x-3} ${y-4} ${x} ${y-10}Z" fill="#ffd36b"/></g>`; });
   $("#minis").innerHTML=m;
 })();
-$("#alist").innerHTML=AARTI.map((v,i)=>`<div class="al ${v.c?"chorus":""}" data-i="${i}"><div class="t">${lines(v.t).join(" ")}</div><span class="en">${v.e}</span></div>`).join("");
-let at=null, ai=-1;
-function aStep(){ ai++; const els=document.querySelectorAll(".al");
-  if(ai>=els.length){ stopAarti(); petals(70); ring(); toast("🙏 जय बजरंगबली · Jai Bajrangbali"); return; }
+const icoSvg=(k,col,w=1.6)=>`<g fill="none" stroke="${col}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round">${IC[k]}</g>`;
+function emblem(d){
+  let outer="", inner="", icons="";
+  for(let i=0;i<24;i++) outer+=`<ellipse cx="100" cy="13" rx="6" ry="13" fill="${d.c1}" opacity=".5" transform="rotate(${i*15} 100 100)"/>`;
+  for(let i=0;i<16;i++) inner+=`<path d="M100 22 Q108 34 100 46 Q92 34 100 22Z" fill="${d.c2}" opacity=".55" transform="rotate(${i*22.5} 100 100)"/>`;
+  for(let i=0;i<8;i++){ const a=i/8*Math.PI*2-Math.PI/2, x=100+80*Math.cos(a), y=100+80*Math.sin(a); icons+=`<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${i*45}) scale(.78)">${icoSvg(d.icon,"#fff6dc",1.8)}</g>`; }
+  return `<svg viewBox="0 0 200 200" aria-hidden="true"><defs><radialGradient id="emb"><stop offset=".35" stop-color="${d.c2}" stop-opacity=".9"/><stop offset="1" stop-color="#120a07"/></radialGradient></defs>
+    <circle cx="100" cy="100" r="98" fill="url(#emb)"/><g class="e-spin">${outer}</g><g class="e-spinr">${inner}</g>
+    <circle cx="100" cy="100" r="80" fill="none" stroke="${d.c1}" stroke-opacity=".5" stroke-dasharray="1 4"/><g class="e-spin2">${icons}</g></svg>`;
+}
+$("#deityPick").innerHTML=Object.entries(AARTIS).map(([k,d])=>`<button class="dp" data-d="${k}" aria-pressed="${k==="hanuman"}" style="--c1:${d.c1};--c2:${d.c2}"><span class="av"><svg viewBox="-16 -16 32 32">${icoSvg(d.icon,"#fff",2)}</svg></span><span class="nm"><span class="hi">${d.hi}</span><span class="en">${d.en}</span></span></button>`).join("");
+let AK="hanuman", at=null, ai=-1;
+function aLines(){ return AARTIS[AK].lines; }
+function buildAarti(k){
+  AK=k; stopAarti(); const d=AARTIS[k], root=document.documentElement, pa=$("#p-aarti");
+  document.querySelectorAll(".dp").forEach(b=>b.setAttribute("aria-pressed",b.dataset.d===k));
+  root.style.setProperty("--p1",d.p[0]); root.style.setProperty("--p2",d.p[1]); root.style.setProperty("--p3",d.p[2]);
+  pa.style.setProperty("--acc",d.c1); pa.style.setProperty("--glow",d.glow); pa.style.setProperty("--fa",d.p[0]); pa.style.setProperty("--fb",d.p[1]);
+  const tw=$(".thali-wrap"); tw.classList.toggle("has-art",!!d.art);
+  $("#emblem").innerHTML=d.art?"":emblem(d);
+  tw.classList.remove("swap"); void tw.offsetWidth; tw.classList.add("swap");
+  $("#aLbl").innerHTML=`<span class="hi">${d.title}</span> <span class="en">· ${d.ten}</span>`;
+  $("#alist").innerHTML=d.lines.map((v,i)=>`<div class="al ${v.c?"chorus":""}" data-i="${i}" style="animation-delay:${i*45}ms"><div class="t">${lines(v.t).join(" ")}</div><span class="en">${v.e}</span></div>`).join("");
+  store.set("hv-aarti",k);
+}
+function aStep(){ ai++; const els=document.querySelectorAll(".al"), d=AARTIS[AK];
+  if(ai>=els.length){ stopAarti(); petals(70); ring(); toast(`🙏 ${d.jai} · ${d.jen}`); return; }
   els.forEach((el,j)=>{ el.classList.toggle("on",j===ai); el.classList.toggle("past",j<ai); });
-  if(ai%4===0) ring(); }
-function stopAarti(){ clearInterval(at); at=null; $("#thali").classList.remove("playing"); document.querySelectorAll(".al").forEach(el=>el.classList.remove("on","past"));
+  if(innerWidth>900){ const el=els[ai], r=el.getBoundingClientRect(); if(r.top<120||r.bottom>innerHeight-40) el.scrollIntoView({behavior:"smooth",block:"center"}); }
+  if(ai%4===0) ring();
+  const len=aLines()[ai].t.length; at=setTimeout(aStep,Math.min(11000,3200+len*45)); }
+function stopAarti(){ clearTimeout(at); at=null; $("#thali").classList.remove("playing"); $(".thali-wrap").classList.remove("live"); document.querySelectorAll(".al").forEach(el=>el.classList.remove("on","past"));
   $("#aPlay").innerHTML=`🪔 ${bi("आरती शुरू करें","Start Aarti")}`; }
-$("#aPlay").onclick=()=>{ if(at){ stopAarti(); return; } ai=-1; $("#thali").classList.add("playing"); aStep(); at=setInterval(aStep,5200);
+$("#aPlay").onclick=()=>{ if(at){ stopAarti(); return; } ai=-1; $("#thali").classList.add("playing"); $(".thali-wrap").classList.add("live"); aStep();
   $("#aPlay").innerHTML=`⏸ ${bi("रोकें","Stop")}`; };
 $("#aPetals").onclick=()=>petals(60);
+$("#deityPick").onclick=e=>{ const b=e.target.closest(".dp"); if(b) buildAarti(b.dataset.d) };
+$("#alist").onclick=e=>{ const el=e.target.closest(".al"); if(!el||!at) return; clearTimeout(at); ai=+el.dataset.i-1; aStep(); };
+buildAarti(AARTIS[store.get("hv-aarti","hanuman")]?store.get("hv-aarti","hanuman"):"hanuman");
 
 /* ---------- mantras ---------- */
 $("#mgrid").innerHTML=MANTRAS.map((m,i)=>`
@@ -1267,8 +1625,200 @@ $("#shCopy").onclick=()=>navigator.clipboard&&navigator.clipboard.writeText(SITE
 $("#shNative").onclick=async()=>{ try{ if(navigator.share) await navigator.share({title:"Sankatmochan Hanumanverse",text:shareText,url:SITE_URL}); else { await navigator.clipboard.writeText(SITE_URL); toast("लिंक कॉपी हो गया · Link copied") } }catch(e){} };
 
 /* deep link to a tab */
-{ const h=location.hash.slice(1); if(TABS.includes(h)) setTimeout(()=>openTab(h,true),400); }
+{ const h=location.hash.slice(1); if(TABS.includes(h)) setTimeout(()=>openTab(h,true),400); if(h==="bajrang") setTimeout(()=>{openTab("chalisa",true);setText("bajrang")},400); }
 
+
+
+/* ================= KIDS GAMES ================= */
+function blip(f=880,d=.12,type="triangle",vol=.15){ try{ const ac=bellSound.ac||(bellSound.ac=new (window.AudioContext||window.webkitAudioContext)()); ac.resume&&ac.resume(); const t=ac.currentTime, o=ac.createOscillator(), g=ac.createGain(); o.type=type; o.frequency.setValueAtTime(f,t); o.frequency.exponentialRampToValueAtTime(f*1.5,t+d); g.gain.setValueAtTime(vol,t); g.gain.exponentialRampToValueAtTime(.0001,t+d+.08); o.connect(g).connect(ac.destination); o.start(t); o.stop(t+d+.1);}catch(e){} }
+function showGame(g){
+  document.querySelectorAll(".gcard").forEach(c=>c.setAttribute("aria-pressed",c.dataset.g===g));
+  document.querySelectorAll(".gpanel").forEach(p=>p.classList.toggle("on",p.id==="g-"+g));
+  if(g!=="leap") leap.pause();
+  if(g==="quiz" && !QZ.started) qzStart();
+  if(g==="match" && !MT.cards.length) mtNew();
+}
+$("#gpick").onclick=e=>{ const c=e.target.closest(".gcard"); if(c) showGame(c.dataset.g) };
+
+/* ---------- 1. Hanuman's Leap ---------- */
+const leap=(()=>{
+  const cv=$("#leapCv"), x=cv.getContext("2d"), W=420, H=600, SEA=540;
+  let st="ready", h, obs, coins, sparks, t, speed, score, best=store.get("hv-leap",0), raf=null, last=0, acc=0, msg=null;
+  const stars=Array.from({length:60},()=>({x:Math.random()*W,y:Math.random()*380,r:Math.random()*1.4+.3,p:Math.random()*6}));
+  $("#lBest").textContent=best;
+  function reset(){ h={x:110,y:260,vy:0,rot:0}; obs=[]; coins=[]; sparks=[]; t=0; speed=2.6; score=0; msg=null; $("#lScore").textContent=0; }
+  function spawn(){ const gap=Math.max(185,235-score*2.2), top=60+Math.random()*(SEA-gap-120); obs.push({x:W+40,w:62,top,gap,passed:false}); coins.push({x:W+40+31,y:top+gap/2,got:false,b:Math.random()*6}); if(Math.random()<.5) coins.push({x:W+40+31+150,y:120+Math.random()*320,got:false,b:Math.random()*6}); }
+  function flap(){ if(st==="ready"||st==="over") return start(); if(st==="pause"){ st="play"; last=performance.now(); acc=0; loop(last); } h.vy=-5.6; blip(520,.08,"sine",.06); }
+  function start(){ reset(); st="play"; $("#leapOv").classList.add("hide"); last=performance.now(); acc=0; cancelAnimationFrame(raf); raf=requestAnimationFrame(loop); }
+  function over(){ st="over"; if(score>best){ best=score; store.set("hv-leap",best); $("#lBest").textContent=best; }
+    blip(200,.35,"sawtooth",.08);
+    const good=score>=15;
+    $("#loTitle").innerHTML= good? bi("शाबाश! 🎉","Well done!") : bi("फिर से कोशिश करो!","Try again!");
+    $("#loText").innerHTML= bi(`तुमने ${toDeva(score)} राम-सिक्के जमा किए। ${score>=best&&score>0?"🏆 नया रिकॉर्ड!":""} ${score>=25?"तुम तो पवनपुत्र जैसे उड़े! 🚩":""}`,`You collected ${score} Ram coins.${score>=best&&score>0?" New record!":""}`);
+    $("#loBtn").innerHTML=`🔁 ${bi("फिर से उड़ो","Fly again")}`;
+    setTimeout(()=>$("#leapOv").classList.remove("hide"),500); if(good) petals(40); }
+  function pause(){ if(st==="play"){ st="pause"; } }
+  /* drawing */
+  function drawBg(){
+    const g=x.createLinearGradient(0,0,0,H); g.addColorStop(0,"#0b1240"); g.addColorStop(.55,"#3a1f5c"); g.addColorStop(.85,"#c2603a"); x.fillStyle=g; x.fillRect(0,0,W,H);
+    stars.forEach(s=>{ x.globalAlpha=.4+.6*Math.abs(Math.sin(t*.02+s.p)); x.fillStyle="#fff"; x.beginPath(); x.arc(s.x,s.y,s.r,0,7); x.fill(); }); x.globalAlpha=1;
+    const mg=x.createRadialGradient(330,90,4,330,90,60); mg.addColorStop(0,"#fff7d6"); mg.addColorStop(.4,"rgba(255,240,190,.5)"); mg.addColorStop(1,"rgba(255,240,190,0)"); x.fillStyle=mg; x.beginPath(); x.arc(330,90,60,0,7); x.fill(); x.fillStyle="#fff3c4"; x.beginPath(); x.arc(330,90,22,0,7); x.fill();
+    // Lanka on horizon
+    const lx=W-((t*.25)%(W+260))+60; x.fillStyle="rgba(255,190,80,.55)"; for(let i=0;i<9;i++){ const hh=20+((i*37)%45); x.fillRect(lx+i*14,SEA-hh,9,hh); x.beginPath(); x.moveTo(lx+i*14,SEA-hh); x.lineTo(lx+i*14+4.5,SEA-hh-14); x.lineTo(lx+i*14+9,SEA-hh); x.fill(); }
+    // sea
+    const sg=x.createLinearGradient(0,SEA,0,H); sg.addColorStop(0,"#1d4e89"); sg.addColorStop(1,"#081a33"); x.fillStyle=sg; x.fillRect(0,SEA,W,H-SEA);
+    x.strokeStyle="rgba(180,220,255,.5)"; x.lineWidth=2; for(let row=0;row<3;row++){ x.beginPath(); for(let i=-1;i<=W/20+1;i++){ const px=i*20-((t*speed*(1+row*.3))%20), py=SEA+8+row*18; x.moveTo(px,py); x.quadraticCurveTo(px+5,py-5,px+10,py); } x.stroke(); }
+  }
+  function drawObs(o){
+    // storm cloud (top)
+    const cy=o.top; x.fillStyle="#2b2340"; x.fillRect(o.x,0,o.w,cy-18);
+    x.fillStyle="#4a3f6b"; [[-8,cy-24,22],[14,cy-14,24],[40,cy-22,22],[62,cy-16,18]].forEach(([dx,yy,r])=>{x.beginPath();x.arc(o.x+dx+4,yy,r,0,7);x.fill();});
+    x.strokeStyle="#ffe66d"; x.lineWidth=2.5; if(Math.floor(t/20+o.x)%5===0){ x.beginPath(); x.moveTo(o.x+30,cy-4); x.lineTo(o.x+22,cy+14); x.lineTo(o.x+32,cy+12); x.lineTo(o.x+24,cy+30); x.stroke(); }
+    // rock pillar (bottom)
+    const by=o.top+o.gap; const rg=x.createLinearGradient(o.x,0,o.x+o.w,0); rg.addColorStop(0,"#5a3a22"); rg.addColorStop(.5,"#8a5a32"); rg.addColorStop(1,"#4a2c18"); x.fillStyle=rg;
+    x.beginPath(); x.moveTo(o.x-6,SEA+4); x.lineTo(o.x,by+14); x.lineTo(o.x+14,by); x.lineTo(o.x+34,by+8); x.lineTo(o.x+50,by-2); x.lineTo(o.x+o.w,by+16); x.lineTo(o.x+o.w+6,SEA+4); x.closePath(); x.fill();
+    x.fillStyle="rgba(120,200,120,.6)"; x.beginPath(); x.arc(o.x+20,by+6,6,0,7); x.arc(o.x+44,by+3,5,0,7); x.fill();
+  }
+  function drawCoin(c){ const bob=Math.sin(t*.08+c.b)*4, s=Math.abs(Math.cos(t*.05+c.b)); x.save(); x.translate(c.x,c.y+bob);
+    const gg=x.createRadialGradient(0,0,2,0,0,24); gg.addColorStop(0,"rgba(255,220,120,.6)"); gg.addColorStop(1,"rgba(255,220,120,0)"); x.fillStyle=gg; x.beginPath(); x.arc(0,0,24,0,7); x.fill();
+    x.scale(.35+.65*s,1); x.fillStyle="#f2b84b"; x.beginPath(); x.arc(0,0,13,0,7); x.fill(); x.strokeStyle="#b8661c"; x.lineWidth=2; x.stroke();
+    x.fillStyle="#7a2d0c"; x.font="bold 11px 'Tiro Devanagari Hindi',serif"; x.textAlign="center"; x.textBaseline="middle"; x.fillText("राम",0,1); x.restore(); }
+  function drawHanuman(){
+    x.save(); x.translate(h.x,h.y); x.rotate(h.rot);
+    // tail
+    x.strokeStyle="#d9822b"; x.lineWidth=5; x.lineCap="round"; x.beginPath(); x.moveTo(-14,8); x.bezierCurveTo(-38,14,-40,-22,-24,-26); x.stroke();
+    // body
+    x.fillStyle="#e8892f"; x.beginPath(); x.ellipse(0,6,13,15,0,0,7); x.fill();
+    x.fillStyle="#d7262b"; x.beginPath(); x.ellipse(0,16,13,7,0,0,7); x.fill();
+    // arm forward (flying pose)
+    x.strokeStyle="#e8892f"; x.lineWidth=6; x.beginPath(); x.moveTo(8,0); x.lineTo(26,-8); x.stroke();
+    // gada
+    x.strokeStyle="#c98a2a"; x.lineWidth=3; x.beginPath(); x.moveTo(-6,2); x.lineTo(-16,-18); x.stroke();
+    x.fillStyle="#f2c14b"; x.beginPath(); x.arc(-18,-22,7,0,7); x.fill(); x.strokeStyle="#9a6018"; x.lineWidth=1.2; x.stroke();
+    // head
+    x.fillStyle="#e8892f"; x.beginPath(); x.arc(4,-14,11,0,7); x.fill();
+    x.fillStyle="#f7d2a0"; x.beginPath(); x.ellipse(7,-11,7,6,0,0,7); x.fill();
+    x.fillStyle="#2a1306"; x.beginPath(); x.arc(5,-16,1.6,0,7); x.arc(10,-16,1.6,0,7); x.fill();
+    x.strokeStyle="#7a2d0c"; x.lineWidth=1.2; x.beginPath(); x.arc(8,-10,3,.2,Math.PI-.2); x.stroke();
+    // crown
+    x.fillStyle="#f2b84b"; x.beginPath(); x.moveTo(-5,-22); x.lineTo(4,-36); x.lineTo(12,-22); x.closePath(); x.fill(); x.fillStyle="#d7262b"; x.beginPath(); x.arc(4,-27,2,0,7); x.fill();
+    x.restore();
+    // wind trail
+    if(st==="play"){ x.strokeStyle="rgba(255,255,255,.35)"; x.lineWidth=2; for(let i=0;i<3;i++){ x.beginPath(); x.moveTo(h.x-20-i*6,h.y-6+i*8); x.lineTo(h.x-46-i*10,h.y-6+i*8); x.stroke(); } }
+  }
+  function frame(){
+    drawBg(); obs.forEach(drawObs); coins.forEach(c=>{ if(!c.got) drawCoin(c) });
+    sparks.forEach(s=>{ x.globalAlpha=s.l/30; x.fillStyle=s.c; x.beginPath(); x.arc(s.x,s.y,s.r,0,7); x.fill(); }); x.globalAlpha=1;
+    drawHanuman();
+    if(msg){ x.globalAlpha=Math.min(1,msg.l/30); x.fillStyle="#ffe6b0"; x.font="28px 'Rozha One','Tiro Devanagari Hindi',serif"; x.textAlign="center"; x.shadowColor="#000"; x.shadowBlur=10; x.fillText(msg.t,W/2,200); x.shadowBlur=0; x.globalAlpha=1; }
+  }
+  function step(){
+    t++; speed=Math.min(4.6,2.6+score*.06);
+    h.vy+=.28; h.vy=Math.min(h.vy,7); h.y+=h.vy; h.rot=Math.max(-.5,Math.min(.6,h.vy*.07));
+    if(t%Math.round(105/(speed/2.6))===0) spawn();
+    obs.forEach(o=>o.x-=speed); coins.forEach(c=>c.x-=speed); obs=obs.filter(o=>o.x>-90); coins=coins.filter(c=>c.x>-40);
+    sparks.forEach(s=>{s.x+=s.vx;s.y+=s.vy;s.vy+=.15;s.l--}); sparks=sparks.filter(s=>s.l>0);
+    if(msg){ msg.l--; if(msg.l<=0) msg=null; }
+    coins.forEach(c=>{ if(!c.got && Math.hypot(c.x-h.x,c.y-h.y)<26){ c.got=true; score++; $("#lScore").textContent=score; blip(880+score*10,.1); for(let i=0;i<14;i++) sparks.push({x:c.x,y:c.y,vx:(Math.random()-.5)*5,vy:(Math.random()-.8)*5,r:Math.random()*3+1,l:30,c:Math.random()<.5?"#ffd27a":"#fff3c4"});
+      const M={5:"जय श्री राम! 🚩",10:"लंका पास है!",20:"पवनपुत्र! 💨",30:"अद्भुत! 🏆",40:"संकटमोचन! 🙏"}; if(M[score]) msg={t:M[score],l:70}; } });
+    // collisions (forgiving hitbox)
+    const hr=12; if(h.y+hr>SEA||h.y-hr<0) return over();
+    for(const o of obs){ if(h.x+hr>o.x+6 && h.x-hr<o.x+o.w-6){ if(h.y-hr<o.top-8 || h.y+hr>o.top+o.gap+6) return over(); } }
+  }
+  function loop(now){ if(st!=="play"){ frame(); return; } acc+=Math.min(100,now-last); last=now; while(acc>=16.67){ step(); acc-=16.67; if(st!=="play") break; } frame(); raf=requestAnimationFrame(loop); }
+  reset(); frame();
+  cv.addEventListener("pointerdown",e=>{ e.preventDefault(); flap(); });
+  $("#loBtn").onclick=e=>{ e.stopPropagation(); start(); };
+  document.addEventListener("keydown",e=>{ if((e.code==="Space"||e.key==="ArrowUp") && $("#g-leap").classList.contains("on")){ const r=cv.getBoundingClientRect(); if(r.bottom<0||r.top>innerHeight||P.classList.contains("open")) return; if(/INPUT|TEXTAREA/.test(document.activeElement.tagName)) return; if($("#p-japa").classList.contains("on")){ const jr=$("#p-japa").getBoundingClientRect(); if(jr.top<innerHeight&&jr.bottom>0) return; } e.preventDefault(); flap(); }});
+  new IntersectionObserver(es=>es.forEach(en=>{ if(!en.isIntersecting) pause(); })).observe(cv);
+  return {pause};
+})();
+
+/* ---------- 2. Bhakti Quiz ---------- */
+const QUIZ=[
+ {e:"🐭",q:"मूषक (चूहा) किसका वाहन है?",qe:"Whose vahana is the mouse?",o:[["गणेश जी","Ganesh"],["शिव जी","Shiva"],["विष्णु जी","Vishnu"],["हनुमान जी","Hanuman"]],f:["गणेश जी मूषक पर सवारी करते हैं — छोटा वाहन, बड़ी बुद्धि!","Ganesh rides a mouse — a tiny vahana for a big mind!"]},
+ {e:"🐂",q:"नंदी बैल किसका वाहन है?",qe:"Nandi the bull carries which god?",o:[["शिव जी","Shiva"],["राम जी","Ram"],["कृष्ण जी","Krishna"],["गणेश जी","Ganesh"]],f:["नंदी शिव जी के प्रिय भक्त और वाहन हैं।","Nandi is Shiva's beloved devotee and vahana."]},
+ {e:"🦅",q:"गरुड़ किसका वाहन है?",qe:"Garuda is the vahana of…",o:[["विष्णु जी","Vishnu"],["दुर्गा माँ","Durga"],["हनुमान जी","Hanuman"],["शिव जी","Shiva"]],f:["गरुड़ भगवान विष्णु को लेकर उड़ते हैं — गजेन्द्र को बचाने भी वही आए थे!","Garuda carries Vishnu — he flew Vishnu to save Gajendra!"]},
+ {e:"🦁",q:"दुर्गा माँ किस पर सवारी करती हैं?",qe:"What does Durga Maa ride?",o:[["शेर","Lion"],["हाथी","Elephant"],["घोड़ा","Horse"],["मोर","Peacock"]],f:["माँ दुर्गा शेर पर सवार होकर महिषासुर से लड़ीं।","Durga Maa rode a lion to battle Mahishasura."]},
+ {e:"🪷",q:"लक्ष्मी माँ किस फूल पर विराजती हैं?",qe:"Lakshmi Maa sits on which flower?",o:[["कमल","Lotus"],["गुलाब","Rose"],["गेंदा","Marigold"],["चमेली","Jasmine"]],f:["कमल कीचड़ में खिलकर भी सुंदर रहता है — लक्ष्मी माँ इसी पर विराजती हैं।","The lotus stays pure though it grows in mud — Lakshmi sits on it."]},
+ {e:"🎶",q:"कृष्ण जी क्या बजाते हैं?",qe:"What does Krishna play?",o:[["बाँसुरी","Flute"],["ढोल","Drum"],["वीणा","Veena"],["शंख","Conch"]],f:["कृष्ण की बाँसुरी सुनकर गायें और गोपियाँ दौड़ी चली आती थीं।","Cows and gopis came running when Krishna played his flute."]},
+ {e:"⛰️",q:"कृष्ण जी ने कौन-सा पर्वत उँगली पर उठाया?",qe:"Which mountain did Krishna lift on one finger?",o:[["गोवर्धन","Govardhan"],["कैलाश","Kailash"],["हिमालय","Himalaya"],["मंदार","Mandara"]],f:["इंद्र की बारिश से गोकुल को बचाने के लिए कृष्ण ने गोवर्धन उठाया।","Krishna lifted Govardhan to shelter Gokul from Indra's storm."]},
+ {e:"🌿",q:"लक्ष्मण जी के लिए हनुमान जी कौन-सी बूटी लाए?",qe:"Which herb did Hanuman bring for Lakshman?",o:[["संजीवनी","Sanjeevani"],["तुलसी","Tulsi"],["नीम","Neem"],["हल्दी","Turmeric"]],f:["बूटी पहचान न पाने पर हनुमान जी पूरा पर्वत ही उठा लाए!","Not sure which herb it was, Hanuman brought the whole mountain!"]},
+ {e:"☀️",q:"बाल हनुमान ने किसे मीठा फल समझकर निगलना चाहा?",qe:"What did baby Hanuman think was a sweet fruit?",o:[["सूर्य","The Sun"],["चंद्रमा","The Moon"],["तारा","A star"],["आम","A mango"]],f:["“लील्यो ताहि मधुर फल जानू” — हनुमान चालीसा में भी यही लिखा है।","The Hanuman Chalisa says it too: he swallowed the sun, thinking it a sweet fruit."]},
+ {e:"🔥",q:"हनुमान जी ने लंका किससे जलाई?",qe:"How did Hanuman set Lanka on fire?",o:[["अपनी पूँछ से","With his tail"],["तीर से","With an arrow"],["दीये से","With a lamp"],["गदा से","With his mace"]],f:["रावण ने पूँछ में आग लगवाई — और हनुमान जी ने उसी से लंका जला दी!","Ravana set his tail on fire — and Hanuman used it to burn Lanka!"]},
+ {e:"👩",q:"हनुमान जी की माता का नाम क्या है?",qe:"What is the name of Hanuman's mother?",o:[["अंजनी","Anjani"],["यशोदा","Yashoda"],["कौशल्या","Kaushalya"],["पार्वती","Parvati"]],f:["इसीलिए हनुमान जी को “आंजनेय” भी कहते हैं।","That's why Hanuman is also called Anjaneya."]},
+ {e:"💙",q:"विष पीने के बाद किसका कंठ नीला हो गया?",qe:"Whose throat turned blue after drinking poison?",o:[["शिव जी","Shiva"],["विष्णु जी","Vishnu"],["ब्रह्मा जी","Brahma"],["इंद्र देव","Indra"]],f:["इसीलिए शिव जी को “नीलकंठ” कहते हैं — हमारी रील देखो!","That's why Shiva is called Neelkanth — watch our reel!"]},
+ {e:"🦁",q:"प्रह्लाद को बचाने भगवान किस रूप में आए?",qe:"In what form did God come to save Prahlad?",o:[["नरसिंह","Narasimha"],["वामन","Vamana"],["मत्स्य","Matsya (fish)"],["कूर्म","Kurma (turtle)"]],f:["आधे सिंह, आधे मनुष्य — खंभा फाड़कर प्रकट हुए नरसिंह!","Half lion, half man — Narasimha burst out of a pillar!"]},
+ {e:"🌉",q:"लंका जाने के लिए वानर सेना ने समुद्र पर क्या बनाया?",qe:"What did the vanara army build across the sea?",o:[["राम सेतु","Ram Setu bridge"],["नाव","A boat"],["सुरंग","A tunnel"],["रथ","A chariot"]],f:["पत्थरों पर “राम” लिखा तो वे तैरने लगे!","Stones with “Ram” written on them floated!"]},
+ {e:"🙏",q:"गणेश जी ने संसार की जगह किसकी परिक्रमा की?",qe:"Instead of the world, whom did Ganesh circle?",o:[["अपने माता-पिता की","His parents"],["मंदिर की","A temple"],["पेड़ की","A tree"],["पर्वत की","A mountain"]],f:["गणेश जी बोले — माता-पिता ही मेरा संसार हैं। हमारी रील में देखो!","Ganesh said: my parents are my whole world. See our reel!"]},
+ {e:"🐘",q:"गजेन्द्र हाथी को किसने पकड़ लिया था?",qe:"Who caught Gajendra the elephant?",o:[["मगरमच्छ","A crocodile"],["शेर","A lion"],["साँप","A snake"],["बाघ","A tiger"]],f:["जब गजेन्द्र ने कमल उठाकर पुकारा, विष्णु जी दौड़े चले आए।","When Gajendra raised a lotus and called out, Vishnu came racing."]},
+ {e:"🍬",q:"गणेश जी की सबसे प्रिय मिठाई कौन-सी है?",qe:"What is Ganesh's favourite sweet?",o:[["मोदक","Modak"],["जलेबी","Jalebi"],["रसगुल्ला","Rasgulla"],["बर्फ़ी","Barfi"]],f:["गणेश चतुर्थी पर मोदक का भोग लगाया जाता है।","Modaks are offered on Ganesh Chaturthi."]},
+ {e:"👑",q:"श्री राम किस नगर के राजा थे?",qe:"Shri Ram was king of which city?",o:[["अयोध्या","Ayodhya"],["लंका","Lanka"],["मथुरा","Mathura"],["काशी","Kashi"]],f:["राम जी के अयोध्या लौटने की खुशी में दीपावली मनाई जाती है! 🪔","Diwali celebrates Ram's return to Ayodhya!"]}
+];
+const QZ={i:0,score:0,qs:[],started:false};
+const shuffle=a=>{ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]} return a; };
+function qzStart(){ QZ.started=true; QZ.i=0; QZ.score=0; QZ.qs=shuffle(QUIZ.slice()).slice(0,10); qzShow(); }
+function qzStars(){ $("#qzStars").textContent="⭐".repeat(QZ.score)||"☆"; }
+function qzShow(){
+  const q=QZ.qs[QZ.i]; $("#qzNum").innerHTML=bi(`सवाल ${toDeva(QZ.i+1)} / १०`,`Question ${QZ.i+1} / 10`); $("#qzBar").style.width=(QZ.i/10*100)+"%"; qzStars();
+  const opts=shuffle(q.o.map((o,k)=>({o,ok:k===0})));
+  const c=$("#qzCard"); c.style.animation="none"; void c.offsetWidth; c.style.animation="";
+  c.innerHTML=`<div class="qz-emo">${q.e}</div><div class="qz-q">${q.q}<span class="en">${q.qe}</span></div>
+   <div class="qz-opts">${opts.map(x=>`<button class="qz-opt" data-ok="${x.ok?1:0}">${x.o[0]}<span class="en">${x.o[1]}</span></button>`).join("")}</div><div id="qzAfter"></div>`;
+  c.querySelectorAll(".qz-opt").forEach(b=>b.onclick=()=>{
+    const ok=b.dataset.ok==="1"; c.querySelectorAll(".qz-opt").forEach(x=>{ x.disabled=true; if(x.dataset.ok==="1") x.classList.add("right"); });
+    if(ok){ QZ.score++; blip(660,.12); setTimeout(()=>blip(990,.15),110); } else { b.classList.add("wrong"); blip(180,.25,"square",.06); try{navigator.vibrate&&navigator.vibrate(120)}catch(e){} }
+    qzStars();
+    $("#qzAfter").innerHTML=`<div class="qz-fact">${ok?"✅ ":"💡 "}${bi(q.f[0],q.f[1])}</div><button class="btn btn-gold qz-next" id="qzNext">${QZ.i<9?bi("अगला सवाल →","Next →"):bi("नतीजा देखो 🎉","See result 🎉")}</button>`;
+    $("#qzNext").onclick=()=>{ QZ.i++; QZ.i<10?qzShow():qzEnd(); };
+  });
+}
+function qzEnd(){
+  $("#qzBar").style.width="100%"; const s=QZ.score, best=Math.max(s,store.get("hv-quiz",0)); store.set("hv-quiz",best);
+  const title= s===10?bi("पूरे नंबर! तुम तो ज्ञानी हो! 🏆","Perfect score!"): s>=7?bi("बहुत बढ़िया! 🌟","Excellent!"): s>=4?bi("अच्छा प्रयास! 👍","Good try!"):bi("कोई बात नहीं — फिर खेलो! 💪","Play again!");
+  $("#qzCard").innerHTML=`<div class="qz-end"><div class="qz-emo">${s>=7?"🏆":"🙏"}</div><div class="big">${toDeva(s)}/१०</div><div class="st">${"⭐".repeat(s)}${"☆".repeat(10-s)}</div><div class="qz-q">${title}</div>
+    <p style="margin-top:10px;color:var(--muted)">${bi(`सबसे अच्छा स्कोर: ${toDeva(best)}/१०`,`Best: ${best}/10`)}</p>
+    <div class="row-btns" style="justify-content:center;margin-top:18px"><button class="btn btn-gold" id="qzAgain">🔁 ${bi("फिर से खेलो","Play again")}</button>
+    <a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/?text=${encodeURIComponent(`🏆 मैंने भक्ति क्विज़ में ${s}/10 स्कोर किया! क्या तुम मुझे हरा सकते हो? 🙏\n${SITE_URL}#games`)}">WhatsApp</a></div></div>`;
+  $("#qzAgain").onclick=qzStart; if(s>=7){ petals(60); ring(); }
+}
+
+/* ---------- 3. Match the Vahana ---------- */
+const MATCH=[
+ {g:"गणेश जी",ge:"Ganesh",v:"मूषक",ve:"Mouse",e:"🐭",ge2:"🐘",c1:"#ffb627",c2:"#e63946"},
+ {g:"शिव जी",ge:"Shiva",v:"नंदी बैल",ve:"Nandi bull",e:"🐂",ge2:"🔱",c1:"#6fb7ff",c2:"#2b3f7a"},
+ {g:"विष्णु जी",ge:"Vishnu",v:"गरुड़",ve:"Garuda",e:"🦅",ge2:"🌀",c1:"#ffd23f",c2:"#3a6ff7"},
+ {g:"दुर्गा माँ",ge:"Durga",v:"शेर",ve:"Lion",e:"🦁",ge2:"⚔️",c1:"#ff4d4d",c2:"#8a0f1a"},
+ {g:"लक्ष्मी माँ",ge:"Lakshmi",v:"उल्लू",ve:"Owl",e:"🦉",ge2:"🪷",c1:"#ff8fc4",c2:"#b5179e"},
+ {g:"सरस्वती माँ",ge:"Saraswati",v:"हंस",ve:"Swan",e:"🦢",ge2:"📖",c1:"#e0f2ff",c2:"#5aa9e6"},
+ {g:"कार्तिकेय जी",ge:"Kartikeya",v:"मोर",ve:"Peacock",e:"🦚",ge2:"🏹",c1:"#2ec4b6",c2:"#1b4965"},
+ {g:"श्री कृष्ण",ge:"Krishna",v:"गाय",ve:"Cow",e:"🐄",ge2:"🎶",c1:"#4cc9f0",c2:"#3a0ca3"}
+];
+const MT={cards:[],open:[],moves:0,pairs:0,n:6,timer:null,sec:0,lock:false};
+function mtNew(n){ if(n) MT.n=n; clearInterval(MT.timer); MT.timer=null; MT.sec=0; MT.moves=0; MT.pairs=0; MT.open=[]; MT.lock=false;
+  document.querySelectorAll("[data-lv]").forEach(b=>b.setAttribute("aria-pressed",+b.dataset.lv===MT.n));
+  const set=shuffle(MATCH.slice()).slice(0,MT.n); MT.cards=shuffle(set.flatMap((m,k)=>[{k,t:"g",m},{k,t:"v",m}]));
+  $("#mtGrid").innerHTML=MT.cards.map((c,i)=>`<div class="mt-c" data-i="${i}" role="button" tabindex="0" aria-label="card"><div class="in"><div class="mt-f mt-front"></div><div class="mt-f mt-back" style="--c1:${c.m.c1};--c2:${c.m.c2}">${c.t==="g"?`<span class="e">${c.m.ge2}</span><span class="n">${c.m.g}</span><span class="s">${c.m.ge}</span>`:`<span class="e">${c.m.e}</span><span class="n">${c.m.v}</span><span class="s">${c.m.ve}</span>`}</div></div></div>`).join("");
+  $("#mtGrid").style.gridTemplateColumns=`repeat(4,1fr)`;
+  $("#mtLearn").innerHTML=bi("कार्ड पलटो — भगवान का नाम और उनका वाहन ढूँढो!","Flip the cards — find each god and their vahana!");
+  mtStats();
+}
+function mtStats(){ $("#mtMoves").textContent=MT.moves; $("#mtPairs").textContent=`${MT.pairs}/${MT.n}`; $("#mtTime").textContent=MT.sec; }
+function mtFlip(el){
+  const i=+el.dataset.i; if(MT.lock||el.classList.contains("open")||el.classList.contains("done")) return;
+  if(!MT.timer) MT.timer=setInterval(()=>{MT.sec++;mtStats()},1000);
+  el.classList.add("open"); MT.open.push(i); blip(700,.06,"sine",.06);
+  if(MT.open.length===2){ MT.moves++; const [a,b]=MT.open, A=MT.cards[a], B=MT.cards[b], ea=$(`.mt-c[data-i="${a}"]`), eb=$(`.mt-c[data-i="${b}"]`);
+    if(A.k===B.k && A.t!==B.t){ ea.classList.add("done"); eb.classList.add("done"); MT.pairs++; MT.open=[]; blip(880,.1); setTimeout(()=>blip(1320,.14),100);
+      $("#mtLearn").innerHTML=`✨ ${bi(`<b>${A.m.g}</b> का वाहन है <b>${A.m.v}</b> ${A.m.e}`,`${A.m.ge}'s vahana is the ${A.m.ve.toLowerCase()}`)}`;
+      if(MT.pairs===MT.n){ clearInterval(MT.timer); const key="hv-match-"+MT.n, best=store.get(key,0); const nb=!best||MT.moves<best; if(nb) store.set(key,MT.moves);
+        setTimeout(()=>{ petals(70); ring(); $("#mtLearn").innerHTML=`🏆 ${bi(`शाबाश! ${toDeva(MT.moves)} चालों और ${toDeva(MT.sec)} सेकंड में पूरा! ${nb?"नया रिकॉर्ड!":""}`,`Done in ${MT.moves} moves and ${MT.sec}s!${nb?" New record!":""}`)} <br><button class="btn btn-gold" id="mtAgain" style="margin-top:12px">🔁 ${bi("फिर से खेलो","Play again")}</button>`; $("#mtAgain").onclick=()=>mtNew(); },500); }
+    } else { MT.lock=true; setTimeout(()=>{ ea.classList.add("nope"); eb.classList.add("nope"); },350); setTimeout(()=>{ ea.classList.remove("open","nope"); eb.classList.remove("open","nope"); MT.open=[]; MT.lock=false; },1000); }
+    mtStats(); }
+}
+$("#mtGrid").addEventListener("click",e=>{ const c=e.target.closest(".mt-c"); if(c) mtFlip(c) });
+$("#mtGrid").addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" "){ const c=e.target.closest(".mt-c"); if(c){ e.preventDefault(); mtFlip(c); } } });
+document.querySelectorAll("[data-lv]").forEach(b=>b.onclick=()=>mtNew(+b.dataset.lv));
 
 /* ---------- content protection ---------- */
 document.querySelectorAll("video").forEach(v=>{
