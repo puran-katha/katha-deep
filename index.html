@@ -673,7 +673,7 @@ html[data-lang="both"] .nav-links a.text .en{display:none}
     <div class="phone-stage">
       <div class="rays"></div><div class="halo"></div>
       <div class="phone" id="heroPhone" role="button" tabindex="0" aria-label="Play featured reel">
-        <video id="heroVideo" muted playsinline loop preload="metadata" poster="assets/posters/prahlad-narasimha.jpg"></video>
+        <video id="heroVideo" muted playsinline loop preload="metadata" poster="assets/posters/diwali-rama-returns.jpg"></video>
         <div class="tap"><span class="t" id="heroTitle">प्रह्लाद और नरसिंह</span><span class="play-dot"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
       </div>
       <div class="float-card fc1"><span class="hi">🪔 नई कथा हर हफ़्ते</span><br><span class="en">New story every week</span></div>
@@ -1020,6 +1020,20 @@ const SITE = {
 
 const REELS = [
   {
+    id: "diwali-rama-returns", deity: "festival", dur: "0:55",
+    hi: "दीपावली — राम आगमन", en: "Diwali — The Return of Rama",
+    lineHi: "हम आज भी उनकी राह देख रहे हैं।", lineEn: "We are still waiting for him.",
+    descHi: "चौदह बरस बाद राम लौट रहे थे — पर वो अमावस की रात थी, न चाँद, न तारे। तब एक बूढ़ी माँ ने अपने द्वार पर एक दीया जलाया। फिर पड़ोसी ने, फिर पूरी गली ने — और देखते ही देखते अयोध्या जगमगा उठी। आज भी हम दीये जलाते हैं — राम को राह दिखाने के लिए नहीं, यह बताने के लिए कि हम आज भी उनकी राह देख रहे हैं।",
+    descEn: "After fourteen years Rama was coming home — but it was the new-moon night, with no moon and no stars. Then an old mother lit a single lamp at her door. Her neighbour lit one, then the whole street — and soon all of Ayodhya was ablaze with light. We still light lamps today — not to show Rama the way, but to tell him we are still waiting."
+  },
+  {
+    id: "dhanteras-yama-deepdaan", deity: "festival", dur: "0:58",
+    hi: "धनतेरस — जब यमराज भी रुक गए", en: "Dhanteras — When Even Yama Stopped",
+    lineHi: "यम के नाम एक दीया।", lineEn: "One lamp for Yama.",
+    descHi: "धनतेरस की लोक कथा। राजा हिम के बेटे की कुंडली में लिखा था — विवाह के चौथे दिन, साँप के डसने से मृत्यु। उस रात उसकी पत्नी ने द्वार पर सोने-चाँदी का ढेर लगाया, महल में दीये जलाए और रात भर कहानियाँ सुनाती रही। यमराज साँप बनकर आए, पर चमक से चौंधियाकर ढेर पर बैठ गए — और सुबह चुपचाप लौट गए।",
+    descEn: "A Dhanteras folk tale. King Hima's son was fated to die of a snakebite on the fourth night of his marriage. That night his wife heaped gold and silver at the door, filled the palace with lamps and told stories till dawn. Yama came as a serpent, was dazzled by the glow, settled on the pile to listen — and at sunrise quietly went away."
+  },
+  {
     id: "prahlad-narasimha", deity: "vishnu", dur: "2:55",
     hi: "प्रह्लाद और नरसिंह", en: "Prahlad & Narasimha",
     lineHi: "भगवान हर खंभे में हैं।", lineEn: "The Lord lives in every pillar.",
@@ -1058,7 +1072,8 @@ const REELS = [
 
 const DEITIES = {
   all:{hi:"सभी",en:"All"}, vishnu:{hi:"विष्णु",en:"Vishnu"}, shiva:{hi:"शिव",en:"Shiva"},
-  hanuman:{hi:"हनुमान",en:"Hanuman"}, ganesha:{hi:"गणेश",en:"Ganesha"}
+  hanuman:{hi:"हनुमान",en:"Hanuman"}, ganesha:{hi:"गणेश",en:"Ganesha"},
+  festival:{hi:"त्योहार",en:"Festivals"}
 };
 
 /* ====================================================== */

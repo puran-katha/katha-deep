@@ -21,7 +21,7 @@ To rename the site, search for `कथा दीप` / `Katha Deep`.
 2. Save a cover image as `assets/posters/my-reel.jpg` (vertical, ~540×960).
    `ffmpeg -ss 3 -i MyReel.mp4 -frames:v 1 -vf scale=540:-2 assets/posters/my-reel.jpg`
 3. In `index.html`, copy one block in the `REELS` list, set `id: "my-reel"`, and fill in the Hindi/English text.
-   `deity` can be `vishnu`, `shiva`, `hanuman`, `ganesha` (filter buttons appear automatically).
+   `deity` can be `vishnu`, `shiva`, `hanuman`, `ganesha`, `festival` (filter buttons appear automatically).
 4. Upload the changed files to the repo again — the site updates in about a minute.
 
 ## Features
