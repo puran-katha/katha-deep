@@ -338,7 +338,7 @@ html[data-lang="en"] .mi .tx .en{font-size:1.02rem}
 @keyframes omPulse{50%{text-shadow:0 0 60px rgba(255,150,50,1),0 0 10px #fff;transform:scale(1.06)}}
 .mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:20px}
 .mcard{perspective:1200px;height:320px;cursor:pointer;outline:none}
-.mcard .in{position:relative;width:100%;height:100%;transition:transform .9s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d}
+.mcard .in{position:relative;width:100%;height:100%;transition:transform .45s cubic-bezier(.3,.7,.3,1);transform-style:preserve-3d;will-change:transform}
 .mcard.flip .in{transform:rotateY(180deg)}
 .mcard:hover .front{border-color:rgba(242,184,75,.6)}
 .mface{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:22px;border:1px solid var(--line);padding:26px 24px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;overflow:hidden;background:radial-gradient(circle at 50% 0%,rgba(255,150,50,.18),transparent 60%),linear-gradient(160deg,var(--wood-2),var(--night-2));transition:border-color .3s}
@@ -570,8 +570,8 @@ html[data-lang="both"] .nav-links a.text .en{display:none}
 .mt-stats{display:flex;gap:16px;font-family:var(--ui);font-size:.9rem;color:var(--muted)}
 .mt-stats b{color:var(--gold)}
 .mt-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:620px;margin:auto}
-.mt-c{aspect-ratio:3/4;perspective:800px;cursor:pointer}
-.mt-c .in{position:relative;width:100%;height:100%;transition:transform .55s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d}
+.mt-c{aspect-ratio:3/4;perspective:800px;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
+.mt-c .in{position:relative;width:100%;height:100%;transition:transform .3s cubic-bezier(.3,.7,.3,1);transform-style:preserve-3d;will-change:transform}
 .mt-c.open .in,.mt-c.done .in{transform:rotateY(180deg)}
 .mt-f{position:absolute;inset:0;border-radius:16px;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border:2px solid var(--line);padding:6px;text-align:center}
 .mt-front{background:radial-gradient(circle at 50% 40%,#5a3418,#24140c);font-size:2rem}
@@ -580,8 +580,10 @@ html[data-lang="both"] .nav-links a.text .en{display:none}
 .mt-back .e{font-size:clamp(1.8rem,7vw,2.6rem);line-height:1}
 .mt-back .n{font-family:var(--display);font-size:clamp(1rem,3.6vw,1.35rem);line-height:1.15;text-shadow:0 1px 6px rgba(0,0,0,.5)}
 .mt-back .s{font-family:var(--ui);font-size:.68rem;opacity:.9}
-.mt-c.done .mt-back{box-shadow:0 0 0 3px #fff3c4,0 0 24px var(--c1);animation:pop .5s}
-.mt-c.nope .in{animation:shake .4s}
+.mt-c.done .mt-back{box-shadow:0 0 0 3px #fff3c4,0 0 18px var(--c1)}
+.mt-c.done{animation:mtPop .35s ease-out}
+@keyframes mtPop{50%{transform:scale(1.08)}}
+.mt-c.nope{animation:shake .3s}
 .mt-learn{text-align:center;margin-top:18px;min-height:3em}
 .mt-learn b{color:var(--gold)}
 @media (max-width:760px){
@@ -1795,7 +1797,7 @@ const MATCH=[
  {g:"श्री कृष्ण",ge:"Krishna",v:"गाय",ve:"Cow",e:"🐄",ge2:"🎶",c1:"#4cc9f0",c2:"#3a0ca3"}
 ];
 const MT={cards:[],open:[],moves:0,pairs:0,n:6,timer:null,sec:0,lock:false};
-function mtNew(n){ if(n) MT.n=n; clearInterval(MT.timer); MT.timer=null; MT.sec=0; MT.moves=0; MT.pairs=0; MT.open=[]; MT.lock=false;
+function mtNew(n){ if(n) MT.n=n; clearTimeout(MT.closeT); clearInterval(MT.timer); MT.timer=null; MT.sec=0; MT.moves=0; MT.pairs=0; MT.open=[]; MT.lock=false;
   document.querySelectorAll("[data-lv]").forEach(b=>b.setAttribute("aria-pressed",+b.dataset.lv===MT.n));
   const set=shuffle(MATCH.slice()).slice(0,MT.n); MT.cards=shuffle(set.flatMap((m,k)=>[{k,t:"g",m},{k,t:"v",m}]));
   $("#mtGrid").innerHTML=MT.cards.map((c,i)=>`<div class="mt-c" data-i="${i}" role="button" tabindex="0" aria-label="card"><div class="in"><div class="mt-f mt-front"></div><div class="mt-f mt-back" style="--c1:${c.m.c1};--c2:${c.m.c2}">${c.t==="g"?`<span class="e">${c.m.ge2}</span><span class="n">${c.m.g}</span><span class="s">${c.m.ge}</span>`:`<span class="e">${c.m.e}</span><span class="n">${c.m.v}</span><span class="s">${c.m.ve}</span>`}</div></div></div>`).join("");
@@ -1804,16 +1806,21 @@ function mtNew(n){ if(n) MT.n=n; clearInterval(MT.timer); MT.timer=null; MT.sec=
   mtStats();
 }
 function mtStats(){ $("#mtMoves").textContent=MT.moves; $("#mtPairs").textContent=`${MT.pairs}/${MT.n}`; $("#mtTime").textContent=MT.sec; }
+function mtCloseWrong(){ clearTimeout(MT.closeT); MT.closeT=null;
+  MT.open.forEach(j=>{ const e=$(`.mt-c[data-i="${j}"]`); if(e) e.classList.remove("open","nope"); }); MT.open=[]; }
 function mtFlip(el){
-  const i=+el.dataset.i; if(MT.lock||el.classList.contains("open")||el.classList.contains("done")) return;
+  const i=+el.dataset.i; if(el.classList.contains("done")) return;
+  if(MT.open.length===2) mtCloseWrong();          // tapping on closes a wrong pair instantly — no waiting
+  if(el.classList.contains("open")) return;
   if(!MT.timer) MT.timer=setInterval(()=>{MT.sec++;mtStats()},1000);
   el.classList.add("open"); MT.open.push(i); blip(700,.06,"sine",.06);
   if(MT.open.length===2){ MT.moves++; const [a,b]=MT.open, A=MT.cards[a], B=MT.cards[b], ea=$(`.mt-c[data-i="${a}"]`), eb=$(`.mt-c[data-i="${b}"]`);
     if(A.k===B.k && A.t!==B.t){ ea.classList.add("done"); eb.classList.add("done"); MT.pairs++; MT.open=[]; blip(880,.1); setTimeout(()=>blip(1320,.14),100);
       $("#mtLearn").innerHTML=`✨ ${bi(`<b>${A.m.g}</b> का वाहन है <b>${A.m.v}</b> ${A.m.e}`,`${A.m.ge}'s vahana is the ${A.m.ve.toLowerCase()}`)}`;
       if(MT.pairs===MT.n){ clearInterval(MT.timer); const key="hv-match-"+MT.n, best=store.get(key,0); const nb=!best||MT.moves<best; if(nb) store.set(key,MT.moves);
-        setTimeout(()=>{ petals(70); ring(); $("#mtLearn").innerHTML=`🏆 ${bi(`शाबाश! ${toDeva(MT.moves)} चालों और ${toDeva(MT.sec)} सेकंड में पूरा! ${nb?"नया रिकॉर्ड!":""}`,`Done in ${MT.moves} moves and ${MT.sec}s!${nb?" New record!":""}`)} <br><button class="btn btn-gold" id="mtAgain" style="margin-top:12px">🔁 ${bi("फिर से खेलो","Play again")}</button>`; $("#mtAgain").onclick=()=>mtNew(); },500); }
-    } else { MT.lock=true; setTimeout(()=>{ ea.classList.add("nope"); eb.classList.add("nope"); },350); setTimeout(()=>{ ea.classList.remove("open","nope"); eb.classList.remove("open","nope"); MT.open=[]; MT.lock=false; },1000); }
+        setTimeout(()=>{ petals(40); ring(); $("#mtLearn").innerHTML=`🏆 ${bi(`शाबाश! ${toDeva(MT.moves)} चालों और ${toDeva(MT.sec)} सेकंड में पूरा! ${nb?"नया रिकॉर्ड!":""}`,`Done in ${MT.moves} moves and ${MT.sec}s!${nb?" New record!":""}`)} <br><button class="btn btn-gold" id="mtAgain" style="margin-top:12px">🔁 ${bi("फिर से खेलो","Play again")}</button>`; $("#mtAgain").onclick=()=>mtNew(); },350); }
+    } else { setTimeout(()=>{ if(MT.open.length===2){ ea.classList.add("nope"); eb.classList.add("nope"); } },300);
+      MT.closeT=setTimeout(mtCloseWrong,750); }
     mtStats(); }
 }
 $("#mtGrid").addEventListener("click",e=>{ const c=e.target.closest(".mt-c"); if(c) mtFlip(c) });
