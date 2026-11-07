@@ -6,7 +6,8 @@ import madhu as M
 from madhu import Pen, INK, PAPER, RED, YEL, ORA, GRN, LGRN, BLU, SKY, PINK, MAROON, WHITE
 
 W, H, FPS = 1080, 1920, 30
-GF = "/tmp/claude-0/-home-claude/dd9cea56-86c2-5e24-a31a-ae9758e07761/scratchpad/gf/ofl/"
+import os
+GF = os.environ.get("GF", os.path.expanduser("~/gf/ofl/"))  # Google Fonts checkout; needs yatraone/YatraOne-Regular.ttf
 F_Y = GF + "yatraone/YatraOne-Regular.ttf"
 _fc = {}
 def font(s):
